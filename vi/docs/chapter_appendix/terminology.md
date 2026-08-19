@@ -74,6 +74,7 @@ gọi tiếng Anh của từng thuật ngữ để tiện đọc tài liệu ti�
 | monotonic queue | hàng đợi đơn điệu |
 | hash table | bảng băm |
 | hash set | tập hợp băm |
+| key-value pair | cặp khoá - giá trị (key-value pair) |
 | bucket | ngăn (bucket) |
 | hash function | hàm băm |
 | hash collision | đụng độ băm |
@@ -81,7 +82,11 @@ gọi tiếng Anh của từng thuật ngữ để tiện đọc tài liệu ti�
 | separate chaining | nối chuỗi (separate chaining) |
 | open addressing | địa chỉ mở (open addressing) |
 | linear probing | dò tuyến tính |
+| quadratic probing | dò bậc hai (quadratic probing) |
+| double hashing | băm kép (double hashing) |
 | lazy deletion | xoá trễ (lazy deletion) |
+| cryptographic hash function | hàm băm mật mã học (cryptographic hash function) |
+| avalanche effect | hiệu ứng thác đổ (avalanche effect) |
 | tree | cây |
 | binary tree | cây nhị phân |
 | tree node | nút cây |
