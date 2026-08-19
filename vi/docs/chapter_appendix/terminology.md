@@ -154,6 +154,14 @@ gọi tiếng Anh của từng thuật ngữ để tiện đọc tài liệu ti�
 | insertion point | điểm chèn |
 | searching algorithm | thuật toán tìm kiếm |
 | sorting algorithm | thuật toán sắp xếp |
+| stable sort | sắp xếp ổn định (stable sort) |
+| unstable sort | sắp xếp không ổn định (unstable sort) |
+| in-place sort | sắp xếp tại chỗ (in-place sort) |
+| adaptive sort | sắp xếp thích ứng (adaptive sort) |
+| comparison sort | sắp xếp dựa trên so sánh (comparison sort) |
+| non-comparison sort | sắp xếp không dựa trên so sánh (non-comparison sort) |
+| pivot | phần tử chốt (pivot) |
+| partition | phân hoạch (partition) |
 | selection sort | sắp xếp chọn |
 | bubble sort | sắp xếp nổi bọt |
 | insertion sort | sắp xếp chèn |
