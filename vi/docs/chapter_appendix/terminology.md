@@ -137,6 +137,10 @@ gọi tiếng Anh của từng thuật ngữ để tiện đọc tài liệu ti�
 | connected graph | đồ thị liên thông |
 | disconnected graph | đồ thị không liên thông |
 | weighted graph | đồ thị có trọng số |
+| cycle | chu trình |
+| cyclic graph | đồ thị có chu trình |
+| acyclic graph | đồ thị không có chu trình (acyclic graph) |
+| directed acyclic graph (DAG) | đồ thị có hướng không chu trình (DAG) |
 | adjacency | tính kề |
 | path | đường đi |
 | in-degree | bậc vào |
