@@ -65,10 +65,13 @@ gọi tiếng Anh của từng thuật ngữ để tiện đọc tài liệu ti�
 | stack | ngăn xếp |
 | top of the stack | đỉnh ngăn xếp |
 | bottom of the stack | đáy ngăn xếp |
+| monotonic stack | ngăn xếp đơn điệu |
 | queue | hàng đợi |
 | double-ended queue | hàng đợi hai đầu (deque) |
 | front of the queue | đầu hàng đợi |
 | rear of the queue | cuối hàng đợi |
+| circular queue | hàng đợi vòng |
+| monotonic queue | hàng đợi đơn điệu |
 | hash table | bảng băm |
 | hash set | tập hợp băm |
 | bucket | ngăn (bucket) |
