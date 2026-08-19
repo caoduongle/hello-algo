@@ -117,6 +117,11 @@ gọi tiếng Anh của từng thuật ngữ để tiện đọc tài liệu ti�
 | post-order traversal | duyệt hậu thứ tự |
 | balanced binary search tree | cây tìm kiếm nhị phân cân bằng |
 | balance factor | hệ số cân bằng |
+| tree rotation | phép quay cây |
+| right rotation | phép quay phải (right rotation) |
+| left rotation | phép quay trái (left rotation) |
+| left-right rotation | phép quay trái-phải (left-right rotation) |
+| right-left rotation | phép quay phải-trái (right-left rotation) |
 | heap | đống (heap) |
 | max heap | đống cực đại (max heap) |
 | min heap | đống cực tiểu (min heap) |
