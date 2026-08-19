@@ -176,9 +176,11 @@ gọi tiếng Anh của từng thuật ngữ để tiện đọc tài liệu ti�
 | base case | trường hợp cơ sở (base case) |
 | hanota problem | bài toán tháp Hà Nội |
 | backtracking algorithm | thuật toán quay lui |
+| state | trạng thái |
+| choice | lựa chọn (choice) |
+| state tree | cây trạng thái (state tree) |
 | constraint | ràng buộc |
 | solution | lời giải |
-| state | trạng thái |
 | pruning | cắt tỉa (pruning) |
 | permutations problem | bài toán hoán vị |
 | subset-sum problem | bài toán tổng tập con |
