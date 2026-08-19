@@ -1,0 +1,160 @@
+# Bảng thuật ngữ
+
+Bảng dưới đây liệt kê các thuật ngữ quan trọng xuất hiện trong sách. Nên nhớ cách
+gọi tiếng Anh của từng thuật ngữ để tiện đọc tài liệu tiếng Anh.
+
+<p align="center"> Bảng <id> &nbsp; Thuật ngữ quan trọng trong cấu trúc dữ liệu và giải thuật </p>
+
+| English | Tiếng Việt |
+| --- | --- |
+| algorithm | thuật toán |
+| data structure | cấu trúc dữ liệu |
+| code | mã nguồn |
+| file | tệp |
+| function | hàm |
+| method | phương thức |
+| variable | biến |
+| data type | kiểu dữ liệu |
+| primitive data type | kiểu dữ liệu nguyên thuỷ |
+| logical structure | cấu trúc logic |
+| physical structure | cấu trúc vật lý |
+| linear data structure | cấu trúc dữ liệu tuyến tính |
+| non-linear data structure | cấu trúc dữ liệu phi tuyến tính |
+| character encoding | mã hoá ký tự |
+| floating-point number | số thực dấu phẩy động |
+| input | đầu vào |
+| output | đầu ra |
+| comment | chú thích |
+| asymptotic complexity analysis | phân tích độ phức tạp tiệm cận |
+| time complexity | độ phức tạp thời gian |
+| space complexity | độ phức tạp không gian |
+| worst-case time complexity | độ phức tạp thời gian trường hợp xấu nhất |
+| best-case time complexity | độ phức tạp thời gian trường hợp tốt nhất |
+| average-case time complexity | độ phức tạp thời gian trường hợp trung bình |
+| auxiliary space | không gian phụ trợ |
+| loop | vòng lặp |
+| iteration | phép lặp |
+| recursion | đệ quy |
+| tail recursion | đệ quy đuôi |
+| recursion tree | cây đệ quy |
+| stack overflow | tràn ngăn xếp (stack overflow) |
+| big-$O$ notation | ký hiệu big-$O$ |
+| asymptotic upper bound | cận trên tiệm cận |
+| sign-magnitude | biểu diễn dấu và độ lớn |
+| 1's complement | mã bù một |
+| 2's complement | mã bù hai |
+| array | mảng |
+| index | chỉ số |
+| linked list | danh sách liên kết |
+| singly linked list | danh sách liên kết đơn |
+| doubly linked list | danh sách liên kết đôi |
+| circular linked list | danh sách liên kết vòng |
+| linked list node, list node | nút danh sách liên kết |
+| head node | nút đầu |
+| tail node | nút cuối |
+| sentinel node | nút lính canh (sentinel node) |
+| list | danh sách |
+| dynamic array | mảng động |
+| hard disk | ổ đĩa cứng |
+| random-access memory (RAM) | bộ nhớ trong (RAM) |
+| cache memory | bộ nhớ đệm |
+| cache miss | trượt bộ nhớ đệm (cache miss) |
+| cache hit rate | tỉ lệ trúng bộ nhớ đệm |
+| spatial locality | tính cục bộ không gian (spatial locality) |
+| temporal locality | tính cục bộ thời gian (temporal locality) |
+| stack | ngăn xếp |
+| top of the stack | đỉnh ngăn xếp |
+| bottom of the stack | đáy ngăn xếp |
+| queue | hàng đợi |
+| double-ended queue | hàng đợi hai đầu (deque) |
+| front of the queue | đầu hàng đợi |
+| rear of the queue | cuối hàng đợi |
+| hash table | bảng băm |
+| hash set | tập hợp băm |
+| bucket | ngăn (bucket) |
+| hash function | hàm băm |
+| hash collision | đụng độ băm |
+| load factor | hệ số tải |
+| separate chaining | nối chuỗi (separate chaining) |
+| open addressing | địa chỉ mở (open addressing) |
+| linear probing | dò tuyến tính |
+| lazy deletion | xoá trễ (lazy deletion) |
+| tree | cây |
+| binary tree | cây nhị phân |
+| tree node | nút cây |
+| left-child node | nút con trái |
+| right-child node | nút con phải |
+| parent node | nút cha |
+| left subtree | cây con trái |
+| right subtree | cây con phải |
+| root node | nút gốc |
+| leaf node | nút lá |
+| edge | cạnh |
+| level | tầng |
+| degree | bậc |
+| height | chiều cao |
+| depth | độ sâu |
+| perfect binary tree | cây nhị phân hoàn hảo |
+| complete binary tree | cây nhị phân hoàn chỉnh |
+| full binary tree | cây nhị phân đầy đủ |
+| balanced binary tree | cây nhị phân cân bằng |
+| binary search tree | cây tìm kiếm nhị phân |
+| AVL tree | cây AVL |
+| red-black tree | cây đỏ-đen |
+| level-order traversal | duyệt theo tầng |
+| breadth-first traversal | duyệt theo chiều rộng |
+| depth-first traversal | duyệt theo chiều sâu |
+| pre-order traversal | duyệt tiền thứ tự |
+| in-order traversal | duyệt trung thứ tự |
+| post-order traversal | duyệt hậu thứ tự |
+| balanced binary search tree | cây tìm kiếm nhị phân cân bằng |
+| balance factor | hệ số cân bằng |
+| heap | đống (heap) |
+| max heap | đống cực đại (max heap) |
+| min heap | đống cực tiểu (min heap) |
+| priority queue | hàng đợi ưu tiên |
+| heapify | vun đống (heapify) |
+| top-$k$ problem | bài toán top-$k$ |
+| graph | đồ thị |
+| vertex | đỉnh |
+| undirected graph | đồ thị vô hướng |
+| directed graph | đồ thị có hướng |
+| connected graph | đồ thị liên thông |
+| disconnected graph | đồ thị không liên thông |
+| weighted graph | đồ thị có trọng số |
+| adjacency | tính kề |
+| path | đường đi |
+| in-degree | bậc vào |
+| out-degree | bậc ra |
+| adjacency matrix | ma trận kề |
+| adjacency list | danh sách kề |
+| breadth-first search | tìm kiếm theo chiều rộng (BFS) |
+| depth-first search | tìm kiếm theo chiều sâu (DFS) |
+| binary search | tìm kiếm nhị phân |
+| searching algorithm | thuật toán tìm kiếm |
+| sorting algorithm | thuật toán sắp xếp |
+| selection sort | sắp xếp chọn |
+| bubble sort | sắp xếp nổi bọt |
+| insertion sort | sắp xếp chèn |
+| quick sort | sắp xếp nhanh |
+| merge sort | sắp xếp trộn |
+| heap sort | sắp xếp vun đống |
+| bucket sort | sắp xếp theo ngăn |
+| counting sort | sắp xếp đếm |
+| radix sort | sắp xếp cơ số (radix sort) |
+| divide and conquer | chia để trị |
+| hanota problem | bài toán tháp Hà Nội |
+| backtracking algorithm | thuật toán quay lui |
+| constraint | ràng buộc |
+| solution | lời giải |
+| state | trạng thái |
+| pruning | cắt tỉa (pruning) |
+| permutations problem | bài toán hoán vị |
+| subset-sum problem | bài toán tổng tập con |
+| $n$-queens problem | bài toán $n$ quân hậu |
+| dynamic programming | quy hoạch động |
+| initial state | trạng thái ban đầu |
+| state-transition equation | phương trình chuyển trạng thái |
+| knapsack problem | bài toán cái túi (knapsack) |
+| edit distance problem | bài toán khoảng cách chỉnh sửa |
+| greedy algorithm | thuật toán tham lam |
