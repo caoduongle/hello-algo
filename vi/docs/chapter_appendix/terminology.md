@@ -172,6 +172,8 @@ gọi tiếng Anh của từng thuật ngữ để tiện đọc tài liệu ti�
 | counting sort | sắp xếp đếm |
 | radix sort | sắp xếp cơ số (radix sort) |
 | divide and conquer | chia để trị |
+| subproblem | bài toán con (subproblem) |
+| base case | trường hợp cơ sở (base case) |
 | hanota problem | bài toán tháp Hà Nội |
 | backtracking algorithm | thuật toán quay lui |
 | constraint | ràng buộc |
