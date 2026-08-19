@@ -149,7 +149,9 @@ gọi tiếng Anh của từng thuật ngữ để tiện đọc tài liệu ti�
 | adjacency list | danh sách kề |
 | breadth-first search | tìm kiếm theo chiều rộng (BFS) |
 | depth-first search | tìm kiếm theo chiều sâu (DFS) |
+| linear search | tìm kiếm tuyến tính |
 | binary search | tìm kiếm nhị phân |
+| insertion point | điểm chèn |
 | searching algorithm | thuật toán tìm kiếm |
 | sorting algorithm | thuật toán sắp xếp |
 | selection sort | sắp xếp chọn |
