@@ -127,6 +127,8 @@ gọi tiếng Anh của từng thuật ngữ để tiện đọc tài liệu ti�
 | min heap | đống cực tiểu (min heap) |
 | priority queue | hàng đợi ưu tiên |
 | heapify | vun đống (heapify) |
+| sift up | vun lên (sift up) |
+| sift down | vun xuống (sift down) |
 | top-$k$ problem | bài toán top-$k$ |
 | graph | đồ thị |
 | vertex | đỉnh |
