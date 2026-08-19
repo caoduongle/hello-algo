@@ -188,6 +188,12 @@ gọi tiếng Anh của từng thuật ngữ để tiện đọc tài liệu ti�
 | dynamic programming | quy hoạch động |
 | initial state | trạng thái ban đầu |
 | state-transition equation | phương trình chuyển trạng thái |
+| memoized recursion | đệ quy có nhớ (memoized recursion) |
+| overlapping subproblems | bài toán con gối nhau (overlapping subproblems) |
+| optimal substructure | cấu trúc con tối ưu (optimal substructure) |
+| no aftereffect | tính không nhớ / không hệ luỵ (no aftereffect) |
 | knapsack problem | bài toán cái túi (knapsack) |
+| 0-1 knapsack problem | bài toán cái túi 0-1 |
+| unbounded knapsack problem | bài toán cái túi hoàn toàn (unbounded knapsack) |
 | edit distance problem | bài toán khoảng cách chỉnh sửa |
 | greedy algorithm | thuật toán tham lam |
