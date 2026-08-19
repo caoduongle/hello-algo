@@ -197,3 +197,7 @@ gọi tiếng Anh của từng thuật ngữ để tiện đọc tài liệu ti�
 | unbounded knapsack problem | bài toán cái túi hoàn toàn (unbounded knapsack) |
 | edit distance problem | bài toán khoảng cách chỉnh sửa |
 | greedy algorithm | thuật toán tham lam |
+| greedy choice property | tính chất lựa chọn tham lam (greedy choice property) |
+| fractional knapsack problem | bài toán cái túi phân số (fractional knapsack) |
+| max capacity problem | bài toán dung lượng cực đại (max capacity) |
+| max product cutting problem | bài toán cắt đoạn tích cực đại |
