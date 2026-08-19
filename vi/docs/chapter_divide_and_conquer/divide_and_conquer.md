@@ -34,7 +34,7 @@ Vậy chúng ta tự hỏi: **Tại sao chia để trị lại có thể nâng c
 
 ### Tối ưu số lượng thao tác
 
-Lấy "sắp xếp nổi bọt" làm ví dụ, việc xử lý một mảng có độ dài $n$ cần thời gian $O(n^2)$ 。Giả sử chúng ta làm theo cách minh hoạ trong hình dưới đây, chia mảng tại điểm giữa thành hai mảng con, khi đó việc phân chia mất thời gian $O(n)$ ，sắp xếp mỗi mảng con mất thời gian $O((n / 2)^2)$ ，và gộp hai mảng con mất thời gian $O(n)$ ，tổng độ phức tạp thời gian là:
+Lấy "sắp xếp nổi bọt" làm ví dụ, việc xử lý một mảng có độ dài $n$ cần thời gian $O(n^2)$. Giả sử chúng ta làm theo cách minh hoạ trong hình dưới đây, chia mảng tại điểm giữa thành hai mảng con, khi đó việc phân chia mất thời gian $O(n)$, sắp xếp mỗi mảng con mất thời gian $O((n / 2)^2)$, và gộp hai mảng con mất thời gian $O(n)$, tổng độ phức tạp thời gian là:
 
 $$
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
@@ -52,11 +52,11 @@ n(n - 4) & > 0
 \end{aligned}
 $$
 
-**Điều này có nghĩa là khi $n > 4$, số lượng thao tác sau khi phân chia sẽ ít hơn, hiệu năng sắp xếp sẽ cao hơn**. Xin lưu ý rằng độ phức tạp thời gian sau khi phân chia vẫn là bậc hai $O(n^2)$ ，chỉ có điều hệ số hằng số trong độ phức tạp đã nhỏ đi.
+**Điều này có nghĩa là khi $n > 4$, số lượng thao tác sau khi phân chia sẽ ít hơn, hiệu năng sắp xếp sẽ cao hơn**. Xin lưu ý rằng độ phức tạp thời gian sau khi phân chia vẫn là bậc hai $O(n^2)$, chỉ có điều hệ số hằng số trong độ phức tạp đã nhỏ đi.
 
-Nghĩ xa hơn một chút, **nếu chúng ta liên tục chia các mảng con làm đôi tại điểm giữa**, cho đến khi mảng con chỉ còn lại một phần tử thì mới dừng lại? Hướng tư duy này trên thực tế chính là "sắp xếp trộn", với độ phức tạp thời gian là $O(n \log n)$ 。
+Nghĩ xa hơn một chút, **nếu chúng ta liên tục chia các mảng con làm đôi tại điểm giữa**, cho đến khi mảng con chỉ còn lại một phần tử thì mới dừng lại? Hướng tư duy này trên thực tế chính là "sắp xếp trộn", với độ phức tạp thời gian là $O(n \log n)$.
 
-Lại suy ngẫm tiếp, **nếu chúng ta thiết lập nhiều điểm phân chia hơn**, chia mảng ban đầu đều thành $k$ mảng con thì sao? Tình huống này rất giống với "sắp xếp theo ngăn", nó cực kỳ phù hợp để sắp xếp lượng dữ liệu khổng lồ, về lý thuyết độ phức tạp thời gian có thể đạt tới $O(n + k)$ 。
+Lại suy ngẫm tiếp, **nếu chúng ta thiết lập nhiều điểm phân chia hơn**, chia mảng ban đầu đều thành $k$ mảng con thì sao? Tình huống này rất giống với "sắp xếp theo ngăn", nó cực kỳ phù hợp để sắp xếp lượng dữ liệu khổng lồ, về lý thuyết độ phức tạp thời gian có thể đạt tới $O(n + k)$.
 
 ### Tối ưu tính toán song song
 

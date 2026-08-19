@@ -357,7 +357,7 @@ Trong phần "Cây nhị phân" đã nói, cây nhị phân hoàn chỉnh rất 
 
 Khi dùng mảng biểu diễn cây nhị phân, các phần tử đại diện cho giá trị nút, còn chỉ số đại diện cho vị trí của nút trong cây nhị phân. **Các con trỏ nút được hiện thực thông qua công thức ánh xạ chỉ số**.
 
-Như minh hoạ trong hình dưới đây, cho chỉ số $i$ ，chỉ số nút con trái của nó là $2i + 1$ ，chỉ số nút con phải là $2i + 2$ ，và chỉ số nút cha là $(i - 1) / 2$ (chia lấy phần nguyên làm tròn xuống). Khi chỉ số vượt quá giới hạn mảng, biểu thị nút đó là nút rỗng hoặc không tồn tại.
+Như minh hoạ trong hình dưới đây, cho chỉ số $i$, chỉ số nút con trái của nó là $2i + 1$, chỉ số nút con phải là $2i + 2$, và chỉ số nút cha là $(i - 1) / 2$ (chia lấy phần nguyên làm tròn xuống). Khi chỉ số vượt quá giới hạn mảng, biểu thị nút đó là nút rỗng hoặc không tồn tại.
 
 ![Biểu diễn và lưu trữ đống](heap.assets/representation_of_heap.png)
 
@@ -377,7 +377,7 @@ Phần tử đỉnh đống chính là nút gốc của cây nhị phân, tức 
 
 ### Thêm phần tử vào đống
 
-Cho phần tử `val` ，đầu tiên chúng ta thêm nó vào đáy đống. Sau khi thêm vào, do `val` có thể lớn hơn các phần tử khác trong đống, điều kiện thiết lập của đống có thể đã bị phá vỡ, **do đó cần phải khôi phục lại tính chất đống trên đường đi từ nút vừa chèn lên đến nút gốc**, thao tác này được gọi là <u>vun đống (heapify)</u>.
+Cho phần tử `val`, đầu tiên chúng ta thêm nó vào đáy đống. Sau khi thêm vào, do `val` có thể lớn hơn các phần tử khác trong đống, điều kiện thiết lập của đống có thể đã bị phá vỡ, **do đó cần phải khôi phục lại tính chất đống trên đường đi từ nút vừa chèn lên đến nút gốc**, thao tác này được gọi là <u>vun đống (heapify)</u>.
 
 Cân nhắc bắt đầu từ nút vừa được đưa vào đống, **thực hiện vun đống từ đáy lên đỉnh (vun lên / sift up)**. Như minh hoạ trong hình dưới đây, chúng ta so sánh giá trị của nút vừa chèn với nút cha của nó, nếu nút vừa chèn lớn hơn thì hoán đổi vị trí của chúng. Sau đó tiếp tục lặp lại thao tác này, lần lượt sửa chữa các nút trong đống từ đáy lên đỉnh, cho đến khi vượt qua nút gốc hoặc gặp một nút không cần phải hoán đổi nữa thì dừng lại.
 
@@ -408,7 +408,7 @@ Cân nhắc bắt đầu từ nút vừa được đưa vào đống, **thực h
 === "<9>"
     ![heap_push_step9](heap.assets/heap_push_step9.png)
 
-Đặt tổng số nút là $n$ ，khi đó chiều cao của cây là $O(\log n)$ 。Từ đó suy ra số vòng lặp tối đa của thao tác vun đống là $O(\log n)$ ，**độ phức tạp thời gian của thao tác thêm phần tử vào đống là $O(\log n)$** 。Mã nguồn như sau:
+Đặt tổng số nút là $n$, khi đó chiều cao của cây là $O(\log n)$. Từ đó suy ra số vòng lặp tối đa của thao tác vun đống là $O(\log n)$, **độ phức tạp thời gian của thao tác thêm phần tử vào đống là $O(\log n)$**. Mã nguồn như sau:
 
 ```src
 [file]{my_heap}-[class]{max_heap}-[func]{sift_up}
@@ -454,7 +454,7 @@ Như minh hoạ trong hình dưới đây, **hướng thao tác của "vun đố
 === "<10>"
     ![heap_pop_step10](heap.assets/heap_pop_step10.png)
 
-Tương tự như thao tác thêm phần tử vào đống, thao tác lấy phần tử đỉnh đống ra khỏi đống cũng có độ phức tạp thời gian là $O(\log n)$ 。Mã nguồn như sau:
+Tương tự như thao tác thêm phần tử vào đống, thao tác lấy phần tử đỉnh đống ra khỏi đống cũng có độ phức tạp thời gian là $O(\log n)$. Mã nguồn như sau:
 
 ```src
 [file]{my_heap}-[class]{max_heap}-[func]{sift_down}
@@ -462,6 +462,6 @@ Tương tự như thao tác thêm phần tử vào đống, thao tác lấy ph�
 
 ## Các ứng dụng phổ biến của đống
 
-- **Hàng đợi ưu tiên**: Đống thường là cấu trúc dữ liệu được lựa chọn hàng đầu để hiện thực hàng đợi ưu tiên, các thao tác thêm vào hàng đợi và lấy ra khỏi hàng đợi đều có độ phức tạp thời gian là $O(\log n)$ ，trong khi thao tác thiết lập đống (vun đống) mất thời gian $O(n)$ ，tất cả các thao tác này đều rất hiệu quả.
+- **Hàng đợi ưu tiên**: Đống thường là cấu trúc dữ liệu được lựa chọn hàng đầu để hiện thực hàng đợi ưu tiên, các thao tác thêm vào hàng đợi và lấy ra khỏi hàng đợi đều có độ phức tạp thời gian là $O(\log n)$, trong khi thao tác thiết lập đống (vun đống) mất thời gian $O(n)$, tất cả các thao tác này đều rất hiệu quả.
 - **Sắp xếp vun đống (Heap sort)**: Cho một tập dữ liệu, chúng ta có thể dùng chúng để xây dựng một đống, sau đó liên tục lấy các phần tử đỉnh đống ra, từ đó thu được dãy dữ liệu đã sắp xếp. Tuy nhiên, chúng ta thường sử dụng một cách thức tao nhã hơn để hiện thực sắp xếp vun đống, chi tiết xem tại chương "Sắp xếp vun đống".
 - **Tìm kiếm $k$ phần tử lớn nhất (Top-$k$)**: Đây là một bài toán thuật toán kinh điển đồng thời cũng là một ứng dụng tiêu biểu, ví dụ như chọn 10 tin tức có độ nóng cao nhất làm tin nóng thịnh hành (Trending Topics), chọn 10 mặt hàng có doanh số cao nhất, v.v.

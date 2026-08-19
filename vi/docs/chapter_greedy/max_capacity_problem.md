@@ -2,7 +2,7 @@
 
 !!! question
 
-    Nhập vào một mảng $ht$ ，mỗi phần tử trong đó đại diện cho chiều cao của một tấm vách ngăn thẳng đứng. Hai vách ngăn bất kỳ trong mảng cùng với khoảng không gian giữa chúng có thể tạo thành một chiếc bình chứa (container).
+    Nhập vào một mảng $ht$, mỗi phần tử trong đó đại diện cho chiều cao của một tấm vách ngăn thẳng đứng. Hai vách ngăn bất kỳ trong mảng cùng với khoảng không gian giữa chúng có thể tạo thành một chiếc bình chứa (container).
     
     Dung tích của bình chứa bằng tích của chiều cao và chiều rộng (diện tích), trong đó chiều cao được quyết định bởi vách ngăn ngắn hơn, chiều rộng là hiệu giữa các chỉ số mảng của hai vách ngăn.
     
@@ -10,19 +10,19 @@
 
 ![Dữ liệu ví dụ bài toán dung lượng cực đại](max_capacity_problem.assets/max_capacity_example.png)
 
-Bình chứa được tạo thành bởi hai vách ngăn bất kỳ, **do đó trạng thái của bài này là chỉ số của hai vách ngăn, ký hiệu là $[i, j]$** 。
+Bình chứa được tạo thành bởi hai vách ngăn bất kỳ, **do đó trạng thái của bài này là chỉ số của hai vách ngăn, ký hiệu là $[i, j]$**.
 
-Theo yêu cầu đề bài, dung tích bằng chiều cao nhân với chiều rộng, trong đó chiều cao do vách ngăn ngắn quyết định, chiều rộng là hiệu của hai chỉ số mảng. Đặt dung tích là $cap[i, j]$ ，ta có công thức tính:
+Theo yêu cầu đề bài, dung tích bằng chiều cao nhân với chiều rộng, trong đó chiều cao do vách ngăn ngắn quyết định, chiều rộng là hiệu của hai chỉ số mảng. Đặt dung tích là $cap[i, j]$, ta có công thức tính:
 
 $$
 cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 $$
 
-Đặt độ dài mảng là $n$ ，số lượng tổ hợp của hai vách ngăn (tổng số trạng thái) là $C_n^2 = \frac{n(n - 1)}{2}$ 。Cách tiếp cận trực tiếp nhất là **chúng ta duyệt vét cạn toàn bộ các trạng thái** để tìm dung tích lớn nhất, độ phức tạp thời gian là $O(n^2)$ 。
+Đặt độ dài mảng là $n$, số lượng tổ hợp của hai vách ngăn (tổng số trạng thái) là $C_n^2 = \frac{n(n - 1)}{2}$. Cách tiếp cận trực tiếp nhất là **chúng ta duyệt vét cạn toàn bộ các trạng thái** để tìm dung tích lớn nhất, độ phức tạp thời gian là $O(n^2)$.
 
 ### Xác định chiến lược tham lam
 
-Bài toán này còn có cách giải hiệu năng cao hơn nhiều. Như hình dưới đây, hiện chọn một trạng thái $[i, j]$ thoả mãn chỉ số $i < j$ và chiều cao $ht[i] < ht[j]$ ，tức $i$ là vách ngăn ngắn và $j$ là vách ngăn dài.
+Bài toán này còn có cách giải hiệu năng cao hơn nhiều. Như hình dưới đây, hiện chọn một trạng thái $[i, j]$ thoả mãn chỉ số $i < j$ và chiều cao $ht[i] < ht[j]$, tức $i$ là vách ngăn ngắn và $j$ là vách ngăn dài.
 
 ![Trạng thái ban đầu](max_capacity_problem.assets/max_capacity_initial_state.png)
 
@@ -42,8 +42,8 @@ Hình dưới đây minh hoạ quá trình thực thi của chiến lược tham
 
 1. Ở trạng thái ban đầu, hai con trỏ $i$ và $j$ phân bố ở hai đầu của mảng.
 2. Tính dung tích của trạng thái hiện tại $cap[i, j]$ và cập nhật dung tích lớn nhất.
-3. So sánh chiều cao của vách $i$ và vách $j$ ，dịch chuyển vách ngắn hơn vào trong một ô.
-4. Lặp lại bước `2.` và bước `3.` ，cho đến khi $i$ và $j$ gặp nhau thì kết thúc.
+3. So sánh chiều cao của vách $i$ và vách $j$, dịch chuyển vách ngắn hơn vào trong một ô.
+4. Lặp lại bước `2.` và bước `3.`, cho đến khi $i$ và $j$ gặp nhau thì kết thúc.
 
 === "<1>"
     ![Quá trình tham lam của bài toán dung lượng cực đại](max_capacity_problem.assets/max_capacity_greedy_step1.png)
@@ -74,9 +74,9 @@ Hình dưới đây minh hoạ quá trình thực thi của chiến lược tham
 
 ### Hiện thực mã nguồn
 
-Vòng lặp trong mã chạy tối đa $n$ vòng, **do đó độ phức tạp thời gian là $O(n)$** 。
+Vòng lặp trong mã chạy tối đa $n$ vòng, **do đó độ phức tạp thời gian là $O(n)$**.
 
-Các biến $i$、$j$、$res$ sử dụng không gian bộ nhớ bổ sung kích thước hằng số, **vì vậy độ phức tạp không gian là $O(1)$** 。
+Các biến $i$, $j$, $res$ sử dụng không gian bộ nhớ bổ sung kích thước hằng số, **vì vậy độ phức tạp không gian là $O(1)$**.
 
 ```src
 [file]{max_capacity}-[class]{}-[func]{max_capacity}
@@ -86,7 +86,7 @@ Các biến $i$、$j$、$res$ sử dụng không gian bộ nhớ bổ sung kích
 
 Sở dĩ tham lam nhanh hơn duyệt vét cạn là vì mỗi vòng lựa chọn tham lam đều đã "bỏ qua" một số trạng thái.
 
-Chẳng hạn tại trạng thái $cap[i, j]$ ，$i$ là vách ngắn và $j$ là vách dài. Nếu tham lam dịch chuyển vách ngắn $i$ vào trong một ô, sẽ dẫn đến các trạng thái trong hình dưới đây bị "bỏ qua". **Điều này đồng nghĩa với việc về sau sẽ không kiểm chứng kích thước dung tích của các trạng thái này nữa**.
+Chẳng hạn tại trạng thái $cap[i, j]$, $i$ là vách ngắn và $j$ là vách dài. Nếu tham lam dịch chuyển vách ngắn $i$ vào trong một ô, sẽ dẫn đến các trạng thái trong hình dưới đây bị "bỏ qua". **Điều này đồng nghĩa với việc về sau sẽ không kiểm chứng kích thước dung tích của các trạng thái này nữa**.
 
 $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]

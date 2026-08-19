@@ -61,21 +61,21 @@ Quy trình tổng thể của sắp xếp nhanh được thể hiện như hình
 
 ## Đặc tính của thuật toán
 
-- **Độ phức tạp thời gian là $O(n \log n)$、Sắp xếp không thích ứng**: Trong trường hợp trung bình, số tầng đệ quy của phân hoạch lính canh là $\log n$ ，tổng số vòng lặp trong mỗi tầng là $n$ ，tổng thể mất thời gian $O(n \log n)$ 。Trong trường hợp xấu nhất, mỗi vòng phân hoạch lính canh đều chia mảng có độ dài $n$ thành hai mảng con có độ dài $0$ và $n - 1$ ，lúc này số tầng đệ quy đạt tới $n$ ，số vòng lặp trong mỗi tầng là $n$ ，tổng thể mất thời gian $O(n^2)$ 。
-- **Độ phức tạp không gian là $O(n)$、Sắp xếp tại chỗ**: Trong trường hợp mảng đầu vào có thứ tự hoàn toàn ngược lại, độ sâu đệ quy đạt mức xấu nhất là $n$ ，chiếm dụng $O(n)$ không gian khung ngăn xếp (call stack). Thao tác sắp xếp được thực hiện trực tiếp trên mảng ban đầu, không cần nhờ đến mảng phụ trợ.
+- **Độ phức tạp thời gian là $O(n \log n)$, Sắp xếp không thích ứng**: Trong trường hợp trung bình, số tầng đệ quy của phân hoạch lính canh là $\log n$, tổng số vòng lặp trong mỗi tầng là $n$, tổng thể mất thời gian $O(n \log n)$. Trong trường hợp xấu nhất, mỗi vòng phân hoạch lính canh đều chia mảng có độ dài $n$ thành hai mảng con có độ dài $0$ và $n - 1$, lúc này số tầng đệ quy đạt tới $n$, số vòng lặp trong mỗi tầng là $n$, tổng thể mất thời gian $O(n^2)$.
+- **Độ phức tạp không gian là $O(n)$, Sắp xếp tại chỗ**: Trong trường hợp mảng đầu vào có thứ tự hoàn toàn ngược lại, độ sâu đệ quy đạt mức xấu nhất là $n$, chiếm dụng $O(n)$ không gian khung ngăn xếp (call stack). Thao tác sắp xếp được thực hiện trực tiếp trên mảng ban đầu, không cần nhờ đến mảng phụ trợ.
 - **Sắp xếp không ổn định**: Ở bước cuối cùng của phân hoạch lính canh, phần tử chốt có thể bị hoán đổi sang bên phải của phần tử có giá trị bằng nó.
 
 ## Tại sao sắp xếp nhanh lại nhanh?
 
 Ngay từ tên gọi đã thấy sắp xếp nhanh sở hữu ưu thế vượt trội về mặt hiệu năng. Mặc dù độ phức tạp thời gian trung bình của sắp xếp nhanh bằng với "sắp xếp trộn" và "sắp xếp vun đống", nhưng thông thường hiệu năng thực tế của sắp xếp nhanh lại cao hơn, chủ yếu vì những lý do sau:
 
-- **Xác suất xuất hiện trường hợp xấu nhất là rất thấp**: Mặc dù độ phức tạp thời gian xấu nhất của sắp xếp nhanh là $O(n^2)$ ，không ổn định bằng sắp xếp trộn, nhưng trong đại đa số các trường hợp, sắp xếp nhanh đều có thể chạy ở độ phức tạp $O(n \log n)$ 。
+- **Xác suất xuất hiện trường hợp xấu nhất là rất thấp**: Mặc dù độ phức tạp thời gian xấu nhất của sắp xếp nhanh là $O(n^2)$, không ổn định bằng sắp xếp trộn, nhưng trong đại đa số các trường hợp, sắp xếp nhanh đều có thể chạy ở độ phức tạp $O(n \log n)$.
 - **Hiệu quả sử dụng bộ nhớ đệm (cache) cao**: Khi thực hiện thao tác phân hoạch lính canh, hệ thống có thể tải toàn bộ mảng con vào bộ nhớ đệm, do đó hiệu năng truy cập phần tử là rất cao. Trong khi các thuật toán như "sắp xếp vun đống" đòi hỏi truy cập phần tử nhảy bước liên tục nên thiếu đi ưu thế này.
 - **Hệ số hằng số trong độ phức tạp nhỏ**: Trong ba thuật toán trên, tổng số lượng thao tác so sánh, gán, hoán đổi của sắp xếp nhanh là ít nhất. Điều này tương tự như lý do tại sao "sắp xếp chèn" chạy nhanh hơn "sắp xếp nổi bọt".
 
 ## Tối ưu hoá phần tử chốt
 
-**Hiệu năng thời gian của sắp xếp nhanh có thể bị suy giảm dưới một số dữ liệu đầu vào nhất định**. Lấy một ví dụ cực đoan, giả sử mảng đầu vào có thứ tự đảo ngược hoàn toàn, do chúng ta chọn phần tử ngoài cùng bên trái làm phần tử chốt, nên sau khi phân hoạch lính canh xong, phần tử chốt bị hoán đổi về tận cùng bên phải mảng, dẫn đến mảng con trái có độ dài $n - 1$ và mảng con phải có độ dài $0$ 。Cứ đệ quy tiếp tục như vậy, sau mỗi vòng phân hoạch lính canh đều có một mảng con có độ dài bằng $0$ ，chiến lược chia để trị bị vô hiệu hoá, sắp xếp nhanh thoái hoá thành một dạng gần giống với "sắp xếp nổi bọt".
+**Hiệu năng thời gian của sắp xếp nhanh có thể bị suy giảm dưới một số dữ liệu đầu vào nhất định**. Lấy một ví dụ cực đoan, giả sử mảng đầu vào có thứ tự đảo ngược hoàn toàn, do chúng ta chọn phần tử ngoài cùng bên trái làm phần tử chốt, nên sau khi phân hoạch lính canh xong, phần tử chốt bị hoán đổi về tận cùng bên phải mảng, dẫn đến mảng con trái có độ dài $n - 1$ và mảng con phải có độ dài $0$. Cứ đệ quy tiếp tục như vậy, sau mỗi vòng phân hoạch lính canh đều có một mảng con có độ dài bằng $0$, chiến lược chia để trị bị vô hiệu hoá, sắp xếp nhanh thoái hoá thành một dạng gần giống với "sắp xếp nổi bọt".
 
 Để hạn chế tối đa tình huống này xảy ra, **chúng ta có thể tối ưu hoá chiến lược lựa chọn phần tử chốt trong phân hoạch lính canh**. Ví dụ, chúng ta có thể chọn ngẫu nhiên một phần tử làm phần tử chốt. Tuy nhiên, nếu không may mắn, lần nào cũng chọn phải phần tử chốt không lý tưởng, hiệu năng vẫn sẽ không như ý muốn.
 
@@ -91,9 +91,9 @@ Mã nguồn ví dụ như sau:
 
 ## Tối ưu hoá độ sâu đệ quy
 
-**Dưới một số dữ liệu đầu vào, sắp xếp nhanh có thể chiếm dụng nhiều không gian ngăn xếp**. Lấy mảng đầu vào đã sắp xếp hoàn toàn làm ví dụ, đặt độ dài mảng con trong đệ quy là $m$ ，mỗi vòng phân hoạch lính canh đều tạo ra mảng con trái có độ dài $0$ và mảng con phải có độ dài $m - 1$ ，điều này đồng nghĩa với việc mỗi tầng gọi đệ quy chỉ giảm quy mô bài toán đi rất ít (chỉ giảm 1 phần tử), chiều cao của cây đệ quy sẽ đạt tới $n - 1$ ，lúc này cần chiếm dụng không gian khung ngăn xếp kích thước $O(n)$ 。
+**Dưới một số dữ liệu đầu vào, sắp xếp nhanh có thể chiếm dụng nhiều không gian ngăn xếp**. Lấy mảng đầu vào đã sắp xếp hoàn toàn làm ví dụ, đặt độ dài mảng con trong đệ quy là $m$, mỗi vòng phân hoạch lính canh đều tạo ra mảng con trái có độ dài $0$ và mảng con phải có độ dài $m - 1$, điều này đồng nghĩa với việc mỗi tầng gọi đệ quy chỉ giảm quy mô bài toán đi rất ít (chỉ giảm 1 phần tử), chiều cao của cây đệ quy sẽ đạt tới $n - 1$, lúc này cần chiếm dụng không gian khung ngăn xếp kích thước $O(n)$.
 
-Để tránh việc tích luỹ không gian khung ngăn xếp, chúng ta có thể sau khi hoàn thành phân hoạch lính canh ở mỗi vòng, so sánh độ dài của hai mảng con, **chỉ thực hiện gọi đệ quy trên mảng con ngắn hơn**. Do độ dài của mảng con ngắn hơn không vượt quá $n / 2$ ，vì vậy phương pháp này có thể đảm bảo độ sâu đệ quy không vượt quá $\log n$ ，từ đó tối ưu hoá độ phức tạp không gian trong trường hợp xấu nhất về $O(\log n)$ 。Mã nguồn như sau:
+Để tránh việc tích luỹ không gian khung ngăn xếp, chúng ta có thể sau khi hoàn thành phân hoạch lính canh ở mỗi vòng, so sánh độ dài của hai mảng con, **chỉ thực hiện gọi đệ quy trên mảng con ngắn hơn**. Do độ dài của mảng con ngắn hơn không vượt quá $n / 2$, vì vậy phương pháp này có thể đảm bảo độ sâu đệ quy không vượt quá $\log n$, từ đó tối ưu hoá độ phức tạp không gian trong trường hợp xấu nhất về $O(\log n)$. Mã nguồn như sau:
 
 ```src
 [file]{quick_sort}-[class]{quick_sort_tail_call}-[func]{quick_sort}

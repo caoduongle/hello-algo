@@ -1,6 +1,6 @@
 # Cây AVL *
 
-Trong phần "Cây tìm kiếm nhị phân" chúng ta đã đề cập, sau nhiều lần thực hiện thao tác chèn và xoá, cây tìm kiếm nhị phân có thể bị thoái hoá thành danh sách liên kết. Trong trường hợp đó, độ phức tạp thời gian của tất cả các thao tác sẽ suy giảm từ $O(\log n)$ về $O(n)$ 。
+Trong phần "Cây tìm kiếm nhị phân" chúng ta đã đề cập, sau nhiều lần thực hiện thao tác chèn và xoá, cây tìm kiếm nhị phân có thể bị thoái hoá thành danh sách liên kết. Trong trường hợp đó, độ phức tạp thời gian của tất cả các thao tác sẽ suy giảm từ $O(\log n)$ về $O(n)$.
 
 Như minh hoạ trong hình dưới đây, sau hai lần thực hiện thao tác xoá nút, cây tìm kiếm nhị phân này sẽ thoái hoá thành danh sách liên kết.
 
@@ -10,7 +10,7 @@ Lại ví dụ khác, sau khi chèn hai nút vào cây nhị phân hoàn hảo n
 
 ![Cây AVL bị thoái hoá sau khi chèn nút](avl_tree.assets/avltree_degradation_from_inserting_node.png)
 
-Năm 1962, G. M. Adelson-Velsky và E. M. Landis đã đề xuất <u>cây AVL</u> trong bài báo khoa học "An algorithm for the organization of information". Bài báo đã mô tả chi tiết một chuỗi các thao tác đảm bảo cây AVL không bị thoái hoá sau khi liên tục thêm và xoá các nút, nhờ đó giữ cho độ phức tạp thời gian của các thao tác luôn duy trì ở mức $O(\log n)$ 。Nói cách khác, trong những tình huống đòi hỏi phải thực hiện các thao tác thêm, xoá, sửa, tra cứu với tần suất cao, cây AVL luôn duy trì được hiệu năng xử lý dữ liệu vượt trội, mang lại giá trị ứng dụng rất lớn.
+Năm 1962, G. M. Adelson-Velsky và E. M. Landis đã đề xuất <u>cây AVL</u> trong bài báo khoa học "An algorithm for the organization of information". Bài báo đã mô tả chi tiết một chuỗi các thao tác đảm bảo cây AVL không bị thoái hoá sau khi liên tục thêm và xoá các nút, nhờ đó giữ cho độ phức tạp thời gian của các thao tác luôn duy trì ở mức $O(\log n)$. Nói cách khác, trong những tình huống đòi hỏi phải thực hiện các thao tác thêm, xoá, sửa, tra cứu với tần suất cao, cây AVL luôn duy trì được hiệu năng xử lý dữ liệu vượt trội, mang lại giá trị ứng dụng rất lớn.
 
 ## Thuật ngữ thường gặp của cây AVL
 
@@ -228,7 +228,7 @@ Do các thao tác liên quan trên cây AVL đòi hỏi phải lấy được ch
     end
     ```
 
-"Chiều cao của nút" là khoảng cách từ nút đó đến nút lá xa nhất của nó, tức là số lượng "cạnh" đi qua. Cần đặc biệt lưu ý rằng chiều cao của nút lá là $0$ ，còn chiều cao của nút rỗng (nút `None`) là $-1$ 。Chúng ta sẽ tạo hai hàm tiện ích để lần lượt lấy và cập nhật chiều cao của nút:
+"Chiều cao của nút" là khoảng cách từ nút đó đến nút lá xa nhất của nó, tức là số lượng "cạnh" đi qua. Cần đặc biệt lưu ý rằng chiều cao của nút lá là $0$, còn chiều cao của nút rỗng (nút `None`) là $-1$. Chúng ta sẽ tạo hai hàm tiện ích để lần lượt lấy và cập nhật chiều cao của nút:
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{update_height}
@@ -236,7 +236,7 @@ Do các thao tác liên quan trên cây AVL đòi hỏi phải lấy được ch
 
 ### Hệ số cân bằng của nút
 
-<u>Hệ số cân bằng (balance factor)</u> của một nút được định nghĩa là chiều cao của cây con trái trừ đi chiều cao của cây con phải của nút đó, đồng thời quy định hệ số cân bằng của nút rỗng là $0$ 。Chúng ta cũng đóng gói chức năng lấy hệ số cân bằng của nút thành một hàm để thuận tiện sử dụng về sau:
+<u>Hệ số cân bằng (balance factor)</u> của một nút được định nghĩa là chiều cao của cây con trái trừ đi chiều cao của cây con phải của nút đó, đồng thời quy định hệ số cân bằng của nút rỗng là $0$. Chúng ta cũng đóng gói chức năng lấy hệ số cân bằng của nút thành một hàm để thuận tiện sử dụng về sau:
 
 ```src
 [file]{avl_tree}-[class]{avl_tree}-[func]{balance_factor}
@@ -244,7 +244,7 @@ Do các thao tác liên quan trên cây AVL đòi hỏi phải lấy được ch
 
 !!! tip
 
-    Đặt hệ số cân bằng là $f$ ，thì trong một cây AVL, hệ số cân bằng của bất kỳ nút nào cũng đều thoả mãn $-1 \le f \le 1$ 。
+    Đặt hệ số cân bằng là $f$, thì trong một cây AVL, hệ số cân bằng của bất kỳ nút nào cũng đều thoả mãn $-1 \le f \le 1$.
 
 ## Phép quay cây AVL
 
@@ -318,10 +318,10 @@ Như bảng dưới đây, chúng ta xác định nút mất cân bằng thuộc
 
 | Hệ số cân bằng của nút mất cân bằng | Hệ số cân bằng của nút con | Phương pháp quay cần áp dụng |
 | ------------------ | ---------------- | ---------------- |
-| $> 1$ （Cây lệch trái）   | $\geq 0$         | Quay phải             |
-| $> 1$ （Cây lệch trái）   | $<0$             | Quay trái-phải     |
-| $< -1$ （Cây lệch phải）  | $\leq 0$         | Quay trái             |
-| $< -1$ （Cây lệch phải）  | $>0$             | Quay phải-trái     |
+| $> 1$ (Cây lệch trái)   | $\geq 0$         | Quay phải             |
+| $> 1$ (Cây lệch trái)   | $<0$             | Quay trái-phải     |
+| $< -1$ (Cây lệch phải)  | $\leq 0$         | Quay trái             |
+| $< -1$ (Cây lệch phải)  | $>0$             | Quay phải-trái     |
 
 Để thuận tiện sử dụng, chúng ta đóng gói toàn bộ logic quay thành một hàm thống nhất. **Có hàm này rồi, chúng ta có thể thực hiện phép quay tương ứng cho mọi trường hợp mất cân bằng, đưa nút mất cân bằng trở lại trạng thái cân bằng**. Mã nguồn như sau:
 

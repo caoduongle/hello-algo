@@ -20,24 +20,24 @@ Dựa theo phân tích ở trên, bài toán này có thể dùng chia để tr�
 
 Theo định nghĩa, cả `preorder` và `inorder` đều có thể chia thành ba phần:
 
-- Duyệt tiền thứ tự: `[ Nút gốc | Cây con trái | Cây con phải ]` ，ví dụ cây trong hình trên tương ứng với `[ 3 | 9 | 2 1 7 ]` 。
-- Duyệt trung thứ tự: `[ Cây con trái | Nút gốc | Cây con phải ]` ，ví dụ cây trong hình trên tương ứng với `[ 9 | 3 | 1 2 7 ]` 。
+- Duyệt tiền thứ tự: `[ Nút gốc | Cây con trái | Cây con phải ]`, ví dụ cây trong hình trên tương ứng với `[ 3 | 9 | 2 1 7 ]`.
+- Duyệt trung thứ tự: `[ Cây con trái | Nút gốc | Cây con phải ]`, ví dụ cây trong hình trên tương ứng với `[ 9 | 3 | 1 2 7 ]`.
 
 Lấy dữ liệu trong hình trên làm ví dụ, chúng ta có thể thu được kết quả phân chia thông qua các bước minh hoạ ở hình dưới đây:
 
 1. Phần tử đầu tiên 3 trong duyệt tiền thứ tự chính là giá trị của nút gốc.
-2. Tìm kiếm chỉ số của nút gốc 3 trong `inorder` ，sử dụng chỉ số này có thể chia `inorder` thành `[ 9 | 3 | 1 2 7 ]` 。
-3. Dựa vào kết quả phân chia của `inorder` ，dễ dàng thấy số lượng nút của cây con trái và cây con phải lần lượt là 1 và 3 ，từ đó có thể chia `preorder` thành `[ 3 | 9 | 2 1 7 ]` 。
+2. Tìm kiếm chỉ số của nút gốc 3 trong `inorder`, sử dụng chỉ số này có thể chia `inorder` thành `[ 9 | 3 | 1 2 7 ]`.
+3. Dựa vào kết quả phân chia của `inorder`, dễ dàng thấy số lượng nút của cây con trái và cây con phải lần lượt là 1 và 3, từ đó có thể chia `preorder` thành `[ 3 | 9 | 2 1 7 ]`.
 
 ![Phân chia cây con trong duyệt tiền thứ tự và duyệt trung thứ tự](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
 
 ### Biểu diễn khoảng chỉ số cây con dựa trên các biến
 
-Dựa vào phương pháp phân chia ở trên, **chúng ta đã thu được các khoảng chỉ số của nút gốc, cây con trái và cây con phải trong `preorder` và `inorder`**。Để mô tả các khoảng chỉ số này, chúng ta cần nhờ đến một vài biến con trỏ:
+Dựa vào phương pháp phân chia ở trên, **chúng ta đã thu được các khoảng chỉ số của nút gốc, cây con trái và cây con phải trong `preorder` và `inorder`**. Để mô tả các khoảng chỉ số này, chúng ta cần nhờ đến một vài biến con trỏ:
 
-- Ghi nhận chỉ số của nút gốc cây hiện tại trong `preorder` là $i$ 。
-- Ghi nhận chỉ số của nút gốc cây hiện tại trong `inorder` là $m$ 。
-- Ghi nhận khoảng chỉ số của cây hiện tại trong `inorder` là $[l, r]$ 。
+- Ghi nhận chỉ số của nút gốc cây hiện tại trong `preorder` là $i$.
+- Ghi nhận chỉ số của nút gốc cây hiện tại trong `inorder` là $m$.
+- Ghi nhận khoảng chỉ số của cây hiện tại trong `inorder` là $[l, r]$.
 
 Như bảng dưới đây, thông qua các biến trên có thể biểu diễn chỉ số của nút gốc trong `preorder` cũng như khoảng chỉ số của các cây con trong `inorder`:
 
@@ -55,7 +55,7 @@ Xin lưu ý rằng, ý nghĩa của $(m-l)$ trong chỉ số nút gốc của c�
 
 ### Hiện thực mã nguồn
 
-Để nâng cao hiệu năng tìm kiếm $m$ ，chúng ta nhờ một bảng băm `hmap` để lưu trữ ánh xạ từ phần tử sang chỉ số trong mảng `inorder`:
+Để nâng cao hiệu năng tìm kiếm $m$, chúng ta nhờ một bảng băm `hmap` để lưu trữ ánh xạ từ phần tử sang chỉ số trong mảng `inorder`:
 
 ```src
 [file]{build_tree}-[class]{}-[func]{build_tree}
@@ -94,6 +94,6 @@ Kết quả phân chia của duyệt tiền thứ tự `preorder` và duyệt tr
 
 ![Kết quả phân chia trong mỗi hàm đệ quy](build_binary_tree_problem.assets/built_tree_overall.png)
 
-Đặt số lượng nút của cây là $n$ ，khởi tạo mỗi một nút (thực thi một hàm đệ quy `dfs()` ) mất thời gian $O(1)$ 。**Do đó tổng độ phức tạp thời gian là $O(n)$** 。
+Đặt số lượng nút của cây là $n$, khởi tạo mỗi một nút (thực thi một hàm đệ quy `dfs()` ) mất thời gian $O(1)$. **Do đó tổng độ phức tạp thời gian là $O(n)$**.
 
-Bảng băm lưu trữ ánh xạ từ phần tử `inorder` sang chỉ số, có độ phức tạp không gian là $O(n)$ 。Trong trường hợp xấu nhất, tức là cây nhị phân thoái hoá thành danh sách liên kết, độ sâu đệ quy đạt tới $n$ ，chiếm dụng $O(n)$ không gian khung ngăn xếp. **Do đó tổng độ phức tạp không gian là $O(n)$** 。
+Bảng băm lưu trữ ánh xạ từ phần tử `inorder` sang chỉ số, có độ phức tạp không gian là $O(n)$. Trong trường hợp xấu nhất, tức là cây nhị phân thoái hoá thành danh sách liên kết, độ sâu đệ quy đạt tới $n$, chiếm dụng $O(n)$ không gian khung ngăn xếp. **Do đó tổng độ phức tạp không gian là $O(n)$**.

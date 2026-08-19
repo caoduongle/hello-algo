@@ -47,9 +47,9 @@ Lưu trữ mảng `[1, 2, 3, 4, 5, 6, 7]` theo thứ tự duyệt theo tầng v�
          4   5 6   7
         ```
 
-    2. Duyệt tiền thứ tự là `1, 2, 4, 5, 3, 6, 7`；
-        Duyệt trung thứ tự là `4, 2, 5, 1, 6, 3, 7`；
-        Duyệt hậu thứ tự là `4, 5, 2, 6, 7, 3, 1`。
+    2. Duyệt tiền thứ tự là `1, 2, 4, 5, 3, 6, 7`;
+        Duyệt trung thứ tự là `4, 2, 5, 1, 6, 3, 7`;
+        Duyệt hậu thứ tự là `4, 5, 2, 6, 7, 3, 1`.
 
     3. Đoạn `4, 2, 5` ở bên trái nút gốc 1 là chuỗi duyệt trung thứ tự của cây con trái;
         Đoạn `6, 3, 7` ở bên phải là chuỗi duyệt trung thứ tự của cây con phải.
@@ -69,8 +69,8 @@ Lần lượt chèn hai dãy số dưới đây từ trái sang phải vào cây
 
 ??? success "Đáp án tham khảo"
 
-    1. Trong cây dựng từ Dãy A, đường đi tìm kiếm là `4 → 6 → 7`；
-        Trong cây dựng từ Dãy B, đường đi tìm kiếm là `1 → 2 → 3 → 4 → 5 → 6 → 7`。
+    1. Trong cây dựng từ Dãy A, đường đi tìm kiếm là `4 → 6 → 7`;
+        Trong cây dựng từ Dãy B, đường đi tìm kiếm là `1 → 2 → 3 → 4 → 5 → 6 → 7`.
 
     2. Cây thứ nhất mọi tầng đều được lấp đầy, chiều cao là 2; cây thứ hai chỉ có nhánh con phải, chiều cao là 6.
 
@@ -114,7 +114,7 @@ Nếu cây nhị phân rỗng, trả về mảng rỗng.
 Một cây tìm kiếm nhị phân có tổng cộng `n` nút, giá trị các nút đôi một khác nhau.
 Sau khi sắp xếp toàn bộ giá trị các nút từ nhỏ đến lớn, vị trí được đánh số bắt đầu từ 1.
 
-Cho nút gốc `root` và số nguyên `k` thoả mãn `1 <= k <= n`，hãy trả về giá trị của nút xếp ở vị trí thứ `k`。
+Cho nút gốc `root` và số nguyên `k` thoả mãn `1 <= k <= n`, hãy trả về giá trị của nút xếp ở vị trí thứ `k`.
 Hãy tìm kiếm kết quả trực tiếp trong quá trình duyệt trung thứ tự, không thu thập toàn bộ giá trị các nút trước.
 
 ??? tip "Gợi ý giải bài"

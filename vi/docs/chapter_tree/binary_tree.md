@@ -631,7 +631,7 @@ Tương tự như danh sách liên kết, việc chèn và xoá nút trong cây 
 
 ### Cây nhị phân hoàn hảo
 
-Như minh hoạ trong hình dưới đây, <u>cây nhị phân hoàn hảo (perfect binary tree)</u> có mọi tầng đều được lấp đầy hoàn toàn các nút. Trong cây nhị phân hoàn hảo, bậc của các nút lá là $0$ ，và bậc của tất cả các nút còn lại đều là $2$ ；nếu chiều cao của cây là $h$ ，thì tổng số nút của cây là $2^{h+1} - 1$ ，thể hiện mối quan hệ hàm mũ chuẩn mực, phản ánh hiện tượng phân chia tế bào thường thấy trong tự nhiên.
+Như minh hoạ trong hình dưới đây, <u>cây nhị phân hoàn hảo (perfect binary tree)</u> có mọi tầng đều được lấp đầy hoàn toàn các nút. Trong cây nhị phân hoàn hảo, bậc của các nút lá là $0$, và bậc của tất cả các nút còn lại đều là $2$; nếu chiều cao của cây là $h$, thì tổng số nút của cây là $2^{h+1} - 1$, thể hiện mối quan hệ hàm mũ chuẩn mực, phản ánh hiện tượng phân chia tế bào thường thấy trong tự nhiên.
 
 !!! tip
 
@@ -662,7 +662,7 @@ Như minh hoạ trong hình dưới đây, <u>cây nhị phân cân bằng (bala
 Hình dưới đây thể hiện cấu trúc lý tưởng và cấu trúc thoái hoá của cây nhị phân. Khi mỗi tầng của cây nhị phân đều được lấp đầy các nút, cây đạt trạng thái "cây nhị phân hoàn hảo"; trong khi tất cả các nút đều lệch về một phía, cây nhị phân sẽ thoái hoá thành "danh sách liên kết".
 
 - Cây nhị phân hoàn hảo là trường hợp lý tưởng, có thể phát huy tối đa ưu thế "chia để trị" của cây nhị phân.
-- Danh sách liên kết là một thái cực khác, khi mọi thao tác đều chuyển thành thao tác tuyến tính, độ phức tạp thời gian thoái hoá về $O(n)$ 。
+- Danh sách liên kết là một thái cực khác, khi mọi thao tác đều chuyển thành thao tác tuyến tính, độ phức tạp thời gian thoái hoá về $O(n)$.
 
 ![Cấu trúc tốt nhất và cấu trúc xấu nhất của cây nhị phân](binary_tree.assets/binary_tree_best_worst_cases.png)
 

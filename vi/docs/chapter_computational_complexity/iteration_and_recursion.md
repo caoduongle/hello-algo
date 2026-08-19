@@ -10,7 +10,7 @@ Trong thuật toán, việc thực thi lặp đi lặp lại một tác vụ nà
 
 Vòng lặp `for` là một trong những dạng lặp phổ biến nhất, **thích hợp sử dụng khi đã biết trước số lần lặp**.
 
-Hàm dưới đây sử dụng vòng lặp `for` để tính tổng $1 + 2 + \dots + n$ ，kết quả tổng được lưu trong biến `res` 。Cần lưu ý rằng trong Python, `range(a, b)` tương ứng với khoảng “đóng bên trái, mở bên phải”, phạm vi duyệt tương ứng là $a, a + 1, \dots, b-1$ ：
+Hàm dưới đây sử dụng vòng lặp `for` để tính tổng $1 + 2 + \dots + n$, kết quả tổng được lưu trong biến `res`. Cần lưu ý rằng trong Python, `range(a, b)` tương ứng với khoảng “đóng bên trái, mở bên phải”, phạm vi duyệt tương ứng là $a, a + 1, \dots, b-1$:
 
 ```src
 [file]{iteration}-[class]{}-[func]{for_loop}
@@ -20,27 +20,27 @@ Hình dưới đây là sơ đồ khối quy trình của hàm tính tổng này
 
 ![Sơ đồ khối quy trình của hàm tính tổng](iteration_and_recursion.assets/iteration.png)
 
-Số lượng thao tác của hàm tính tổng này tỷ lệ thuận với kích thước dữ liệu đầu vào $n$ ，hay nói cách khác là có “mối quan hệ tuyến tính”. Trên thực tế, **độ phức tạp thời gian chính là để mô tả “mối quan hệ tuyến tính” này**. Nội dung liên quan sẽ được trình bày chi tiết trong phần tiếp theo.
+Số lượng thao tác của hàm tính tổng này tỷ lệ thuận với kích thước dữ liệu đầu vào $n$, hay nói cách khác là có “mối quan hệ tuyến tính”. Trên thực tế, **độ phức tạp thời gian chính là để mô tả “mối quan hệ tuyến tính” này**. Nội dung liên quan sẽ được trình bày chi tiết trong phần tiếp theo.
 
 ### Vòng lặp while
 
-Tương tự như vòng lặp `for`，vòng lặp `while` cũng là một phương pháp để hiện thực phép lặp. Trong vòng lặp `while`，ở mỗi vòng chương trình sẽ kiểm tra điều kiện trước, nếu điều kiện là đúng (`true`) thì tiếp tục thực thi, ngược lại sẽ kết thúc vòng lặp.
+Tương tự như vòng lặp `for`, vòng lặp `while` cũng là một phương pháp để hiện thực phép lặp. Trong vòng lặp `while`, ở mỗi vòng chương trình sẽ kiểm tra điều kiện trước, nếu điều kiện là đúng (`true`) thì tiếp tục thực thi, ngược lại sẽ kết thúc vòng lặp.
 
-Dưới đây chúng ta sử dụng vòng lặp `while` để tính tổng $1 + 2 + \dots + n$ ：
+Dưới đây chúng ta sử dụng vòng lặp `while` để tính tổng $1 + 2 + \dots + n$:
 
 ```src
 [file]{iteration}-[class]{}-[func]{while_loop}
 ```
 
-**Vòng lặp `while` có độ tự do cao hơn vòng lặp `for`**。Trong vòng lặp `while`，chúng ta có thể thoải mái thiết kế các bước khởi tạo và cập nhật biến điều kiện.
+**Vòng lặp `while` có độ tự do cao hơn vòng lặp `for`**. Trong vòng lặp `while`, chúng ta có thể thoải mái thiết kế các bước khởi tạo và cập nhật biến điều kiện.
 
-Ví dụ trong đoạn mã dưới đây, biến điều kiện $i$ được cập nhật hai lần trong mỗi vòng lặp, trường hợp này sẽ không thuận tiện nếu dùng vòng lặp `for`：
+Ví dụ trong đoạn mã dưới đây, biến điều kiện $i$ được cập nhật hai lần trong mỗi vòng lặp, trường hợp này sẽ không thuận tiện nếu dùng vòng lặp `for`:
 
 ```src
 [file]{iteration}-[class]{}-[func]{while_loop_ii}
 ```
 
-Nhìn chung, **mã nguồn của vòng lặp `for` gọn gàng hơn, còn vòng lặp `while` linh hoạt hơn**，cả hai đều có thể dùng để xây dựng cấu trúc lặp. Việc lựa chọn phương thức nào nên dựa trên nhu cầu của bài toán cụ thể.
+Nhìn chung, **mã nguồn của vòng lặp `for` gọn gàng hơn, còn vòng lặp `while` linh hoạt hơn**, cả hai đều có thể dùng để xây dựng cấu trúc lặp. Việc lựa chọn phương thức nào nên dựa trên nhu cầu của bài toán cụ thể.
 
 ### Vòng lặp lồng nhau
 
@@ -54,7 +54,7 @@ Hình dưới đây là sơ đồ khối quy trình của vòng lặp lồng nha
 
 ![Sơ đồ khối quy trình của vòng lặp lồng nhau](iteration_and_recursion.assets/nested_iteration.png)
 
-Trong trường hợp này, số lượng thao tác của hàm tỷ lệ thuận với $n^2$ ，hay nói cách khác thời gian thực thi của thuật toán và kích thước dữ liệu đầu vào $n$ có “mối quan hệ bình phương”.
+Trong trường hợp này, số lượng thao tác của hàm tỷ lệ thuận với $n^2$, hay nói cách khác thời gian thực thi của thuật toán và kích thước dữ liệu đầu vào $n$ có “mối quan hệ bình phương”.
 
 Chúng ta có thể tiếp tục thêm các vòng lặp lồng nhau; mỗi lần lồng thêm là một lần “tăng bậc”, sẽ khiến độ phức tạp thời gian tăng lên “mối quan hệ bậc ba”, “mối quan hệ bậc bốn”, và cứ thế tiếp tục.
 
@@ -71,7 +71,7 @@ Chúng ta có thể tiếp tục thêm các vòng lặp lồng nhau; mỗi lần
 2. **Lời gọi đệ quy**: Tương ứng với giai đoạn “đi sâu”, hàm gọi lại chính nó, thông thường nhận đầu vào là các tham số nhỏ hơn hoặc đơn giản hơn.
 3. **Trả về kết quả**: Tương ứng với giai đoạn “quay về”, trả kết quả của tầng đệ quy hiện tại về cho tầng phía trên.
 
-Quan sát đoạn mã dưới đây, chúng ta chỉ cần gọi hàm `recur(n)` là có thể hoàn thành phép tính $1 + 2 + \dots + n$ ：
+Quan sát đoạn mã dưới đây, chúng ta chỉ cần gọi hàm `recur(n)` là có thể hoàn thành phép tính $1 + 2 + \dots + n$:
 
 ```src
 [file]{recursion}-[class]{}-[func]{recur}
@@ -81,15 +81,15 @@ Hình dưới đây minh hoạ quá trình đệ quy của hàm này.
 
 ![Quá trình đệ quy của hàm tính tổng](iteration_and_recursion.assets/recursion_sum.png)
 
-Mặc dù đứng từ góc độ tính toán, phép lặp và đệ quy có thể cho ra cùng một kết quả, **nhưng chúng đại diện cho hai mô thức tư duy và giải quyết vấn đề hoàn toàn khác nhau**：
+Mặc dù đứng từ góc độ tính toán, phép lặp và đệ quy có thể cho ra cùng một kết quả, **nhưng chúng đại diện cho hai mô thức tư duy và giải quyết vấn đề hoàn toàn khác nhau**:
 
-- **Phép lặp**：“Từ dưới lên” (bottom-up) giải quyết vấn đề. Bắt đầu từ bước cơ sở nhất, sau đó liên tục lặp lại hoặc tích luỹ các bước này cho đến khi hoàn thành tác vụ.
-- **Đệ quy**：“Từ trên xuống” (top-down) giải quyết vấn đề. Phân rã bài toán ban đầu thành các bài toán con nhỏ hơn có cùng cấu trúc với bài toán gốc. Tiếp tục phân rã các bài toán con thành các bài toán nhỏ hơn nữa cho đến khi chạm trường hợp cơ sở thì dừng lại (nghiệm của trường hợp cơ sở đã được biết trước).
+- **Phép lặp**: “Từ dưới lên” (bottom-up) giải quyết vấn đề. Bắt đầu từ bước cơ sở nhất, sau đó liên tục lặp lại hoặc tích luỹ các bước này cho đến khi hoàn thành tác vụ.
+- **Đệ quy**: “Từ trên xuống” (top-down) giải quyết vấn đề. Phân rã bài toán ban đầu thành các bài toán con nhỏ hơn có cùng cấu trúc với bài toán gốc. Tiếp tục phân rã các bài toán con thành các bài toán nhỏ hơn nữa cho đến khi chạm trường hợp cơ sở thì dừng lại (nghiệm của trường hợp cơ sở đã được biết trước).
 
-Lấy hàm tính tổng ở trên làm ví dụ, đặt bài toán là $f(n) = 1 + 2 + \dots + n$ 。
+Lấy hàm tính tổng ở trên làm ví dụ, đặt bài toán là $f(n) = 1 + 2 + \dots + n$.
 
-- **Phép lặp**：Mô phỏng quá trình tính tổng trong vòng lặp, duyệt từ $1$ đến $n$ ，mỗi vòng thực hiện phép cộng là có thể tính được $f(n)$ 。
-- **Đệ quy**：Phân rã bài toán thành bài toán con $f(n) = n + f(n-1)$ ，liên tục phân rã (đệ quy) như vậy cho đến khi chạm trường hợp cơ sở $f(1) = 1$ thì dừng lại.
+- **Phép lặp**: Mô phỏng quá trình tính tổng trong vòng lặp, duyệt từ $1$ đến $n$, mỗi vòng thực hiện phép cộng là có thể tính được $f(n)$.
+- **Đệ quy**: Phân rã bài toán thành bài toán con $f(n) = n + f(n-1)$, liên tục phân rã (đệ quy) như vậy cho đến khi chạm trường hợp cơ sở $f(1) = 1$ thì dừng lại.
 
 ### Ngăn xếp lời gọi hàm
 
@@ -98,7 +98,7 @@ Mỗi lần hàm đệ quy tự gọi lại chính nó, hệ thống sẽ cấp 
 - Dữ liệu ngữ cảnh của hàm đều được lưu trữ trong vùng nhớ gọi là “khung ngăn xếp” (stack frame), và chỉ được giải phóng sau khi hàm trả về. Do đó, **đệ quy thường tiêu tốn nhiều không gian bộ nhớ hơn so với vòng lặp**.
 - Việc gọi hàm đệ quy sẽ phát sinh thêm chi phí phụ trội (overhead). **Vì vậy, đệ quy thường có hiệu năng thời gian thấp hơn so với vòng lặp**.
 
-Như minh hoạ dưới đây, trước khi chạm điều kiện dừng, đồng thời tồn tại $n$ hàm đệ quy chưa trả về, **độ sâu đệ quy là $n$** 。
+Như minh hoạ dưới đây, trước khi chạm điều kiện dừng, đồng thời tồn tại $n$ hàm đệ quy chưa trả về, **độ sâu đệ quy là $n$**.
 
 ![Độ sâu của lời gọi đệ quy](iteration_and_recursion.assets/recursion_sum_depth.png)
 
@@ -119,8 +119,8 @@ Lấy việc tính tổng $1 + 2 + \dots + n$ làm ví dụ, chúng ta có thể
 
 Quá trình thực thi của đệ quy đuôi được thể hiện như trong hình dưới đây. So sánh giữa đệ quy thông thường và đệ quy đuôi, thời điểm thực hiện phép cộng của cả hai là khác nhau:
 
-- **Đệ quy thông thường**：Phép cộng được thực hiện trong quá trình “quay về”, mỗi tầng sau khi trả về đều phải thực hiện thêm một phép cộng.
-- **Đệ quy đuôi**：Phép cộng được thực hiện trong quá trình “đi sâu”, quá trình “quay về” chỉ đơn thuần là lần lượt trả kết quả về.
+- **Đệ quy thông thường**: Phép cộng được thực hiện trong quá trình “quay về”, mỗi tầng sau khi trả về đều phải thực hiện thêm một phép cộng.
+- **Đệ quy đuôi**: Phép cộng được thực hiện trong quá trình “đi sâu”, quá trình “quay về” chỉ đơn thuần là lần lượt trả kết quả về.
 
 ![Quá trình đệ quy đuôi](iteration_and_recursion.assets/tail_recursion_sum.png)
 
@@ -134,12 +134,12 @@ Khi xử lý các bài toán thuật toán liên quan đến “chia để trị
 
 !!! question
 
-    Cho dãy số Fibonacci $0, 1, 1, 2, 3, 5, 8, 13, \dots$ ，hãy tìm số thứ $n$ của dãy số này.
+    Cho dãy số Fibonacci $0, 1, 1, 2, 3, 5, 8, 13, \dots$, hãy tìm số thứ $n$ của dãy số này.
 
-Đặt số thứ $n$ của dãy Fibonacci là $f(n)$ ，ta dễ dàng rút ra hai kết luận:
+Đặt số thứ $n$ của dãy Fibonacci là $f(n)$, ta dễ dàng rút ra hai kết luận:
 
-- Hai số đầu tiên của dãy là $f(1) = 0$ và $f(2) = 1$ 。
-- Mỗi số tiếp theo trong dãy là tổng của hai số liền trước, tức là $f(n) = f(n - 1) + f(n - 2)$ 。
+- Hai số đầu tiên của dãy là $f(1) = 0$ và $f(2) = 1$.
+- Mỗi số tiếp theo trong dãy là tổng của hai số liền trước, tức là $f(n) = f(n - 1) + f(n - 2)$.
 
 Dựa theo hệ thức truy hồi để thực hiện lời gọi đệ quy, lấy hai số đầu tiên làm điều kiện dừng, ta có thể viết được mã nguồn đệ quy. Gọi `fib(n)` là có thể nhận được số thứ $n$ của dãy Fibonacci:
 
@@ -147,7 +147,7 @@ Dựa theo hệ thức truy hồi để thực hiện lời gọi đệ quy, l�
 [file]{recursion}-[class]{}-[func]{fib}
 ```
 
-Quan sát đoạn mã trên, bên trong hàm chúng ta đã đệ quy gọi hai hàm con, **điều này có nghĩa là từ một lời gọi đã phân nhánh thành hai nhánh gọi**. Như minh hoạ dưới đây, việc liên tục gọi đệ quy như vậy cuối cùng sẽ tạo ra một <u>cây đệ quy (recursion tree)</u> có số tầng là $n$ 。
+Quan sát đoạn mã trên, bên trong hàm chúng ta đã đệ quy gọi hai hàm con, **điều này có nghĩa là từ một lời gọi đã phân nhánh thành hai nhánh gọi**. Như minh hoạ dưới đây, việc liên tục gọi đệ quy như vậy cuối cùng sẽ tạo ra một <u>cây đệ quy (recursion tree)</u> có số tầng là $n$.
 
 ![Cây đệ quy của dãy Fibonacci](iteration_and_recursion.assets/recursion_tree.png)
 

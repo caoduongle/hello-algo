@@ -4,11 +4,11 @@
 
 ## Hiện thực đơn giản
 
-Trước tiên hãy xem một ví dụ đơn giản. Cho một mảng `nums` có độ dài $n$ ，các phần tử trong đó đều là các "số nguyên không âm", quy trình tổng thể của sắp xếp đếm được thể hiện như hình dưới đây:
+Trước tiên hãy xem một ví dụ đơn giản. Cho một mảng `nums` có độ dài $n$, các phần tử trong đó đều là các "số nguyên không âm", quy trình tổng thể của sắp xếp đếm được thể hiện như hình dưới đây:
 
-1. Duyệt mảng, tìm ra số lớn nhất trong đó, ghi nhận là $m$ ，sau đó tạo một mảng phụ trợ `counter` có độ dài là $m + 1$ 。
-2. **Nhờ `counter` để thống kê số lần xuất hiện của từng số trong `nums`**, trong đó `counter[num]` tương ứng với số lần xuất hiện của số `num` 。Phương pháp thống kê rất đơn giản, chỉ cần duyệt qua `nums` (đặt số hiện tại là `num`), trong mỗi vòng tăng `counter[num]` lên $1$ là được.
-3. **Do các chỉ số của `counter` vốn dĩ đã có thứ tự sẵn một cách tự nhiên, nên tương đương với việc toàn bộ các số đã được sắp xếp xong**. Tiếp theo, chúng ta duyệt qua `counter` ，lần lượt điền các số vào `nums` theo thứ tự số lần xuất hiện từ nhỏ đến lớn là xong.
+1. Duyệt mảng, tìm ra số lớn nhất trong đó, ghi nhận là $m$, sau đó tạo một mảng phụ trợ `counter` có độ dài là $m + 1$.
+2. **Nhờ `counter` để thống kê số lần xuất hiện của từng số trong `nums`**, trong đó `counter[num]` tương ứng với số lần xuất hiện của số `num`. Phương pháp thống kê rất đơn giản, chỉ cần duyệt qua `nums` (đặt số hiện tại là `num`), trong mỗi vòng tăng `counter[num]` lên $1$ là được.
+3. **Do các chỉ số của `counter` vốn dĩ đã có thứ tự sẵn một cách tự nhiên, nên tương đương với việc toàn bộ các số đã được sắp xếp xong**. Tiếp theo, chúng ta duyệt qua `counter`, lần lượt điền các số vào `nums` theo thứ tự số lần xuất hiện từ nhỏ đến lớn là xong.
 
 ![Quy trình sắp xếp đếm](counting_sort.assets/counting_sort_overview.png)
 
@@ -32,10 +32,10 @@ $$
 \text{prefix}[i] = \sum_{j=0}^i \text{counter[j]}
 $$
 
-**Tổng tiền tố mang ý nghĩa rất rõ ràng: `prefix[num] - 1` đại diện cho chỉ số xuất hiện lần cuối cùng của phần tử `num` trong mảng kết quả `res`**. Thông tin này cực kỳ quan trọng, bởi vì nó cho chúng ta biết mỗi phần tử nên xuất hiện tại vị trí nào trong mảng kết quả. Tiếp theo, chúng ta duyệt ngược mảng ban đầu `nums` qua từng phần tử `num` ，trong mỗi vòng lặp thực hiện hai bước sau:
+**Tổng tiền tố mang ý nghĩa rất rõ ràng: `prefix[num] - 1` đại diện cho chỉ số xuất hiện lần cuối cùng của phần tử `num` trong mảng kết quả `res`**. Thông tin này cực kỳ quan trọng, bởi vì nó cho chúng ta biết mỗi phần tử nên xuất hiện tại vị trí nào trong mảng kết quả. Tiếp theo, chúng ta duyệt ngược mảng ban đầu `nums` qua từng phần tử `num`, trong mỗi vòng lặp thực hiện hai bước sau:
 
-1. Điền `num` vào vị trí chỉ số `prefix[num] - 1` của mảng `res` 。
-2. Giảm giá trị tổng tiền tố `prefix[num]` đi $1$ ，từ đó thu được chỉ số để đặt phần tử `num` ở lần tiếp theo.
+1. Điền `num` vào vị trí chỉ số `prefix[num] - 1` của mảng `res`.
+2. Giảm giá trị tổng tiền tố `prefix[num]` đi $1$, từ đó thu được chỉ số để đặt phần tử `num` ở lần tiếp theo.
 
 Sau khi duyệt xong, trong mảng `res` chính là kết quả đã sắp xếp, cuối cùng dùng `res` ghi đè lên mảng ban đầu `nums` là hoàn tất. Hình dưới đây minh hoạ quy trình hoàn chỉnh của sắp xếp đếm.
 
@@ -71,8 +71,8 @@ Mã nguồn hiện thực của sắp xếp đếm như sau:
 
 ## Đặc tính của thuật toán
 
-- **Độ phức tạp thời gian là $O(n + m)$、Sắp xếp không thích ứng**: Bao gồm việc duyệt qua `nums` và duyệt qua `counter` ，đều sử dụng thời gian tuyến tính. Thông thường $n \gg m$ ，độ phức tạp thời gian tiệm cận $O(n)$ 。
-- **Độ phức tạp không gian là $O(n + m)$、Sắp xếp không tại chỗ**: Cần nhờ các mảng `res` và `counter` có độ dài lần lượt là $n$ và $m$ 。
+- **Độ phức tạp thời gian là $O(n + m)$, Sắp xếp không thích ứng**: Bao gồm việc duyệt qua `nums` và duyệt qua `counter`, đều sử dụng thời gian tuyến tính. Thông thường $n \gg m$, độ phức tạp thời gian tiệm cận $O(n)$.
+- **Độ phức tạp không gian là $O(n + m)$, Sắp xếp không tại chỗ**: Cần nhờ các mảng `res` và `counter` có độ dài lần lượt là $n$ và $m$.
 - **Sắp xếp ổn định**: Do thứ tự điền phần tử vào `res` là "từ phải sang trái", nên việc duyệt ngược mảng `nums` có thể tránh làm thay đổi vị trí tương đối giữa các phần tử bằng nhau, từ đó đạt được tính ổn định. Trên thực tế, nếu duyệt xuôi mảng `nums` cũng thu được kết quả sắp xếp đúng, nhưng kết quả đó lại không ổn định.
 
 ## Hạn chế
@@ -81,4 +81,4 @@ Mã nguồn hiện thực của sắp xếp đếm như sau:
 
 **Sắp xếp đếm chỉ áp dụng cho số nguyên không âm**. Nếu muốn áp dụng cho các kiểu dữ liệu khác, cần đảm bảo các dữ liệu đó có thể chuyển đổi thành số nguyên không âm, và trong quá trình chuyển đổi không làm thay đổi mối quan hệ độ lớn tương đối giữa các phần tử. Ví dụ, đối với mảng số nguyên có chứa số âm, trước tiên có thể cộng thêm một hằng số vào tất cả các số để biến toàn bộ thành số dương, sau khi sắp xếp xong thì trừ lại hằng số đó để đưa về ban đầu.
 
-**Sắp xếp đếm chỉ thích hợp cho tình huống lượng dữ liệu lớn nhưng phạm vi dữ liệu nhỏ**. Chẳng hạn, trong ví dụ trên $m$ không thể quá lớn, nếu không sẽ chiếm dụng quá nhiều bộ nhớ. Và khi $n \ll m$ ，sắp xếp đếm mất thời gian $O(m)$ ，có thể còn chậm hơn cả các thuật toán sắp xếp $O(n \log n)$ 。
+**Sắp xếp đếm chỉ thích hợp cho tình huống lượng dữ liệu lớn nhưng phạm vi dữ liệu nhỏ**. Chẳng hạn, trong ví dụ trên $m$ không thể quá lớn, nếu không sẽ chiếm dụng quá nhiều bộ nhớ. Và khi $n \ll m$, sắp xếp đếm mất thời gian $O(m)$, có thể còn chậm hơn cả các thuật toán sắp xếp $O(n \log n)$.

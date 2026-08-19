@@ -458,13 +458,13 @@ Việc xây dựng một danh sách liên kết gồm hai bước: bước thứ
     n3.next = &n4;
     ```
 
-Mảng tổng thể là một biến duy nhất, ví dụ mảng `nums` chứa các phần tử `nums[0]` và `nums[1]` v.v., trong khi danh sách liên kết được cấu thành từ nhiều đối tượng nút độc lập. **Chúng ta thường dùng nút đầu làm đại diện cho toàn bộ danh sách liên kết**, ví dụ danh sách liên kết trong đoạn mã trên có thể gọi là danh sách liên kết `n0` 。
+Mảng tổng thể là một biến duy nhất, ví dụ mảng `nums` chứa các phần tử `nums[0]` và `nums[1]` v.v., trong khi danh sách liên kết được cấu thành từ nhiều đối tượng nút độc lập. **Chúng ta thường dùng nút đầu làm đại diện cho toàn bộ danh sách liên kết**, ví dụ danh sách liên kết trong đoạn mã trên có thể gọi là danh sách liên kết `n0`.
 
 ### Chèn nút
 
-Việc chèn một nút vào danh sách liên kết diễn ra rất dễ dàng. Như minh hoạ trong hình dưới đây, giả sử chúng ta muốn chèn một nút mới `P` vào giữa hai nút liền kề `n0` và `n1` ，**thì chỉ cần thay đổi hai tham chiếu (con trỏ) của nút là xong**, độ phức tạp thời gian là $O(1)$ 。
+Việc chèn một nút vào danh sách liên kết diễn ra rất dễ dàng. Như minh hoạ trong hình dưới đây, giả sử chúng ta muốn chèn một nút mới `P` vào giữa hai nút liền kề `n0` và `n1`, **thì chỉ cần thay đổi hai tham chiếu (con trỏ) của nút là xong**, độ phức tạp thời gian là $O(1)$.
 
-So sánh với việc chèn phần tử trong mảng có độ phức tạp thời gian là $O(n)$ ，hiệu năng của mảng khi xử lý lượng dữ liệu lớn sẽ thấp hơn nhiều.
+So sánh với việc chèn phần tử trong mảng có độ phức tạp thời gian là $O(n)$, hiệu năng của mảng khi xử lý lượng dữ liệu lớn sẽ thấp hơn nhiều.
 
 ![Ví dụ chèn nút vào danh sách liên kết](linked_list.assets/linkedlist_insert_node.png)
 
@@ -476,7 +476,7 @@ So sánh với việc chèn phần tử trong mảng có độ phức tạp th�
 
 Như minh hoạ trong hình dưới đây, việc xoá nút trong danh sách liên kết cũng rất thuận tiện, **chỉ cần thay đổi tham chiếu (con trỏ) của một nút là xong**.
 
-Xin lưu ý rằng mặc dù sau khi thao tác xoá hoàn tất, nút `P` vẫn còn trỏ đến `n1` ，nhưng trên thực tế khi duyệt danh sách liên kết này sẽ không thể nào truy cập đến `P` được nữa, đồng nghĩa với việc `P` đã không còn thuộc về danh sách liên kết này.
+Xin lưu ý rằng mặc dù sau khi thao tác xoá hoàn tất, nút `P` vẫn còn trỏ đến `n1`, nhưng trên thực tế khi duyệt danh sách liên kết này sẽ không thể nào truy cập đến `P` được nữa, đồng nghĩa với việc `P` đã không còn thuộc về danh sách liên kết này.
 
 ![Xoá nút trong danh sách liên kết](linked_list.assets/linkedlist_remove_node.png)
 
@@ -486,7 +486,7 @@ Xin lưu ý rằng mặc dù sau khi thao tác xoá hoàn tất, nút `P` vẫn 
 
 ### Truy cập nút
 
-**Hiệu năng truy cập nút trong danh sách liên kết là tương đối thấp**. Như đã trình bày ở phần trước, chúng ta có thể truy cập bất kỳ phần tử nào trong mảng với thời gian $O(1)$ 。Danh sách liên kết thì không như vậy, chương trình buộc phải xuất phát từ nút đầu, lần lượt duyệt qua từng nút một cho đến khi tìm thấy nút mục tiêu. Nghĩa là việc truy cập nút thứ $i$ của danh sách liên kết đòi hỏi phải lặp $i - 1$ vòng, độ phức tạp thời gian là $O(n)$ 。
+**Hiệu năng truy cập nút trong danh sách liên kết là tương đối thấp**. Như đã trình bày ở phần trước, chúng ta có thể truy cập bất kỳ phần tử nào trong mảng với thời gian $O(1)$. Danh sách liên kết thì không như vậy, chương trình buộc phải xuất phát từ nút đầu, lần lượt duyệt qua từng nút một cho đến khi tìm thấy nút mục tiêu. Nghĩa là việc truy cập nút thứ $i$ của danh sách liên kết đòi hỏi phải lặp $i - 1$ vòng, độ phức tạp thời gian là $O(n)$.
 
 ```src
 [file]{linked_list}-[class]{}-[func]{access}
@@ -494,7 +494,7 @@ Xin lưu ý rằng mặc dù sau khi thao tác xoá hoàn tất, nút `P` vẫn 
 
 ### Tìm kiếm nút
 
-Duyệt danh sách liên kết để tìm nút có giá trị bằng `target` ，trả về chỉ số của nút đó trong danh sách liên kết. Quá trình này cũng thuộc dạng tìm kiếm tuyến tính. Đoạn mã như sau:
+Duyệt danh sách liên kết để tìm nút có giá trị bằng `target`, trả về chỉ số của nút đó trong danh sách liên kết. Quá trình này cũng thuộc dạng tìm kiếm tuyến tính. Đoạn mã như sau:
 
 ```src
 [file]{linked_list}-[class]{}-[func]{find}
@@ -519,7 +519,7 @@ Bảng dưới đây tổng kết các đặc điểm của mảng và danh sác
 
 Như minh hoạ trong hình dưới đây, các loại danh sách liên kết phổ biến bao gồm ba loại:
 
-- **Danh sách liên kết đơn (Singly linked list)**: Chính là danh sách liên kết thông thường đã giới thiệu ở trên. Nút của danh sách liên kết đơn chứa hai hạng mục dữ liệu: giá trị và tham chiếu trỏ đến nút tiếp theo. Chúng ta gọi nút đầu tiên là nút đầu, nút cuối cùng là nút cuối, nút cuối trỏ đến rỗng `None` 。
+- **Danh sách liên kết đơn (Singly linked list)**: Chính là danh sách liên kết thông thường đã giới thiệu ở trên. Nút của danh sách liên kết đơn chứa hai hạng mục dữ liệu: giá trị và tham chiếu trỏ đến nút tiếp theo. Chúng ta gọi nút đầu tiên là nút đầu, nút cuối cùng là nút cuối, nút cuối trỏ đến rỗng `None`.
 - **Danh sách liên kết vòng (Circular linked list)**: Nếu cho nút cuối của danh sách liên kết đơn trỏ ngược lại nút đầu (nối đầu và đuôi lại với nhau), chúng ta sẽ thu được một danh sách liên kết vòng. Trong danh sách liên kết vòng, bất kỳ nút nào cũng có thể được coi là nút đầu.
 - **Danh sách liên kết đôi (Doubly linked list)**: So với danh sách liên kết đơn, danh sách liên kết đôi ghi nhận tham chiếu ở cả hai chiều. Định nghĩa nút của danh sách liên kết đôi chứa đồng thời tham chiếu (con trỏ) trỏ đến nút kế tiếp (nút sau) và nút liền trước (nút trước). So với danh sách liên kết đơn, danh sách liên kết đôi linh hoạt hơn nhiều, có thể duyệt danh sách theo cả hai chiều, nhưng bù lại cũng chiếm nhiều không gian bộ nhớ hơn.
 

@@ -4,12 +4,12 @@ Các thao tác cơ bản trên đồ thị có thể chia thành thao tác trên
 
 ## Hiện thực dựa trên ma trận kề
 
-Cho một đồ thị vô hướng có số lượng đỉnh là $n$ ，cách thức hiện thực các thao tác khác nhau được thể hiện như hình dưới đây:
+Cho một đồ thị vô hướng có số lượng đỉnh là $n$, cách thức hiện thực các thao tác khác nhau được thể hiện như hình dưới đây:
 
-- **Thêm hoặc xoá cạnh**: Trực tiếp sửa đổi giá trị của cạnh chỉ định trong ma trận kề, mất thời gian $O(1)$ 。Do là đồ thị vô hướng, nên cần phải cập nhật đồng thời cạnh ở cả hai chiều.
-- **Thêm đỉnh**: Thêm một hàng và một cột vào cuối ma trận kề, và điền toàn bộ giá trị $0$ vào đó, mất thời gian $O(n)$ 。
-- **Xoá đỉnh**: Xoá một hàng và một cột trong ma trận kề. Trường hợp xấu nhất xảy ra khi xoá hàng đầu và cột đầu, đòi hỏi phải "dịch chuyển $(n-1)^2$ phần tử về phía trên bên trái", từ đó mất thời gian $O(n^2)$ 。
-- **Khởi tạo**: Nhận vào $n$ đỉnh, khởi tạo danh sách đỉnh `vertices` có độ dài $n$ ，mất thời gian $O(n)$ ；khởi tạo ma trận kề `adjMat` kích thước $n \times n$ ，mất thời gian $O(n^2)$ 。
+- **Thêm hoặc xoá cạnh**: Trực tiếp sửa đổi giá trị của cạnh chỉ định trong ma trận kề, mất thời gian $O(1)$. Do là đồ thị vô hướng, nên cần phải cập nhật đồng thời cạnh ở cả hai chiều.
+- **Thêm đỉnh**: Thêm một hàng và một cột vào cuối ma trận kề, và điền toàn bộ giá trị $0$ vào đó, mất thời gian $O(n)$.
+- **Xoá đỉnh**: Xoá một hàng và một cột trong ma trận kề. Trường hợp xấu nhất xảy ra khi xoá hàng đầu và cột đầu, đòi hỏi phải "dịch chuyển $(n-1)^2$ phần tử về phía trên bên trái", từ đó mất thời gian $O(n^2)$.
+- **Khởi tạo**: Nhận vào $n$ đỉnh, khởi tạo danh sách đỉnh `vertices` có độ dài $n$, mất thời gian $O(n)$; khởi tạo ma trận kề `adjMat` kích thước $n \times n$, mất thời gian $O(n^2)$.
 
 === "<1>"
     ![Khởi tạo ma trận kề, thêm xoá cạnh, thêm xoá đỉnh](graph_operations.assets/adjacency_matrix_step1_initialization.png)
@@ -34,13 +34,13 @@ Dưới đây là mã nguồn hiện thực biểu diễn đồ thị dựa trê
 
 ## Hiện thực dựa trên danh sách kề
 
-Giả sử tổng số đỉnh của đồ thị vô hướng là $n$ và tổng số cạnh là $m$ ，chúng ta có thể hiện thực các thao tác theo phương pháp thể hiện trong hình dưới đây:
+Giả sử tổng số đỉnh của đồ thị vô hướng là $n$ và tổng số cạnh là $m$, chúng ta có thể hiện thực các thao tác theo phương pháp thể hiện trong hình dưới đây:
 
-- **Thêm cạnh**: Thêm cạnh vào cuối danh sách liên kết tương ứng với đỉnh, mất thời gian $O(1)$ 。Vì là đồ thị vô hướng, nên cần phải thêm đồng thời cạnh ở cả hai chiều.
-- **Xoá cạnh**: Tìm kiếm và xoá cạnh chỉ định trong danh sách liên kết tương ứng với đỉnh, mất thời gian $O(m)$ 。Trong đồ thị vô hướng, cần phải xoá đồng thời cạnh ở cả hai chiều.
-- **Thêm đỉnh**: Thêm một danh sách liên kết vào danh sách kề, và lấy đỉnh mới thêm làm nút đầu của danh sách liên kết đó, mất thời gian $O(1)$ 。
-- **Xoá đỉnh**: Cần phải duyệt qua toàn bộ danh sách kề để xoá toàn bộ các cạnh có chứa đỉnh chỉ định, mất thời gian $O(n + m)$ 。
-- **Khởi tạo**: Tạo $n$ đỉnh và $2m$ cạnh trong danh sách kề, mất thời gian $O(n + m)$ 。
+- **Thêm cạnh**: Thêm cạnh vào cuối danh sách liên kết tương ứng với đỉnh, mất thời gian $O(1)$. Vì là đồ thị vô hướng, nên cần phải thêm đồng thời cạnh ở cả hai chiều.
+- **Xoá cạnh**: Tìm kiếm và xoá cạnh chỉ định trong danh sách liên kết tương ứng với đỉnh, mất thời gian $O(m)$. Trong đồ thị vô hướng, cần phải xoá đồng thời cạnh ở cả hai chiều.
+- **Thêm đỉnh**: Thêm một danh sách liên kết vào danh sách kề, và lấy đỉnh mới thêm làm nút đầu của danh sách liên kết đó, mất thời gian $O(1)$.
+- **Xoá đỉnh**: Cần phải duyệt qua toàn bộ danh sách kề để xoá toàn bộ các cạnh có chứa đỉnh chỉ định, mất thời gian $O(n + m)$.
+- **Khởi tạo**: Tạo $n$ đỉnh và $2m$ cạnh trong danh sách kề, mất thời gian $O(n + m)$.
 
 === "<1>"
     ![Khởi tạo danh sách kề, thêm xoá cạnh, thêm xoá đỉnh](graph_operations.assets/adjacency_list_step1_initialization.png)
@@ -62,7 +62,7 @@ Dưới đây là mã nguồn hiện thực danh sách kề. So với hình minh
 - Để thuận tiện cho việc thêm và xoá đỉnh, cũng như đơn giản hoá mã nguồn, chúng ta sử dụng danh sách (mảng động) thay thế cho danh sách liên kết.
 - Sử dụng bảng băm để lưu trữ danh sách kề, với `key` là thể hiện đối tượng đỉnh (Vertex), và `value` là danh sách các đỉnh kề (danh sách liên kết) của đỉnh đó.
 
-Ngoài ra, chúng ta sử dụng lớp `Vertex` trong danh sách kề để biểu diễn đỉnh. Lý do làm như vậy là: nếu giống như ma trận kề dùng chỉ số danh sách để phân biệt các đỉnh khác nhau, thì giả sử muốn xoá đỉnh có chỉ số $i$ ，chúng ta sẽ phải duyệt toàn bộ danh sách kề và giảm toàn bộ các chỉ số lớn hơn $i$ đi $1$ ，hiệu năng rất thấp. Trong khi nếu mỗi đỉnh là một thể hiện `Vertex` duy nhất, sau khi xoá một đỉnh nào đó ta hoàn toàn không cần phải sửa đổi các đỉnh còn lại.
+Ngoài ra, chúng ta sử dụng lớp `Vertex` trong danh sách kề để biểu diễn đỉnh. Lý do làm như vậy là: nếu giống như ma trận kề dùng chỉ số danh sách để phân biệt các đỉnh khác nhau, thì giả sử muốn xoá đỉnh có chỉ số $i$, chúng ta sẽ phải duyệt toàn bộ danh sách kề và giảm toàn bộ các chỉ số lớn hơn $i$ đi $1$, hiệu năng rất thấp. Trong khi nếu mỗi đỉnh là một thể hiện `Vertex` duy nhất, sau khi xoá một đỉnh nào đó ta hoàn toàn không cần phải sửa đổi các đỉnh còn lại.
 
 ```src
 [file]{graph_adjacency_list}-[class]{graph_adj_list}-[func]{}

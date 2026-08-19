@@ -15,7 +15,7 @@
 
 ### Hỏi & Đáp (Q & A)
 
-**Q**：Hiểu mối quan hệ giữa quay lui và đệ quy như thế nào?
+**Q**: Hiểu mối quan hệ giữa quay lui và đệ quy như thế nào?
 
 Tổng thể mà nói, quay lui là một "chiến lược thuật toán", trong khi đệ quy giống như một "công cụ" hơn:
 

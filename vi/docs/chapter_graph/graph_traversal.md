@@ -22,7 +22,7 @@ BFS thường nhờ vào hàng đợi để hiện thực, mã nguồn như dư�
 
 !!! tip
 
-    Tập hợp băm (hash set) có thể coi là một bảng băm chỉ lưu trữ `key` mà không lưu trữ `value`, nó có thể thực hiện các thao tác thêm, xoá, tra cứu `key` trong thời gian $O(1)$ 。Dựa vào tính duy nhất của `key` ，tập hợp băm thường được ứng dụng trong các bài toán lọc trùng lặp dữ liệu.
+    Tập hợp băm (hash set) có thể coi là một bảng băm chỉ lưu trữ `key` mà không lưu trữ `value`, nó có thể thực hiện các thao tác thêm, xoá, tra cứu `key` trong thời gian $O(1)$. Dựa vào tính duy nhất của `key`, tập hợp băm thường được ứng dụng trong các bài toán lọc trùng lặp dữ liệu.
 
 ```src
 [file]{graph_bfs}-[class]{}-[func]{graph_bfs}
@@ -65,13 +65,13 @@ Mã nguồn tương đối trừu tượng, bạn đọc nên kết hợp đối
 
 !!! question "Chuỗi duyệt theo chiều rộng có phải là duy nhất không?"
 
-    Không duy nhất. Duyệt theo chiều rộng chỉ yêu cầu duyệt theo thứ tự "từ gần đến xa", **còn thứ tự duyệt giữa nhiều đỉnh có cùng khoảng cách thì có thể xáo trộn tuỳ ý**. Lấy ví dụ hình trên, thứ tự truy cập giữa đỉnh $1$ và $3$ có thể hoán đổi cho nhau, thứ tự truy cập giữa các đỉnh $2$、$4$、$6$ cũng có thể tuỳ ý hoán đổi.
+    Không duy nhất. Duyệt theo chiều rộng chỉ yêu cầu duyệt theo thứ tự "từ gần đến xa", **còn thứ tự duyệt giữa nhiều đỉnh có cùng khoảng cách thì có thể xáo trộn tuỳ ý**. Lấy ví dụ hình trên, thứ tự truy cập giữa đỉnh $1$ và $3$ có thể hoán đổi cho nhau, thứ tự truy cập giữa các đỉnh $2$, $4$, $6$ cũng có thể tuỳ ý hoán đổi.
 
 ### Phân tích độ phức tạp
 
-**Độ phức tạp thời gian**: Toàn bộ các đỉnh đều vào và ra khỏi hàng đợi đúng 1 lần, mất thời gian $O(|V|)$ ；trong quá trình duyệt các đỉnh kề, do là đồ thị vô hướng nên toàn bộ các cạnh đều được truy cập $2$ lần, mất thời gian $O(2|E|)$ ；tổng thể mất thời gian $O(|V| + |E|)$ 。
+**Độ phức tạp thời gian**: Toàn bộ các đỉnh đều vào và ra khỏi hàng đợi đúng 1 lần, mất thời gian $O(|V|)$; trong quá trình duyệt các đỉnh kề, do là đồ thị vô hướng nên toàn bộ các cạnh đều được truy cập $2$ lần, mất thời gian $O(2|E|)$; tổng thể mất thời gian $O(|V| + |E|)$.
 
-**Độ phức tạp không gian**: Số lượng đỉnh tối đa trong danh sách `res` ，tập hợp băm `visited` và hàng đợi `que` đều là $|V|$ ，chiếm dụng không gian $O(|V|)$ 。
+**Độ phức tạp không gian**: Số lượng đỉnh tối đa trong danh sách `res`, tập hợp băm `visited` và hàng đợi `que` đều là $|V|$, chiếm dụng không gian $O(|V|)$.
 
 ## Duyệt theo chiều sâu
 
@@ -135,6 +135,6 @@ Quy trình thuật toán của duyệt theo chiều sâu được thể hiện n
 
 ### Phân tích độ phức tạp
 
-**Độ phức tạp thời gian**: Toàn bộ các đỉnh đều được truy cập đúng $1$ lần, mất thời gian $O(|V|)$ ；toàn bộ các cạnh đều được truy cập $2$ lần, mất thời gian $O(2|E|)$ ；tổng thể mất thời gian $O(|V| + |E|)$ 。
+**Độ phức tạp thời gian**: Toàn bộ các đỉnh đều được truy cập đúng $1$ lần, mất thời gian $O(|V|)$; toàn bộ các cạnh đều được truy cập $2$ lần, mất thời gian $O(2|E|)$; tổng thể mất thời gian $O(|V| + |E|)$.
 
-**Độ phức tạp không gian**: Số lượng đỉnh tối đa trong danh sách `res` và tập hợp băm `visited` là $|V|$ ，độ sâu đệ quy tối đa là $|V|$ ，do đó chiếm dụng không gian $O(|V|)$ 。
+**Độ phức tạp không gian**: Số lượng đỉnh tối đa trong danh sách `res` và tập hợp băm `visited` là $|V|$, độ sâu đệ quy tối đa là $|V|$, do đó chiếm dụng không gian $O(|V|)$.

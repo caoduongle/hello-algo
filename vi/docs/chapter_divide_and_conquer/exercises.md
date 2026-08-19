@@ -11,25 +11,25 @@ Hãy phán đoán xem chúng thuộc loại "phù hợp với chia để trị",
 
 1. Sắp xếp một mảng chưa có thứ tự;
 2. Tìm giá trị lớn nhất trong một mảng;
-3. Thực hiện theo thứ tự một chuỗi các thao tác ngăn xếp `push(x)`、`pop()`，và xuất ra các phần tử thu được sau mỗi lần `pop()`。
+3. Thực hiện theo thứ tự một chuỗi các thao tác ngăn xếp `push(x)`, `pop()`, và xuất ra các phần tử thu được sau mỗi lần `pop()`.
 
 ??? success "Đáp án tham khảo"
 
     1. Phù hợp: Chia đôi mảng, sắp xếp độc lập hai nửa, gộp lại trong thời gian $O(n)$ — đây chính là sắp xếp trộn.
     2. Có thể dùng chia để trị, nhưng không làm giảm tổng khối lượng công việc: Hai nửa trái phải vẫn phải kiểm tra tổng cộng toàn bộ $n$ phần tử,
-        tương tự như duyệt tuần tự trực tiếp đều mất thời gian $O(n)$。
+        tương tự như duyệt tuần tự trực tiếp đều mất thời gian $O(n)$.
     3. Hai nửa không thể giải quyết độc lập: Nội dung ngăn xếp tại thời điểm bắt đầu nửa sau phụ thuộc vào kết quả thực thi của nửa trước,
         hai nửa không thể hoàn thành độc lập khi chưa biết kết quả của nhau.
 
 ### Thuật toán luỹ thừa nhanh (Fast Power) giảm thiểu tính toán như thế nào?
 
-Hàm đệ quy dưới đây sử dụng chia để trị để tính $x^n$：
+Hàm đệ quy dưới đây sử dụng chia để trị để tính $x^n$:
 
 ```src
 [file]{fast_power}-[class]{}-[func]{fast_pow}
 ```
 
-Đặt `x = 3`、`n = 5`，dùng hàm này để tính toán:
+Đặt `x = 3`, `n = 5`, dùng hàm này để tính toán:
 
 <!-- numbered-subquestions -->
 
@@ -39,13 +39,13 @@ Hàm đệ quy dưới đây sử dụng chia để trị để tính $x^n$：
 
 ??? success "Đáp án tham khảo"
 
-    1. Tham số lần lượt là `5 → 2 → 1 → 0`，mỗi lần đều giảm số mũ đi một nửa cho đến khi chạm điều kiện dừng.
+    1. Tham số lần lượt là `5 → 2 → 1 → 0`, mỗi lần đều giảm số mũ đi một nửa cho đến khi chạm điều kiện dừng.
 
-    2. Khi `n = 0` trả về 1; khi `n = 1` trả về $1 \times 1 \times 3 = 3$；
-        khi `n = 2` trả về $3 \times 3 = 9$；khi `n = 5` trả về $9 \times 9 \times 3 = 243$。
+    2. Khi `n = 0` trả về 1; khi `n = 1` trả về $1 \times 1 \times 3 = 3$;
+        khi `n = 2` trả về $3 \times 3 = 9$; khi `n = 5` trả về $9 \times 9 \times 3 = 243$.
 
     3. Nếu gọi bài toán con giống nhau ở hai vế của phép nhân, hai lần đệ quy sẽ thực hiện các phép tính hoàn toàn trùng lặp.
-        Việc lưu kết quả vào biến `half` trước giúp mỗi tầng chỉ cần gọi đệ quy một lần, độ sâu đệ quy khoảng $\log n$；
+        Việc lưu kết quả vào biến `half` trước giúp mỗi tầng chỉ cần gọi đệ quy một lần, độ sâu đệ quy khoảng $\log n$;
         nếu gọi hai lần sẽ gây ra lượng lớn các phép tính lặp thừa thãi.
 
 ### Tách cây con trái và phải từ dãy duyệt
@@ -65,21 +65,21 @@ Chỉ hoàn thành việc bóc tách ở tầng nút gốc này, không cần ti
 
 ??? success "Đáp án tham khảo"
 
-    1. Nút đầu tiên của duyệt tiền thứ tự là nút gốc, do đó nút gốc là `A`。
+    1. Nút đầu tiên của duyệt tiền thứ tự là nút gốc, do đó nút gốc là `A`.
 
-    2. `A` chia duyệt trung thứ tự thành hai phần: cây con trái là `[D, B, E]`，cây con phải là `[C]`。
+    2. `A` chia duyệt trung thứ tự thành hai phần: cây con trái là `[D, B, E]`, cây con phải là `[C]`.
 
     3. Cây con trái có 3 nút, do đó 3 phần tử tiền thứ tự đứng sau nút gốc `A` thuộc về cây con trái,
-        tức là `[B, D, E]`；phần tử `[C]` còn lại thuộc về cây con phải.
-        Vì vậy nút con trái của nút gốc là `B`，nút con phải là `C`。
+        tức là `[B, D, E]`; phần tử `[C]` còn lại thuộc về cây con phải.
+        Vì vậy nút con trái của nút gốc là `B`, nút con phải là `C`.
 
 ## Bài tập lập trình
 
 ### Luỹ thừa nhanh (Fast Power)
 
-Cho số thực `x` và số nguyên `n`，hãy tính $x^n$ mà không gọi hàm luỹ thừa tích hợp sẵn của ngôn ngữ.
+Cho số thực `x` và số nguyên `n`, hãy tính $x^n$ mà không gọi hàm luỹ thừa tích hợp sẵn của ngôn ngữ.
 Yêu cầu sử dụng chia để trị bằng đệ quy: mỗi lần thu nhỏ số mũ đi một nửa, và tái sử dụng kết quả bài toán con đã tính toán.
-Quy ước $x^0=1$ ，bao gồm cả khi `x = 0` ；khi `n < 0` đảm bảo `x != 0` ，kết quả có thể quy đổi thành $(1/x)^{-n}$ 。
+Quy ước $x^0=1$, bao gồm cả khi `x = 0`; khi `n < 0` đảm bảo `x != 0`, kết quả có thể quy đổi thành $(1/x)^{-n}$.
 
 ??? tip "Gợi ý giải bài"
 

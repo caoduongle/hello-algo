@@ -4,7 +4,7 @@
 
 ### Các vòng đầu tiên của sắp xếp chọn và sắp xếp nổi bọt
 
-Cho mảng `[4, 2, 5, 1, 3]`，các câu hỏi dưới đây đều sắp xếp theo thứ tự từ nhỏ đến lớn.
+Cho mảng `[4, 2, 5, 1, 3]`, các câu hỏi dưới đây đều sắp xếp theo thứ tự từ nhỏ đến lớn.
 
 <!-- numbered-subquestions -->
 
@@ -23,11 +23,11 @@ Cho mảng `[4, 2, 5, 1, 3]`，các câu hỏi dưới đây đều sắp xếp 
         Lúc này hai vị trí đầu tiên đã được xác định cố định, các vòng tiếp theo chỉ cần tiếp tục chọn phần tử nhỏ nhất trong `[5, 4, 3]`.
 
     2. Lần lượt so sánh các phần tử liền kề: 4 hoán đổi với 2, 4 không hoán đổi với 5, 5 hoán đổi với 1, 5 hoán đổi với 3,
-        thu được `[2, 4, 1, 3, 5]`，tổng cộng 3 lần hoán đổi; phần tử lớn nhất 5 đã được đưa về cuối mảng, do đó vị trí cuối cùng đã được xác định cố định.
+        thu được `[2, 4, 1, 3, 5]`, tổng cộng 3 lần hoán đổi; phần tử lớn nhất 5 đã được đưa về cuối mảng, do đó vị trí cuối cùng đã được xác định cố định.
 
 ### Thứ tự trước sau của các phần tử bằng nhau có bị thay đổi không?
 
-Trong mảng $[2_a, 2_b, 1]$， $2_a$ và $2_b$ có giá trị bằng nhau, nhưng dùng chỉ số dưới để đánh dấu thứ tự ban đầu.
+Trong mảng $[2_a, 2_b, 1]$, $2_a$ và $2_b$ có giá trị bằng nhau, nhưng dùng chỉ số dưới để đánh dấu thứ tự ban đầu.
 
 <!-- numbered-subquestions -->
 
@@ -37,11 +37,11 @@ Trong mảng $[2_a, 2_b, 1]$， $2_a$ và $2_b$ có giá trị bằng nhau, như
 
 ??? success "Đáp án tham khảo"
 
-    1. Vòng 1 của sắp xếp chọn tìm ra phần tử nhỏ nhất 1 và hoán đổi với phần tử đầu tiên $2_a$，thu được
-        $[1, 2_b, 2_a]$。 $2_a$ đã bị chuyển ra sau $2_b$，thứ tự tương đối giữa chúng đã bị thay đổi.
+    1. Vòng 1 của sắp xếp chọn tìm ra phần tử nhỏ nhất 1 và hoán đổi với phần tử đầu tiên $2_a$, thu được
+        $[1, 2_b, 2_a]$. $2_a$ đã bị chuyển ra sau $2_b$, thứ tự tương đối giữa chúng đã bị thay đổi.
 
-    2. Sắp xếp nổi bọt trước tiên so sánh $2_a$ và $2_b$，vì hai phần tử bằng nhau nên không hoán đổi; sau đó so sánh $2_b$ và 1 rồi hoán đổi,
-        sau khi kết thúc vòng 1 mảng là $[2_a, 1, 2_b]$。 $2_a$ vẫn đứng trước $2_b$，thứ tự tương đối không bị thay đổi.
+    2. Sắp xếp nổi bọt trước tiên so sánh $2_a$ và $2_b$, vì hai phần tử bằng nhau nên không hoán đổi; sau đó so sánh $2_b$ và 1 rồi hoán đổi,
+        sau khi kết thúc vòng 1 mảng là $[2_a, 1, 2_b]$. $2_a$ vẫn đứng trước $2_b$, thứ tự tương đối không bị thay đổi.
 
     3. Trong ví dụ này, sắp xếp chọn làm thay đổi thứ tự ban đầu của các phần tử bằng nhau; sắp xếp nổi bọt chỉ hoán đổi hai phần tử liền kề khi
         phần tử bên trái lớn hơn phần tử bên phải. Các phần tử bằng nhau không bị hoán đổi, do đó duy trì được thứ tự trước sau ban đầu của chúng.
@@ -58,7 +58,7 @@ Nhà trường cần sắp xếp rất nhiều mã số sinh viên cố định 
 
 ??? success "Đáp án tham khảo"
 
-    1. Mã số sinh viên có 8 chữ số, do đó từ hàng thấp nhất đến hàng cao nhất cần xử lý tổng cộng 8 vòng; mỗi vòng chỉ phân nhóm theo các chữ số từ 0～9.
+    1. Mã số sinh viên có 8 chữ số, do đó từ hàng thấp nhất đến hàng cao nhất cần xử lý tổng cộng 8 vòng; mỗi vòng chỉ phân nhóm theo các chữ số từ 0~ 9.
 
     2. Việc đếm trực tiếp đòi hỏi phải dành sẵn vị trí cho toàn bộ các giá trị 8 chữ số có thể xảy ra ($10^8$), nhưng sinh viên thực tế chỉ sử dụng một phần rất nhỏ trong số đó,
         phần lớn các vị trí đếm sẽ luôn mang giá trị 0.

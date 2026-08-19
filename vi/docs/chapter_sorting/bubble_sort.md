@@ -27,7 +27,7 @@ Như hình dưới đây, quá trình nổi bọt có thể được mô phỏng
 
 ## Quy trình thuật toán
 
-Giả sử độ dài của mảng là $n$ ，các bước của sắp xếp nổi bọt được thể hiện như hình dưới đây:
+Giả sử độ dài của mảng là $n$, các bước của sắp xếp nổi bọt được thể hiện như hình dưới đây:
 
 1. Đầu tiên, thực hiện "nổi bọt" trên $n$ phần tử, **hoán đổi phần tử lớn nhất của mảng về đúng vị trí**.
 2. Tiếp theo, thực hiện "nổi bọt" trên $n - 1$ phần tử còn lại, **hoán đổi phần tử lớn thứ hai về đúng vị trí**.
@@ -46,7 +46,7 @@ Mã nguồn ví dụ như sau:
 
 Chúng ta nhận thấy rằng nếu trong một vòng "nổi bọt" nào đó không thực hiện bất kỳ thao tác hoán đổi nào, điều đó chứng tỏ mảng đã được sắp xếp hoàn tất, có thể trực tiếp trả về kết quả. Do đó, có thể bổ sung một biến cờ hiệu `flag` để giám sát tình huống này, một khi xuất hiện thì lập tức dừng lại và trả về.
 
-Sau khi tối ưu, độ phức tạp thời gian trong trường hợp xấu nhất và trung bình của sắp xếp nổi bọt vẫn là $O(n^2)$ ；nhưng khi mảng đầu vào đã hoàn toàn có thứ tự sẵn, thuật toán có thể đạt độ phức tạp thời gian tốt nhất là $O(n)$ 。
+Sau khi tối ưu, độ phức tạp thời gian trong trường hợp xấu nhất và trung bình của sắp xếp nổi bọt vẫn là $O(n^2)$; nhưng khi mảng đầu vào đã hoàn toàn có thứ tự sẵn, thuật toán có thể đạt độ phức tạp thời gian tốt nhất là $O(n)$.
 
 ```src
 [file]{bubble_sort}-[class]{}-[func]{bubble_sort_with_flag}
@@ -54,6 +54,6 @@ Sau khi tối ưu, độ phức tạp thời gian trong trường hợp xấu nh
 
 ## Đặc tính của thuật toán
 
-- **Độ phức tạp thời gian là $O(n^2)$、Sắp xếp thích ứng**: Độ dài mảng được duyệt trong các vòng "nổi bọt" lần lượt là $n - 1$、$n - 2$、$\dots$、$2$、$1$ ，tổng cộng là $(n - 1) n / 2$ 。Sau khi áp dụng tối ưu bằng `flag` ，độ phức tạp thời gian tốt nhất có thể đạt $O(n)$ 。
-- **Độ phức tạp không gian là $O(1)$、Sắp xếp tại chỗ**: Các con trỏ $i$ và $j$ chỉ sử dụng không gian phụ trợ kích thước hằng số.
+- **Độ phức tạp thời gian là $O(n^2)$, Sắp xếp thích ứng**: Độ dài mảng được duyệt trong các vòng "nổi bọt" lần lượt là $n - 1$, $n - 2$, $\dots$, $2$, $1$, tổng cộng là $(n - 1) n / 2$. Sau khi áp dụng tối ưu bằng `flag`, độ phức tạp thời gian tốt nhất có thể đạt $O(n)$.
+- **Độ phức tạp không gian là $O(1)$, Sắp xếp tại chỗ**: Các con trỏ $i$ và $j$ chỉ sử dụng không gian phụ trợ kích thước hằng số.
 - **Sắp xếp ổn định**: Do trong quá trình "nổi bọt", khi gặp các phần tử có giá trị bằng nhau thì không thực hiện hoán đổi.

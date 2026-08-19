@@ -4,7 +4,7 @@ Trong các bài toán thuật toán, **chúng ta thường giảm độ phức t
 
 !!! question
 
-    Cho một mảng số nguyên `nums` và một giá trị mục tiêu `target` ，hãy tìm hai phần tử trong mảng có tổng bằng `target` ，và trả về chỉ số mảng của chúng. Trả về bất kỳ một lời giải hợp lệ nào là được.
+    Cho một mảng số nguyên `nums` và một giá trị mục tiêu `target`, hãy tìm hai phần tử trong mảng có tổng bằng `target`, và trả về chỉ số mảng của chúng. Trả về bất kỳ một lời giải hợp lệ nào là được.
 
 ## Tìm kiếm tuyến tính: Đổi thời gian lấy không gian
 
@@ -18,7 +18,7 @@ Mã nguồn như sau:
 [file]{two_sum}-[class]{}-[func]{two_sum_brute_force}
 ```
 
-Phương pháp này có độ phức tạp thời gian là $O(n^2)$ và độ phức tạp không gian là $O(1)$ ，rất tốn thời gian khi lượng dữ liệu lớn.
+Phương pháp này có độ phức tạp thời gian là $O(n^2)$ và độ phức tạp không gian là $O(1)$, rất tốn thời gian khi lượng dữ liệu lớn.
 
 ## Tìm kiếm bằng bảng băm: Đổi không gian lấy thời gian
 
@@ -42,6 +42,6 @@ Mã nguồn hiện thực như dưới đây, chỉ cần một vòng lặp đơ
 [file]{two_sum}-[class]{}-[func]{two_sum_hash_table}
 ```
 
-Phương pháp này thông qua tìm kiếm bằng bảng băm đã hạ độ phức tạp thời gian từ $O(n^2)$ xuống $O(n)$ ，nâng cao đáng kể hiệu năng chạy chương trình.
+Phương pháp này thông qua tìm kiếm bằng bảng băm đã hạ độ phức tạp thời gian từ $O(n^2)$ xuống $O(n)$, nâng cao đáng kể hiệu năng chạy chương trình.
 
-Do cần phải duy trì thêm một bảng băm phụ trợ nên độ phức tạp không gian là $O(n)$ 。**Dù vậy, hiệu năng tổng thể về thời gian và không gian của phương pháp này cân bằng hơn nhiều, vì vậy đây là cách giải tối ưu nhất cho bài toán này**.
+Do cần phải duy trì thêm một bảng băm phụ trợ nên độ phức tạp không gian là $O(n)$. **Dù vậy, hiệu năng tổng thể về thời gian và không gian của phương pháp này cân bằng hơn nhiều, vì vậy đây là cách giải tối ưu nhất cho bài toán này**.

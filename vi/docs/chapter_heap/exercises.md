@@ -15,10 +15,10 @@ Mảng `[9, 7, 8, 3, 5]` biểu diễn một đống cực đại. Bây giờ th
 ??? success "Đáp án tham khảo"
 
     1. 10 thêm vào sau có chỉ số là 5, chỉ số nút cha của nó là
-        $\lfloor(5-1)/2\rfloor=2$，giá trị của nút cha là 8.
+        $\lfloor(5-1)/2\rfloor=2$, giá trị của nút cha là 8.
 
-    2. 10 lớn hơn 8, sau lần hoán đổi thứ nhất mảng là `[9, 7, 10, 3, 5, 8]`；
-        10 lại lớn hơn nút cha 9, sau lần hoán đổi thứ hai mảng là `[10, 7, 9, 3, 5, 8]`。
+    2. 10 lớn hơn 8, sau lần hoán đổi thứ nhất mảng là `[9, 7, 10, 3, 5, 8]`;
+        10 lại lớn hơn nút cha 9, sau lần hoán đổi thứ hai mảng là `[10, 7, 9, 3, 5, 8]`.
         Lúc này 10 đã lên tới nút gốc, quá trình vun đống kết thúc.
 
     3. Phần tử đỉnh đống cuối cùng là 10, tổng cộng hoán đổi 2 lần.
@@ -26,7 +26,7 @@ Mảng `[9, 7, 8, 3, 5]` biểu diễn một đống cực đại. Bây giờ th
 ### Kiểm tra quan hệ cha con trong đống cực tiểu
 
 Mảng `[1, 4, 3, 7, 6, 2]` biểu diễn một cây nhị phân hoàn chỉnh. Đống cực tiểu yêu cầu mọi nút cha đều không được lớn hơn các nút con của nó.
-Đối với chỉ số $i$，chỉ số nút con trái và phải lần lượt là $2i+1$ và $2i+2$。
+Đối với chỉ số $i$, chỉ số nút con trái và phải lần lượt là $2i+1$ và $2i+2$.
 
 <!-- numbered-subquestions -->
 
@@ -40,13 +40,13 @@ Mảng `[1, 4, 3, 7, 6, 2]` biểu diễn một cây nhị phân hoàn chỉnh. 
 
     2. Giá trị nút cha 3 lớn hơn giá trị nút con 2, vi phạm quy tắc đống cực tiểu, nên hoán đổi phần tử tại chỉ số 2 và chỉ số 5.
 
-    3. Sau khi hoán đổi ta được mảng `[1, 4, 2, 7, 6, 3]`。Lần lượt kiểm tra:
-        `1 ≤ 4`、`1 ≤ 2`；`4 ≤ 7`、`4 ≤ 6`；`2 ≤ 3`。
+    3. Sau khi hoán đổi ta được mảng `[1, 4, 2, 7, 6, 3]`. Lần lượt kiểm tra:
+        `1 ≤ 4`, `1 ≤ 2`; `4 ≤ 7`, `4 ≤ 6`; `2 ≤ 3`.
         Toàn bộ các nút cha đều không lớn hơn các nút con của chúng, do đó hiện tại đã thoả mãn quy tắc đống cực tiểu.
 
 ### Dùng đống cực tiểu để giữ lại 3 số lớn nhất
 
-Để giữ lại 3 số lớn nhất từ luồng dữ liệu `[4, 1, 7, 3, 8]`，có thể duy trì một đống cực tiểu có kích thước không vượt quá 3.
+Để giữ lại 3 số lớn nhất từ luồng dữ liệu `[4, 1, 7, 3, 8]`, có thể duy trì một đống cực tiểu có kích thước không vượt quá 3.
 
 Trước tiên lần lượt đưa 3 số đầu tiên vào đống cực tiểu. Sau khi đống đầy, mỗi khi đọc một số mới:
 nếu số đó lớn hơn đỉnh đống thì xoá đỉnh đống và đưa số mới vào; ngược lại giữ nguyên đống.
@@ -73,7 +73,7 @@ Chỉ cần viết các số được giữ lại dưới dạng tập hợp, kh
 
 ### Tìm phần tử lớn thứ k trong mảng
 
-Cho mảng số nguyên `nums` và số nguyên $k$，trong đó $1 \le k \le n$，$n$ là độ dài mảng. Sau khi sắp xếp mảng theo thứ tự từ lớn đến nhỏ, hãy trả về phần tử nằm ở vị trí thứ $k$。
+Cho mảng số nguyên `nums` và số nguyên $k$, trong đó $1 \le k \le n$, $n$ là độ dài mảng. Sau khi sắp xếp mảng theo thứ tự từ lớn đến nhỏ, hãy trả về phần tử nằm ở vị trí thứ $k$.
 
 Các phần tử trùng lặp cần được đếm riêng rẽ. Ví dụ, phần tử lớn thứ 2 của `[5, 5, 2]` vẫn là 5. Hãy sử dụng một đống cực tiểu có kích thước không vượt quá $k$ để hoàn thành bài toán.
 

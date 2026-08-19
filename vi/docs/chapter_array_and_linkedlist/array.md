@@ -8,7 +8,7 @@
 
 ### Khởi tạo mảng
 
-Chúng ta có thể tuỳ chọn hai cách khởi tạo mảng theo nhu cầu: không có giá trị khởi tạo và có sẵn giá trị khởi tạo. Trong trường hợp không chỉ định giá trị ban đầu, hầu hết các ngôn ngữ lập trình sẽ khởi tạo các phần tử mảng bằng $0$ ：
+Chúng ta có thể tuỳ chọn hai cách khởi tạo mảng theo nhu cầu: không có giá trị khởi tạo và có sẵn giá trị khởi tạo. Trong trường hợp không chỉ định giá trị ban đầu, hầu hết các ngôn ngữ lập trình sẽ khởi tạo các phần tử mảng bằng $0$:
 
 === "Python"
 
@@ -136,9 +136,9 @@ Các phần tử trong mảng được lưu trữ trong các ô nhớ liên tụ
 
 ![Tính toán địa chỉ bộ nhớ của phần tử mảng](array.assets/array_memory_location_calculation.png)
 
-Quan sát hình trên, ta thấy chỉ số của phần tử đầu tiên trong mảng là $0$ ，điều này có vẻ hơi phản trực giác vì đếm từ $1$ sẽ tự nhiên hơn. Nhưng đứng từ góc độ công thức tính địa chỉ, **chỉ số về bản chất là độ lệch (offset) của địa chỉ bộ nhớ**。Độ lệch địa chỉ của phần tử đầu tiên là $0$ ，do đó chỉ số của nó là $0$ là hoàn toàn hợp lý.
+Quan sát hình trên, ta thấy chỉ số của phần tử đầu tiên trong mảng là $0$, điều này có vẻ hơi phản trực giác vì đếm từ $1$ sẽ tự nhiên hơn. Nhưng đứng từ góc độ công thức tính địa chỉ, **chỉ số về bản chất là độ lệch (offset) của địa chỉ bộ nhớ**. Độ lệch địa chỉ của phần tử đầu tiên là $0$, do đó chỉ số của nó là $0$ là hoàn toàn hợp lý.
 
-Việc truy cập phần tử trong mảng diễn ra vô cùng hiệu quả, chúng ta có thể truy cập ngẫu nhiên bất kỳ phần tử nào trong mảng với thời gian $O(1)$ 。
+Việc truy cập phần tử trong mảng diễn ra vô cùng hiệu quả, chúng ta có thể truy cập ngẫu nhiên bất kỳ phần tử nào trong mảng với thời gian $O(1)$.
 
 ```src
 [file]{array}-[class]{}-[func]{random_access}
@@ -158,7 +158,7 @@ Cần lưu ý rằng do độ dài của mảng là cố định, việc chèn t
 
 ### Xoá phần tử
 
-Tương tự, như minh hoạ trong hình dưới đây, nếu muốn xoá phần tử tại chỉ số $i$ ，chúng ta cần phải dịch chuyển toàn bộ các phần tử phía sau chỉ số $i$ tiến lên trước một vị trí.
+Tương tự, như minh hoạ trong hình dưới đây, nếu muốn xoá phần tử tại chỉ số $i$, chúng ta cần phải dịch chuyển toàn bộ các phần tử phía sau chỉ số $i$ tiến lên trước một vị trí.
 
 ![Ví dụ xoá phần tử trong mảng](array.assets/array_remove_element.png)
 
@@ -170,7 +170,7 @@ Xin lưu ý rằng sau khi xoá phần tử xong, phần tử ở vị trí cu�
 
 Nhìn chung, các thao tác chèn và xoá trong mảng có những nhược điểm sau:
 
-- **Độ phức tạp thời gian cao**: Độ phức tạp thời gian trung bình của thao tác chèn và xoá trong mảng đều là $O(n)$ ，trong đó $n$ là độ dài của mảng.
+- **Độ phức tạp thời gian cao**: Độ phức tạp thời gian trung bình của thao tác chèn và xoá trong mảng đều là $O(n)$, trong đó $n$ là độ dài của mảng.
 - **Mất mát phần tử**: Do độ dài của mảng không thể thay đổi, nên sau khi chèn phần tử, các phần tử vượt quá giới hạn độ dài của mảng sẽ bị mất.
 - **Lãng phí bộ nhớ**: Chúng ta có thể khởi tạo một mảng tương đối dài và chỉ dùng phần đầu, như vậy khi chèn dữ liệu, các phần tử cuối bị mất đi đều là phần tử "vô nghĩa", nhưng làm như vậy sẽ gây lãng phí một phần không gian bộ nhớ.
 
@@ -194,9 +194,9 @@ Vì mảng là một cấu trúc dữ liệu tuyến tính, nên thao tác tìm 
 
 ### Mở rộng dung lượng mảng
 
-Trong các môi trường hệ thống phức tạp, chương trình rất khó đảm bảo rằng khoảng không gian bộ nhớ nằm ngay sau mảng là khả dụng, do đó không thể mở rộng dung lượng mảng một cách an toàn tại chỗ. Vì vậy trong đa số ngôn ngữ lập trình, **độ dài của mảng là không thể thay đổi (bất biến)**。
+Trong các môi trường hệ thống phức tạp, chương trình rất khó đảm bảo rằng khoảng không gian bộ nhớ nằm ngay sau mảng là khả dụng, do đó không thể mở rộng dung lượng mảng một cách an toàn tại chỗ. Vì vậy trong đa số ngôn ngữ lập trình, **độ dài của mảng là không thể thay đổi (bất biến)**.
 
-Nếu muốn mở rộng dung lượng mảng, chúng ta cần phải tạo một mảng mới lớn hơn, sau đó lần lượt sao chép các phần tử từ mảng cũ sang mảng mới. Đây là một thao tác có độ phức tạp $O(n)$ ，và rất tốn thời gian khi kích thước mảng lớn. Mã nguồn như sau:
+Nếu muốn mở rộng dung lượng mảng, chúng ta cần phải tạo một mảng mới lớn hơn, sau đó lần lượt sao chép các phần tử từ mảng cũ sang mảng mới. Đây là một thao tác có độ phức tạp $O(n)$, và rất tốn thời gian khi kích thước mảng lớn. Mã nguồn như sau:
 
 ```src
 [file]{array}-[class]{}-[func]{extend}
@@ -207,7 +207,7 @@ Nếu muốn mở rộng dung lượng mảng, chúng ta cần phải tạo mộ
 Mảng được lưu trữ trong không gian bộ nhớ liên tục và các phần tử có cùng kiểu dữ liệu. Phương thức này chứa đựng thông tin tiên nghiệm phong phú, giúp hệ thống có thể tận dụng các thông tin đó để tối ưu hoá hiệu năng thao tác trên cấu trúc dữ liệu:
 
 - **Hiệu năng không gian cao**: Mảng cấp phát một khối bộ nhớ liên tục cho dữ liệu, không tốn thêm chi phí cấu trúc bổ sung.
-- **Hỗ trợ truy cập ngẫu nhiên**: Mảng cho phép truy cập bất kỳ phần tử nào trong thời gian $O(1)$ 。
+- **Hỗ trợ truy cập ngẫu nhiên**: Mảng cho phép truy cập bất kỳ phần tử nào trong thời gian $O(1)$.
 - **Tính cục bộ bộ nhớ đệm (Cache locality)**: Khi truy cập một phần tử mảng, máy tính không chỉ nạp riêng phần tử đó mà còn nạp cả các dữ liệu xung quanh vào bộ nhớ đệm, nhờ đó tận dụng bộ nhớ đệm tốc độ cao để đẩy nhanh tốc độ thực thi của các thao tác tiếp theo.
 
 Lưu trữ trong không gian liên tục là con dao hai lưỡi, nó tồn tại những hạn chế sau:

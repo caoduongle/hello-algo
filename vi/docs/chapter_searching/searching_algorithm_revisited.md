@@ -18,7 +18,7 @@ Tìm kiếm vét cạn (Brute-force search) định vị phần tử mục tiêu
 
 Ưu điểm của tìm kiếm vét cạn là đơn giản và có tính tổng quát cao, **hoàn toàn không cần tiền xử lý dữ liệu hay phải dựa vào các cấu trúc dữ liệu phụ trợ**.
 
-Tuy nhiên, **độ phức tạp thời gian của nhóm thuật toán này là $O(n)$** ，trong đó $n$ là số lượng phần tử, do đó hiệu năng khá kém khi xử lý khối lượng dữ liệu lớn.
+Tuy nhiên, **độ phức tạp thời gian của nhóm thuật toán này là $O(n)$**, trong đó $n$ là số lượng phần tử, do đó hiệu năng khá kém khi xử lý khối lượng dữ liệu lớn.
 
 ## Tìm kiếm thích ứng
 
@@ -28,7 +28,7 @@ Tìm kiếm thích ứng (Adaptive search) tận dụng các đặc tính riêng
 - "Tìm kiếm bằng bảng băm" sử dụng bảng băm để thiết lập ánh xạ khoá-giá trị (key-value) giữa dữ liệu tìm kiếm và dữ liệu mục tiêu, từ đó thực hiện thao tác truy vấn.
 - "Tìm kiếm trên cây" hoạt động trên các cấu trúc cây đặc thù (như cây tìm kiếm nhị phân), dựa vào việc so sánh giá trị nút để nhanh chóng loại trừ các nhánh, từ đó định vị phần tử mục tiêu.
 
-Ưu điểm của nhóm thuật toán này là hiệu năng rất cao, **độ phức tạp thời gian có thể đạt tới $O(\log n)$ thậm chí là $O(1)$** 。
+Ưu điểm của nhóm thuật toán này là hiệu năng rất cao, **độ phức tạp thời gian có thể đạt tới $O(\log n)$ thậm chí là $O(1)$**.
 
 Tuy nhiên, **việc sử dụng các thuật toán này thường đòi hỏi phải tiền xử lý dữ liệu**. Ví dụ, tìm kiếm nhị phân cần phải sắp xếp mảng trước, trong khi tìm kiếm bằng bảng băm và tìm kiếm trên cây đều cần phải nhờ đến cấu trúc dữ liệu phụ trợ, việc duy trì các cấu trúc dữ liệu này cũng phát sinh thêm chi phí thời gian và không gian.
 
@@ -38,7 +38,7 @@ Tuy nhiên, **việc sử dụng các thuật toán này thường đòi hỏi p
 
 ## Lựa chọn phương pháp tìm kiếm
 
-Cho một tập dữ liệu có kích thước $n$ ，chúng ta có thể sử dụng nhiều phương pháp khác nhau như tìm kiếm tuyến tính, tìm kiếm nhị phân, tìm kiếm trên cây, tìm kiếm bằng bảng băm để tìm kiếm phần tử mục tiêu. Nguyên lý hoạt động của từng phương pháp được minh hoạ như hình dưới đây:
+Cho một tập dữ liệu có kích thước $n$, chúng ta có thể sử dụng nhiều phương pháp khác nhau như tìm kiếm tuyến tính, tìm kiếm nhị phân, tìm kiếm trên cây, tìm kiếm bằng bảng băm để tìm kiếm phần tử mục tiêu. Nguyên lý hoạt động của từng phương pháp được minh hoạ như hình dưới đây:
 
 ![Nhiều chiến lược tìm kiếm khác nhau](searching_algorithm_revisited.assets/searching_algorithms.png)
 
@@ -65,13 +65,13 @@ Việc lựa chọn thuật toán tìm kiếm còn phụ thuộc vào quy mô d�
 
 **Tìm kiếm nhị phân**
 
-- Thích hợp cho lượng dữ liệu lớn, hiệu năng thể hiện ổn định, độ phức tạp thời gian trong trường hợp xấu nhất là $O(\log n)$ 。
+- Thích hợp cho lượng dữ liệu lớn, hiệu năng thể hiện ổn định, độ phức tạp thời gian trong trường hợp xấu nhất là $O(\log n)$.
 - Lượng dữ liệu không thể quá lớn, vì việc lưu trữ mảng đòi hỏi không gian bộ nhớ liên tục.
 - Không thích hợp cho các tình huống thêm và xoá dữ liệu với tần suất cao, vì chi phí duy trì mảng có thứ tự là rất lớn.
 
 **Tìm kiếm bằng bảng băm**
 
-- Thích hợp cho các tình huống đòi hỏi hiệu năng truy vấn cực cao, độ phức tạp thời gian trung bình là $O(1)$ 。
+- Thích hợp cho các tình huống đòi hỏi hiệu năng truy vấn cực cao, độ phức tạp thời gian trung bình là $O(1)$.
 - Không thích hợp cho các tình huống cần dữ liệu có thứ tự hoặc tìm kiếm theo khoảng giá trị (range search), vì bảng băm không duy trì tính có thứ tự của dữ liệu.
 - Phụ thuộc nhiều vào hàm băm và chiến lược xử lý xung đột băm, tiềm ẩn rủi ro suy giảm hiệu năng.
 - Không thích hợp cho lượng dữ liệu quá lớn, vì bảng băm cần không gian phụ trợ để giảm thiểu xung đột nhằm cung cấp hiệu năng truy vấn tốt nhất.
@@ -80,5 +80,5 @@ Việc lựa chọn thuật toán tìm kiếm còn phụ thuộc vào quy mô d�
 
 - Thích hợp cho lượng dữ liệu khổng lồ, vì các nút cây được lưu trữ phân tán trong bộ nhớ.
 - Thích hợp cho các tình huống cần duy trì dữ liệu có thứ tự hoặc tìm kiếm theo khoảng giá trị.
-- Trong quá trình liên tục thêm và xoá các nút, cây tìm kiếm nhị phân có thể bị lệch (thoái hoá), độ phức tạp thời gian suy giảm về $O(n)$ 。
-- Nếu sử dụng cây AVL hoặc cây đỏ-đen, các thao tác có thể vận hành ổn định ở hiệu năng $O(\log n)$ ，nhưng các thao tác duy trì cân bằng cây sẽ phát sinh thêm chi phí.
+- Trong quá trình liên tục thêm và xoá các nút, cây tìm kiếm nhị phân có thể bị lệch (thoái hoá), độ phức tạp thời gian suy giảm về $O(n)$.
+- Nếu sử dụng cây AVL hoặc cây đỏ-đen, các thao tác có thể vận hành ổn định ở hiệu năng $O(\log n)$, nhưng các thao tác duy trì cân bằng cây sẽ phát sinh thêm chi phí.

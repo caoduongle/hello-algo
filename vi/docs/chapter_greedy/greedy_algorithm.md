@@ -11,7 +11,7 @@ Trước tiên, chúng ta cùng tìm hiểu nguyên lý hoạt động của thu
 
 !!! question
 
-    Cho $n$ loại đồng xu, đồng xu thứ $i$ có mệnh giá là $coins[i - 1]$ ，số tiền mục tiêu là $amt$ ，mỗi loại đồng xu có thể chọn lặp lại nhiều lần, hỏi số lượng đồng xu ít nhất có thể đổi được số tiền mục tiêu là bao nhiêu? Nếu không thể đổi được số tiền mục tiêu thì trả về $-1$ 。
+    Cho $n$ loại đồng xu, đồng xu thứ $i$ có mệnh giá là $coins[i - 1]$, số tiền mục tiêu là $amt$, mỗi loại đồng xu có thể chọn lặp lại nhiều lần, hỏi số lượng đồng xu ít nhất có thể đổi được số tiền mục tiêu là bao nhiêu? Nếu không thể đổi được số tiền mục tiêu thì trả về $-1$.
 
 Chiến lược tham lam áp dụng cho bài toán này được minh hoạ như hình dưới đây. Cho một số tiền mục tiêu, **chúng ta tham lam chọn đồng xu lớn nhất không vượt quá nó và gần nó nhất**, lặp lại liên tục bước này cho đến khi đổi đủ số tiền mục tiêu.
 
@@ -27,13 +27,13 @@ Có thể bạn sẽ phải thốt lên: Quá gọn gàng (So clean)! Thuật to
 
 ## Ưu điểm và hạn chế của thuật toán tham lam
 
-**Thuật toán tham lam không chỉ thao tác trực tiếp, dễ hiện thực mà thông thường còn có hiệu năng rất cao**. Trong đoạn mã trên, đặt mệnh giá đồng xu nhỏ nhất là $\min(coins)$ ，thì vòng lặp lựa chọn tham lam chạy tối đa $amt / \min(coins)$ lần, độ phức tạp thời gian là $O(amt / \min(coins))$ 。Con số này nhỏ hơn một bậc độ lớn so với độ phức tạp thời gian $O(n \times amt)$ của cách giải bằng quy hoạch động.
+**Thuật toán tham lam không chỉ thao tác trực tiếp, dễ hiện thực mà thông thường còn có hiệu năng rất cao**. Trong đoạn mã trên, đặt mệnh giá đồng xu nhỏ nhất là $\min(coins)$, thì vòng lặp lựa chọn tham lam chạy tối đa $amt / \min(coins)$ lần, độ phức tạp thời gian là $O(amt / \min(coins))$. Con số này nhỏ hơn một bậc độ lớn so với độ phức tạp thời gian $O(n \times amt)$ của cách giải bằng quy hoạch động.
 
 Tuy nhiên, **đối với một số bộ mệnh giá tiền xu nhất định, thuật toán tham lam không thể tìm ra lời giải tối ưu**. Hình dưới đây đưa ra hai ví dụ:
 
 - **Ví dụ đúng $coins = [1, 5, 10, 20, 50, 100]$**: Dưới bộ mệnh giá tiền xu này, với bất kỳ số tiền $amt$ nào, thuật toán tham lam đều tìm được lời giải tối ưu.
-- **Phản ví dụ $coins = [1, 20, 50]$**: Giả sử $amt = 60$ ，thuật toán tham lam chỉ tìm được tổ hợp đổi tiền là $50 + 1 \times 10$ ，gồm tổng cộng $11$ đồng xu, nhưng quy hoạch động có thể tìm ra lời giải tối ưu là $20 + 20 + 20$ ，chỉ cần đúng $3$ đồng xu.
-- **Phản ví dụ $coins = [1, 49, 50]$**: Giả sử $amt = 98$ ，thuật toán tham lam chỉ tìm được tổ hợp đổi tiền là $50 + 1 \times 48$ ，gồm tổng cộng $49$ đồng xu, nhưng quy hoạch động có thể tìm ra lời giải tối ưu là $49 + 49$ ，chỉ cần đúng $2$ đồng xu.
+- **Phản ví dụ $coins = [1, 20, 50]$**: Giả sử $amt = 60$, thuật toán tham lam chỉ tìm được tổ hợp đổi tiền là $50 + 1 \times 10$, gồm tổng cộng $11$ đồng xu, nhưng quy hoạch động có thể tìm ra lời giải tối ưu là $20 + 20 + 20$, chỉ cần đúng $3$ đồng xu.
+- **Phản ví dụ $coins = [1, 49, 50]$**: Giả sử $amt = 98$, thuật toán tham lam chỉ tìm được tổ hợp đổi tiền là $50 + 1 \times 48$, gồm tổng cộng $49$ đồng xu, nhưng quy hoạch động có thể tìm ra lời giải tối ưu là $49 + 49$, chỉ cần đúng $2$ đồng xu.
 
 ![Ví dụ thuật toán tham lam không thể tìm ra lời giải tối ưu](greedy_algorithm.assets/coin_change_greedy_vs_dp.png)
 

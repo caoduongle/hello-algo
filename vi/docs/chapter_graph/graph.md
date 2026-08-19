@@ -46,9 +46,9 @@ Các phương thức biểu diễn đồ thị phổ biến bao gồm "ma trận
 
 ### Ma trận kề
 
-Giả sử số lượng đỉnh của đồ thị là $n$ ，<u>ma trận kề (adjacency matrix)</u> sử dụng một ma trận kích thước $n \times n$ để biểu diễn đồ thị, mỗi hàng (cột) đại diện cho một đỉnh, các phần tử trong ma trận đại diện cho cạnh, sử dụng $1$ hoặc $0$ để biểu thị giữa hai đỉnh có tồn tại cạnh nối hay không.
+Giả sử số lượng đỉnh của đồ thị là $n$, <u>ma trận kề (adjacency matrix)</u> sử dụng một ma trận kích thước $n \times n$ để biểu diễn đồ thị, mỗi hàng (cột) đại diện cho một đỉnh, các phần tử trong ma trận đại diện cho cạnh, sử dụng $1$ hoặc $0$ để biểu thị giữa hai đỉnh có tồn tại cạnh nối hay không.
 
-Như minh hoạ trong hình dưới đây, giả sử ma trận kề là $M$ và danh sách đỉnh là $V$ ，khi đó phần tử ma trận $M[i, j] = 1$ biểu thị giữa đỉnh $V[i]$ và đỉnh $V[j]$ có cạnh nối, ngược lại $M[i, j] = 0$ biểu thị giữa hai đỉnh không có cạnh nối.
+Như minh hoạ trong hình dưới đây, giả sử ma trận kề là $M$ và danh sách đỉnh là $V$, khi đó phần tử ma trận $M[i, j] = 1$ biểu thị giữa đỉnh $V[i]$ và đỉnh $V[j]$ có cạnh nối, ngược lại $M[i, j] = 0$ biểu thị giữa hai đỉnh không có cạnh nối.
 
 ![Biểu diễn đồ thị bằng ma trận kề](graph.assets/adjacency_matrix.png)
 
@@ -58,17 +58,17 @@ Ma trận kề sở hữu các đặc tính sau:
 - Đối với đồ thị vô hướng, cạnh ở hai chiều là tương đương, do đó ma trận kề đối xứng qua đường chéo chính.
 - Khi thay thế các phần tử $1$ và $0$ trong ma trận kề bằng các giá trị trọng số, ma trận kề có thể biểu diễn đồ thị có trọng số.
 
-Khi dùng ma trận kề để biểu diễn đồ thị, chúng ta có thể trực tiếp truy cập vào phần tử ma trận để lấy thông tin cạnh, vì vậy hiệu năng của các thao tác thêm, xoá, sửa, tra cứu cạnh đều rất cao với độ phức tạp thời gian $O(1)$ 。Tuy nhiên, độ phức tạp không gian của ma trận kề là $O(n^2)$ ，tiêu tốn khá nhiều bộ nhớ.
+Khi dùng ma trận kề để biểu diễn đồ thị, chúng ta có thể trực tiếp truy cập vào phần tử ma trận để lấy thông tin cạnh, vì vậy hiệu năng của các thao tác thêm, xoá, sửa, tra cứu cạnh đều rất cao với độ phức tạp thời gian $O(1)$. Tuy nhiên, độ phức tạp không gian của ma trận kề là $O(n^2)$, tiêu tốn khá nhiều bộ nhớ.
 
 ### Danh sách kề
 
-<u>Danh sách kề (adjacency list)</u> sử dụng $n$ danh sách liên kết để biểu diễn đồ thị, mỗi nút trong danh sách liên kết đại diện cho một đỉnh. Danh sách liên kết thứ $i$ tương ứng với đỉnh $i$ ，lưu trữ toàn bộ các đỉnh kề của đỉnh đó (các đỉnh có cạnh nối với đỉnh đó). Hình dưới đây minh hoạ một ví dụ về đồ thị được lưu trữ bằng danh sách kề.
+<u>Danh sách kề (adjacency list)</u> sử dụng $n$ danh sách liên kết để biểu diễn đồ thị, mỗi nút trong danh sách liên kết đại diện cho một đỉnh. Danh sách liên kết thứ $i$ tương ứng với đỉnh $i$, lưu trữ toàn bộ các đỉnh kề của đỉnh đó (các đỉnh có cạnh nối với đỉnh đó). Hình dưới đây minh hoạ một ví dụ về đồ thị được lưu trữ bằng danh sách kề.
 
 ![Biểu diễn đồ thị bằng danh sách kề](graph.assets/adjacency_list.png)
 
-Danh sách kề chỉ lưu trữ các cạnh thực sự tồn tại, mà tổng số cạnh thường nhỏ hơn rất nhiều so với $n^2$ ，do đó nó tiết kiệm không gian bộ nhớ hơn. Tuy nhiên, trong danh sách kề cần phải duyệt danh sách liên kết để tìm kiếm cạnh, do đó hiệu năng thời gian của nó không bằng ma trận kề.
+Danh sách kề chỉ lưu trữ các cạnh thực sự tồn tại, mà tổng số cạnh thường nhỏ hơn rất nhiều so với $n^2$, do đó nó tiết kiệm không gian bộ nhớ hơn. Tuy nhiên, trong danh sách kề cần phải duyệt danh sách liên kết để tìm kiếm cạnh, do đó hiệu năng thời gian của nó không bằng ma trận kề.
 
-Quan sát hình trên, **cấu trúc danh sách kề rất giống với phương pháp "nối chuỗi" trong bảng băm, vì vậy chúng ta cũng có thể áp dụng các phương pháp tương tự để tối ưu hoá hiệu năng**. Ví dụ khi danh sách liên kết quá dài, có thể chuyển đổi danh sách liên kết thành cây AVL hoặc cây đỏ-đen, từ đó tối ưu hoá thời gian tìm kiếm từ $O(n)$ xuống $O(\log n)$ ；hoặc có thể chuyển đổi danh sách liên kết thành bảng băm (hoặc tập hợp băm), từ đó giảm độ phức tạp thời gian xuống $O(1)$ 。
+Quan sát hình trên, **cấu trúc danh sách kề rất giống với phương pháp "nối chuỗi" trong bảng băm, vì vậy chúng ta cũng có thể áp dụng các phương pháp tương tự để tối ưu hoá hiệu năng**. Ví dụ khi danh sách liên kết quá dài, có thể chuyển đổi danh sách liên kết thành cây AVL hoặc cây đỏ-đen, từ đó tối ưu hoá thời gian tìm kiếm từ $O(n)$ xuống $O(\log n)$; hoặc có thể chuyển đổi danh sách liên kết thành bảng băm (hoặc tập hợp băm), từ đó giảm độ phức tạp thời gian xuống $O(1)$.
 
 ## Các ứng dụng phổ biến của đồ thị
 

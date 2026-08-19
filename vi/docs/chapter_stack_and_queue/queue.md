@@ -414,16 +414,16 @@ Dưới đây là mã nguồn hiện thực hàng đợi bằng danh sách liên
 
 ### Hiện thực dựa trên mảng
 
-Trong mảng, việc xoá phần tử đầu tiên có độ phức tạp thời gian là $O(n)$ ，điều này sẽ khiến thao tác ra khỏi hàng đợi kém hiệu quả. Tuy nhiên, chúng ta có thể áp dụng phương pháp khéo léo sau để khắc phục vấn đề này.
+Trong mảng, việc xoá phần tử đầu tiên có độ phức tạp thời gian là $O(n)$, điều này sẽ khiến thao tác ra khỏi hàng đợi kém hiệu quả. Tuy nhiên, chúng ta có thể áp dụng phương pháp khéo léo sau để khắc phục vấn đề này.
 
-Chúng ta có thể sử dụng một biến `front` trỏ đến chỉ số của phần tử đầu hàng đợi, đồng thời duy trì một biến `size` để ghi nhận độ dài hàng đợi. Định nghĩa `rear = front + size` ，công thức này tính ra vị trí `rear` trỏ ngay sau phần tử cuối hàng đợi.
+Chúng ta có thể sử dụng một biến `front` trỏ đến chỉ số của phần tử đầu hàng đợi, đồng thời duy trì một biến `size` để ghi nhận độ dài hàng đợi. Định nghĩa `rear = front + size`, công thức này tính ra vị trí `rear` trỏ ngay sau phần tử cuối hàng đợi.
 
-Dựa trên thiết kế này, **khoảng chỉ số hợp lệ chứa các phần tử trong mảng là `[front, rear - 1]`**，phương thức hiện thực các thao tác được thể hiện như hình dưới đây:
+Dựa trên thiết kế này, **khoảng chỉ số hợp lệ chứa các phần tử trong mảng là `[front, rear - 1]`**, phương thức hiện thực các thao tác được thể hiện như hình dưới đây:
 
-- Thao tác vào hàng đợi: Gán giá trị phần tử mới vào chỉ số `rear` ，và tăng `size` lên 1 。
-- Thao tác ra khỏi hàng đợi: Chỉ cần tăng `front` lên 1 ，và giảm `size` đi 1 。
+- Thao tác vào hàng đợi: Gán giá trị phần tử mới vào chỉ số `rear`, và tăng `size` lên 1.
+- Thao tác ra khỏi hàng đợi: Chỉ cần tăng `front` lên 1, và giảm `size` đi 1.
 
-Có thể thấy, cả thao tác vào hàng đợi và ra khỏi hàng đợi đều chỉ cần thực hiện một phép tính duy nhất, độ phức tạp thời gian đều là $O(1)$ 。
+Có thể thấy, cả thao tác vào hàng đợi và ra khỏi hàng đợi đều chỉ cần thực hiện một phép tính duy nhất, độ phức tạp thời gian đều là $O(1)$.
 
 === "<1>"
     ![Thao tác vào hàng đợi và ra khỏi hàng đợi khi hiện thực bằng mảng](queue.assets/array_queue_step1.png)

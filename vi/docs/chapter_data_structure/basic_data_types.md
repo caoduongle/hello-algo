@@ -4,17 +4,17 @@ Khi nhắc đến dữ liệu trong máy tính, chúng ta sẽ nghĩ đến rấ
 
 **Kiểu dữ liệu cơ bản là những kiểu mà CPU có thể trực tiếp thực hiện các phép tính**, được sử dụng trực tiếp trong các thuật toán, chủ yếu bao gồm các kiểu sau:
 
-- Kiểu số nguyên: `byte`, `short`, `int`, `long` 。
-- Kiểu số thực dấu phẩy động: `float`, `double` ，dùng để biểu diễn số thập phân.
-- Kiểu ký tự: `char` ，dùng để biểu diễn chữ cái, dấu câu và thậm chí cả biểu tượng cảm xúc (emoji) của các ngôn ngữ.
-- Kiểu Boolean: `bool` ，dùng để biểu diễn các phán đoán "đúng" (`true`) và "sai" (`false`).
+- Kiểu số nguyên: `byte`, `short`, `int`, `long`.
+- Kiểu số thực dấu phẩy động: `float`, `double`, dùng để biểu diễn số thập phân.
+- Kiểu ký tự: `char`, dùng để biểu diễn chữ cái, dấu câu và thậm chí cả biểu tượng cảm xúc (emoji) của các ngôn ngữ.
+- Kiểu Boolean: `bool`, dùng để biểu diễn các phán đoán "đúng" (`true`) và "sai" (`false`).
 
 **Các kiểu dữ liệu cơ bản được lưu trữ trong máy tính dưới dạng nhị phân**. Một chữ số nhị phân được gọi là $1$ bit. Trong hầu hết các hệ điều hành hiện đại, $1$ byte bao gồm $8$ bit.
 
 Phạm vi giá trị của các kiểu dữ liệu cơ bản phụ thuộc vào dung lượng không gian bộ nhớ mà chúng chiếm dụng. Dưới đây lấy Java làm ví dụ:
 
-- Kiểu số nguyên `byte` chiếm $1$ byte = $8$ bit ，có thể biểu diễn $2^{8}$ số.
-- Kiểu số nguyên `int` chiếm $4$ byte = $32$ bit ，có thể biểu diễn $2^{32}$ số.
+- Kiểu số nguyên `byte` chiếm $1$ byte = $8$ bit, có thể biểu diễn $2^{8}$ số.
+- Kiểu số nguyên `int` chiếm $4$ byte = $32$ bit, có thể biểu diễn $2^{32}$ số.
 
 Bảng dưới đây liệt kê dung lượng bộ nhớ, phạm vi giá trị và giá trị mặc định của các kiểu dữ liệu cơ bản trong Java. Bạn không cần phải học thuộc lòng bảng này, chỉ cần nắm được đại khái và có thể tra cứu lại khi cần.
 

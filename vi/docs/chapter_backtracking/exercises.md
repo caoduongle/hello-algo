@@ -4,7 +4,7 @@
 
 ### Thuật toán hoán vị này có bị bỏ sót kết quả không?
 
-Một thuật toán quay lui thử sinh ra toàn bộ các hoán vị theo thứ tự `1, 2, 3`。Mỗi khi chọn một số `x`，nó sẽ:
+Một thuật toán quay lui thử sinh ra toàn bộ các hoán vị theo thứ tự `1, 2, 3`. Mỗi khi chọn một số `x`, nó sẽ:
 
 1. Thêm `x` vào cuối đường đi hiện tại;
 2. Đánh dấu `x` là "đã sử dụng";
@@ -19,7 +19,7 @@ Sau khi đệ quy trả về, bạn học sinh chỉ xoá `x` khỏi cuối đư
 
 ??? success "Đáp án tham khảo"
 
-    1. Thuật toán trước tiên thu được `[1, 2, 3]`，nhưng không thể thu được toàn bộ các hoán vị. Mặc dù khi quay về đường đi đã ngắn lại,
+    1. Thuật toán trước tiên thu được `[1, 2, 3]`, nhưng không thể thu được toàn bộ các hoán vị. Mặc dù khi quay về đường đi đã ngắn lại,
         nhưng các dấu đánh dấu của các số 1, 2, 3 vẫn đều là "đã sử dụng", các nhánh phía sau sẽ không còn số nào để chọn.
 
     2. Chưa đủ. Sau khi xoá `x` ở cuối đường đi, bắt buộc còn phải đánh dấu lại `x` là "chưa sử dụng".
@@ -35,11 +35,11 @@ Thuật toán quy định các con số trong mỗi đường đi tìm kiếm ch
 
 1. Có thể thu được những tổ hợp khác nhau nào?
 2. Tại sao cùng một nhóm số lại không cần tìm kiếm lặp lại theo các thứ tự khác nhau? Ràng buộc "từ nhỏ đến lớn" đóng vai trò gì?
-3. Khi đường đi hiện tại là `[3]`，còn thiếu 2, số ứng viên tiếp theo là 3. Tại sao lúc này có thể dừng kiểm tra toàn bộ các số ứng viên phía sau ở tầng này?
+3. Khi đường đi hiện tại là `[3]`, còn thiếu 2, số ứng viên tiếp theo là 3. Tại sao lúc này có thể dừng kiểm tra toàn bộ các số ứng viên phía sau ở tầng này?
 
 ??? success "Đáp án tham khảo"
 
-    1. Các tổ hợp khác nhau là `[2, 3]` và `[5]`。
+    1. Các tổ hợp khác nhau là `[2, 3]` và `[5]`.
 
     2. Bài toán này coi `[2, 3]` và `[3, 2]` là cùng một tổ hợp, thứ tự lựa chọn các con số không tạo ra đáp án mới.
         Quy định các con số trong đường đi xuất hiện từ nhỏ đến lớn giúp trực tiếp bỏ qua các tổ hợp trùng lặp như `[3, 2]` trong quá trình tìm kiếm.
@@ -49,8 +49,8 @@ Thuật toán quy định các con số trong mỗi đường đi tìm kiếm ch
 
 ### Quân hậu tiếp theo có thể đặt vào những vị trí nào?
 
-Đặt các quân hậu theo từng hàng trên bàn cờ `4 × 4`，chỉ số hàng và cột đều bắt đầu từ 0.
-Hiện tại đã đặt các quân hậu tại `(0, 1)` và `(1, 3)`，bây giờ cần đặt quân hậu tiếp theo trên hàng 2.
+Đặt các quân hậu theo từng hàng trên bàn cờ `4 × 4`, chỉ số hàng và cột đều bắt đầu từ 0.
+Hiện tại đã đặt các quân hậu tại `(0, 1)` và `(1, 3)`, bây giờ cần đặt quân hậu tiếp theo trên hàng 2.
 
 <!-- numbered-subquestions -->
 
@@ -65,7 +65,7 @@ Hiện tại đã đặt các quân hậu tại `(0, 1)` và `(1, 3)`，bây gi�
     2. Trong các vị trí còn lại, `(2, 2)` nằm trên cùng đường chéo với `(1, 3)` nên cũng bị loại trừ.
         Vị trí `(2, 0)` không cùng cột và cũng không cùng đường chéo với cả hai quân hậu đã có.
 
-    3. Vị trí duy nhất có thể thử ở hàng 2 là `(2, 0)`。
+    3. Vị trí duy nhất có thể thử ở hàng 2 là `(2, 0)`.
 
         Bước này chỉ cho thấy vị trí đặt hiện tại là hợp lệ; nếu sau đó không thể hoàn thành bàn cờ, thuật toán vẫn phải quay lui và thử các lựa chọn khác trước đó.
 

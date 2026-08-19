@@ -1,6 +1,6 @@
 # Biểu diễn cây nhị phân bằng mảng
 
-Trong cách biểu diễn bằng danh sách liên kết, đơn vị lưu trữ của cây nhị phân là nút `TreeNode` ，các nút được kết nối với nhau thông qua con trỏ. Các phần trước đã giới thiệu các thao tác cơ bản của cây nhị phân dưới cách biểu diễn bằng danh sách liên kết.
+Trong cách biểu diễn bằng danh sách liên kết, đơn vị lưu trữ của cây nhị phân là nút `TreeNode`, các nút được kết nối với nhau thông qua con trỏ. Các phần trước đã giới thiệu các thao tác cơ bản của cây nhị phân dưới cách biểu diễn bằng danh sách liên kết.
 
 Vậy chúng ta có thể dùng mảng để biểu diễn cây nhị phân hay không? Câu trả lời là hoàn toàn có thể.
 
@@ -8,7 +8,7 @@ Vậy chúng ta có thể dùng mảng để biểu diễn cây nhị phân hay 
 
 Trước tiên hãy phân tích một ví dụ đơn giản. Cho một cây nhị phân hoàn hảo, chúng ta lưu trữ toàn bộ các nút vào trong một mảng theo thứ tự duyệt theo tầng, khi đó mỗi nút đều tương ứng với một chỉ số mảng duy nhất.
 
-Dựa theo đặc tính của duyệt theo tầng, chúng ta có thể suy ra "công thức ánh xạ" giữa chỉ số nút cha và chỉ số các nút con: **Nếu chỉ số của một nút là $i$ ，thì chỉ số nút con trái của nó là $2i + 1$ ，và chỉ số nút con phải là $2i + 2$** 。Hình dưới đây minh hoạ mối quan hệ ánh xạ giữa các chỉ số của từng nút.
+Dựa theo đặc tính của duyệt theo tầng, chúng ta có thể suy ra "công thức ánh xạ" giữa chỉ số nút cha và chỉ số các nút con: **Nếu chỉ số của một nút là $i$, thì chỉ số nút con trái của nó là $2i + 1$, và chỉ số nút con phải là $2i + 2$**. Hình dưới đây minh hoạ mối quan hệ ánh xạ giữa các chỉ số của từng nút.
 
 ![Biểu diễn cây nhị phân hoàn hảo bằng mảng](array_representation_of_tree.assets/array_representation_binary_tree.png)
 
@@ -16,7 +16,7 @@ Dựa theo đặc tính của duyệt theo tầng, chúng ta có thể suy ra "c
 
 ## Biểu diễn cây nhị phân bất kỳ
 
-Cây nhị phân hoàn hảo là một trường hợp đặc biệt, ở các tầng trung gian của cây nhị phân thông thường sẽ tồn tại nhiều giá trị `None` (hoặc rỗng). Do chuỗi duyệt theo tầng không bao gồm các giá trị `None` này, nên chúng ta không thể chỉ dựa vào chuỗi đó để suy đoán số lượng và vị trí phân bố của `None` 。**Điều này đồng nghĩa với việc tồn tại nhiều cấu trúc cây nhị phân khác nhau cùng cho ra một chuỗi duyệt theo tầng duy nhất**.
+Cây nhị phân hoàn hảo là một trường hợp đặc biệt, ở các tầng trung gian của cây nhị phân thông thường sẽ tồn tại nhiều giá trị `None` (hoặc rỗng). Do chuỗi duyệt theo tầng không bao gồm các giá trị `None` này, nên chúng ta không thể chỉ dựa vào chuỗi đó để suy đoán số lượng và vị trí phân bố của `None`. **Điều này đồng nghĩa với việc tồn tại nhiều cấu trúc cây nhị phân khác nhau cùng cho ra một chuỗi duyệt theo tầng duy nhất**.
 
 Như minh hoạ trong hình dưới đây, đối với một cây nhị phân không hoàn hảo, phương pháp biểu diễn bằng mảng nêu trên sẽ không còn hiệu quả.
 
@@ -157,4 +157,4 @@ Tuy nhiên, biểu diễn bằng mảng cũng tồn tại một số hạn chế
 
 - Lưu trữ mảng đòi hỏi không gian bộ nhớ liên tục, do đó không thích hợp để lưu trữ cây có lượng dữ liệu quá lớn.
 - Thao tác thêm, xoá nút cần thực hiện thông qua thao tác chèn và xoá của mảng, hiệu năng tương đối thấp.
-- Khi cây nhị phân có chứa lượng lớn `None` ，tỷ lệ dữ liệu nút thực sự trong mảng sẽ thấp, dẫn đến hiệu suất sử dụng không gian kém.
+- Khi cây nhị phân có chứa lượng lớn `None`, tỷ lệ dữ liệu nút thực sự trong mảng sẽ thấp, dẫn đến hiệu suất sử dụng không gian kém.

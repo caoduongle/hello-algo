@@ -17,7 +17,7 @@ Trong bảng băm nguyên bản, mỗi ngăn chỉ có thể lưu trữ một c�
 
 Phương thức thao tác trên bảng băm hiện thực bằng phương pháp nối chuỗi có những thay đổi sau:
 
-- **Tra cứu phần tử**: Nhập `key` ，thông qua hàm băm để lấy chỉ số ngăn, từ đó truy cập vào nút đầu của danh sách liên kết, sau đó duyệt danh sách liên kết và so sánh `key` để tìm kiếm cặp khoá - giá trị mục tiêu.
+- **Tra cứu phần tử**: Nhập `key`, thông qua hàm băm để lấy chỉ số ngăn, từ đó truy cập vào nút đầu của danh sách liên kết, sau đó duyệt danh sách liên kết và so sánh `key` để tìm kiếm cặp khoá - giá trị mục tiêu.
 - **Thêm phần tử**: Đầu tiên dùng hàm băm để truy cập nút đầu của danh sách liên kết, sau đó thêm nút mới (cặp khoá - giá trị) vào trong danh sách liên kết.
 - **Xoá phần tử**: Dựa vào kết quả của hàm băm để truy cập đầu danh sách liên kết, sau đó duyệt danh sách liên kết để tìm nút mục tiêu và xoá nút đó đi.
 
@@ -29,13 +29,13 @@ Phương pháp nối chuỗi tồn tại một số hạn chế sau:
 Đoạn mã dưới đây cung cấp một hiện thực đơn giản của bảng băm nối chuỗi, cần lưu ý hai điểm:
 
 - Sử dụng danh sách (mảng động) thay cho danh sách liên kết để đơn giản hoá mã nguồn. Trong thiết lập này, bảng băm (mảng) chứa nhiều ngăn, mỗi ngăn là một danh sách.
-- Hiện thực dưới đây bao gồm cả phương thức mở rộng dung lượng bảng băm. Khi hệ số tải vượt quá $\frac{2}{3}$ ，chúng ta sẽ mở rộng dung lượng bảng băm lên gấp $2$ lần kích thước ban đầu.
+- Hiện thực dưới đây bao gồm cả phương thức mở rộng dung lượng bảng băm. Khi hệ số tải vượt quá $\frac{2}{3}$, chúng ta sẽ mở rộng dung lượng bảng băm lên gấp $2$ lần kích thước ban đầu.
 
 ```src
 [file]{hash_map_chaining}-[class]{hash_map_chaining}-[func]{}
 ```
 
-Cần lưu ý rằng khi danh sách liên kết quá dài, hiệu năng tra cứu $O(n)$ sẽ rất kém. **Lúc này có thể chuyển đổi danh sách liên kết thành "cây AVL" hoặc "cây đỏ-đen"**, từ đó tối ưu hoá độ phức tạp thời gian của thao tác tra cứu xuống còn $O(\log n)$ 。
+Cần lưu ý rằng khi danh sách liên kết quá dài, hiệu năng tra cứu $O(n)$ sẽ rất kém. **Lúc này có thể chuyển đổi danh sách liên kết thành "cây AVL" hoặc "cây đỏ-đen"**, từ đó tối ưu hoá độ phức tạp thời gian của thao tác tra cứu xuống còn $O(\log n)$.
 
 ## Địa chỉ mở (Open Addressing)
 
@@ -48,7 +48,7 @@ Dưới đây lấy dò tuyến tính làm ví dụ để giới thiệu cơ ch�
 Dò tuyến tính áp dụng tìm kiếm tuyến tính với bước nhảy cố định để dò tìm vị trí trống, phương thức thao tác của nó có đôi chút khác biệt so với bảng băm thông thường:
 
 - **Chèn phần tử**: Tính toán chỉ số ngăn qua hàm băm, nếu phát hiện trong ngăn đã có phần tử, thì từ vị trí đụng độ sẽ duyệt tuyến tính về phía sau (bước nhảy thường là $1$ ) cho đến khi tìm thấy ngăn trống và chèn phần tử vào đó.
-- **Tìm kiếm phần tử**: Nếu phát hiện đụng độ băm, sử dụng cùng bước nhảy đó để duyệt tuyến tính về phía sau cho đến khi tìm thấy phần tử khớp và trả về `value` ；nếu gặp ngăn trống thì chứng tỏ phần tử mục tiêu không tồn tại trong bảng băm, trả về `None` 。
+- **Tìm kiếm phần tử**: Nếu phát hiện đụng độ băm, sử dụng cùng bước nhảy đó để duyệt tuyến tính về phía sau cho đến khi tìm thấy phần tử khớp và trả về `value`; nếu gặp ngăn trống thì chứng tỏ phần tử mục tiêu không tồn tại trong bảng băm, trả về `None`.
 
 Hình dưới đây minh hoạ sự phân bố các cặp khoá - giá trị trong bảng băm địa chỉ mở (dò tuyến tính). Theo hàm băm này, các `key` có hai chữ số cuối giống nhau đều sẽ được ánh xạ vào cùng một ngăn. Thông qua dò tuyến tính, chúng lần lượt được lưu trữ tại ngăn đó và các ngăn liền kề phía sau.
 
@@ -60,7 +60,7 @@ Cần lưu ý rằng, **chúng ta không thể trực tiếp xoá phần tử tr
 
 ![Vấn đề tra cứu do xoá phần tử trong địa chỉ mở](hash_collision.assets/hash_table_open_addressing_deletion.png)
 
-Để giải quyết vấn đề này, chúng ta có thể áp dụng cơ chế <u>xoá trễ (lazy deletion)</u>: không trực tiếp xoá bỏ phần tử khỏi bảng băm, **mà sử dụng một hằng số `TOMBSTONE` (bia mộ) để đánh dấu ngăn đó**. Dưới cơ chế này, cả `None` và `TOMBSTONE` đều đại diện cho ngăn trống và đều có thể đặt cặp khoá - giá trị mới vào. Điểm khác biệt là khi dò tuyến tính gặp `TOMBSTONE` ，nó sẽ tiếp tục duyệt tiếp về phía sau vì có thể vẫn còn các cặp khoá - giá trị nằm bên dưới.
+Để giải quyết vấn đề này, chúng ta có thể áp dụng cơ chế <u>xoá trễ (lazy deletion)</u>: không trực tiếp xoá bỏ phần tử khỏi bảng băm, **mà sử dụng một hằng số `TOMBSTONE` (bia mộ) để đánh dấu ngăn đó**. Dưới cơ chế này, cả `None` và `TOMBSTONE` đều đại diện cho ngăn trống và đều có thể đặt cặp khoá - giá trị mới vào. Điểm khác biệt là khi dò tuyến tính gặp `TOMBSTONE`, nó sẽ tiếp tục duyệt tiếp về phía sau vì có thể vẫn còn các cặp khoá - giá trị nằm bên dưới.
 
 Tuy nhiên, **xoá trễ có thể đẩy nhanh tốc độ thoái hoá hiệu năng của bảng băm**. Điều này là do mỗi thao tác xoá đều tạo ra một dấu mốc xoá, khi số lượng `TOMBSTONE` tăng lên, thời gian tìm kiếm cũng sẽ tăng theo do thao tác dò tuyến tính có thể phải nhảy qua rất nhiều `TOMBSTONE` mới tìm thấy phần tử mục tiêu.
 
@@ -90,8 +90,8 @@ Tuy nhiên, dò bậc hai không hoàn hảo:
 
 Đúng như tên gọi, phương pháp băm kép sử dụng nhiều hàm băm $f_1(x)$, $f_2(x)$, $f_3(x)$, $\dots$ để tiến hành dò tìm:
 
-- **Chèn phần tử**: Nếu hàm băm $f_1(x)$ xảy ra đụng độ, sẽ thử tiếp $f_2(x)$ ，cứ tiếp tục như vậy cho đến khi tìm được vị trí trống rồi mới chèn phần tử vào.
-- **Tìm kiếm phần tử**: Thực hiện tìm kiếm theo đúng thứ tự các hàm băm đó cho đến khi tìm thấy phần tử mục tiêu thì trả về; nếu gặp vị trí trống hoặc đã thử hết toàn bộ hàm băm mà không thấy thì chứng tỏ phần tử không tồn tại trong bảng băm, trả về `None` 。
+- **Chèn phần tử**: Nếu hàm băm $f_1(x)$ xảy ra đụng độ, sẽ thử tiếp $f_2(x)$, cứ tiếp tục như vậy cho đến khi tìm được vị trí trống rồi mới chèn phần tử vào.
+- **Tìm kiếm phần tử**: Thực hiện tìm kiếm theo đúng thứ tự các hàm băm đó cho đến khi tìm thấy phần tử mục tiêu thì trả về; nếu gặp vị trí trống hoặc đã thử hết toàn bộ hàm băm mà không thấy thì chứng tỏ phần tử không tồn tại trong bảng băm, trả về `None`.
 
 So với dò tuyến tính, phương pháp băm kép khó phát sinh tụ cụm hơn, nhưng việc sử dụng nhiều hàm băm sẽ kéo theo chi phí tính toán bổ sung.
 

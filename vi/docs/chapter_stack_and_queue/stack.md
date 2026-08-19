@@ -410,7 +410,7 @@ Dưới đây là mã nguồn mẫu hiện thực ngăn xếp dựa trên danh s
 
 ### Hiện thực dựa trên mảng
 
-Khi sử dụng mảng để hiện thực ngăn xếp, chúng ta có thể lấy phần đuôi của mảng làm đỉnh ngăn xếp. Như minh hoạ trong hình dưới đây, thao tác đẩy vào (push) và lấy ra (pop) lần lượt tương ứng với việc thêm phần tử và xoá phần tử ở đuôi mảng, cả hai đều có độ phức tạp thời gian là $O(1)$ 。
+Khi sử dụng mảng để hiện thực ngăn xếp, chúng ta có thể lấy phần đuôi của mảng làm đỉnh ngăn xếp. Như minh hoạ trong hình dưới đây, thao tác đẩy vào (push) và lấy ra (pop) lần lượt tương ứng với việc thêm phần tử và xoá phần tử ở đuôi mảng, cả hai đều có độ phức tạp thời gian là $O(1)$.
 
 === "<1>"
     ![Thao tác đẩy vào và lấy ra khi hiện thực ngăn xếp bằng mảng](stack.assets/array_stack_step1.png)
@@ -435,11 +435,11 @@ Cả hai cách hiện thực đều hỗ trợ đầy đủ các thao tác theo 
 
 **Hiệu năng thời gian**
 
-Trong cách hiện thực dựa trên mảng, các thao tác đẩy vào và lấy ra đều diễn ra trong vùng nhớ liên tục được cấp phát sẵn, có tính cục bộ bộ nhớ đệm (cache locality) rất tốt, vì vậy hiệu năng cao hơn. Tuy nhiên, nếu khi đẩy vào mà vượt quá sức chứa của mảng, cơ chế mở rộng dung lượng sẽ được kích hoạt, khiến độ phức tạp thời gian của thao tác đẩy vào lần đó trở thành $O(n)$ 。
+Trong cách hiện thực dựa trên mảng, các thao tác đẩy vào và lấy ra đều diễn ra trong vùng nhớ liên tục được cấp phát sẵn, có tính cục bộ bộ nhớ đệm (cache locality) rất tốt, vì vậy hiệu năng cao hơn. Tuy nhiên, nếu khi đẩy vào mà vượt quá sức chứa của mảng, cơ chế mở rộng dung lượng sẽ được kích hoạt, khiến độ phức tạp thời gian của thao tác đẩy vào lần đó trở thành $O(n)$.
 
 Trong cách hiện thực dựa trên danh sách liên kết, việc mở rộng dung lượng của danh sách liên kết diễn ra rất linh hoạt, không gặp phải vấn đề suy giảm hiệu năng do mở rộng mảng như trên. Tuy nhiên, thao tác đẩy vào cần phải khởi tạo đối tượng nút và sửa đổi con trỏ, nên hiệu năng tương đối thấp hơn. Dù vậy, nếu bản thân các phần tử đẩy vào đã là đối tượng nút, chúng ta có thể bỏ qua bước khởi tạo, nhờ đó nâng cao hiệu năng.
 
-Tóm lại, khi các phần tử của thao tác đẩy vào và lấy ra là các kiểu dữ liệu cơ bản như `int` hoặc `double` ，chúng ta có thể rút ra kết luận sau:
+Tóm lại, khi các phần tử của thao tác đẩy vào và lấy ra là các kiểu dữ liệu cơ bản như `int` hoặc `double`, chúng ta có thể rút ra kết luận sau:
 
 - Ngăn xếp hiện thực dựa trên mảng sẽ bị giảm hiệu năng khi kích hoạt mở rộng dung lượng, nhưng vì việc mở rộng là thao tác có tần suất thấp, nên hiệu năng trung bình sẽ cao hơn.
 - Ngăn xếp hiện thực dựa trên danh sách liên kết có thể đem lại hiệu năng ổn định hơn.

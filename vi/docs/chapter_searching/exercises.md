@@ -4,12 +4,12 @@
 
 ### Tìm kiếm nhị phân thu hẹp khoảng tìm kiếm như thế nào?
 
-Tìm kiếm số 16 trong mảng đã sắp xếp `[2, 5, 8, 12, 16, 23, 38]`。
-Sử dụng khoảng đóng hai đầu `[i, j]`，trung điểm tính theo công thức
-$m=i+(j-i)/2$（làm tròn xuống）。
+Tìm kiếm số 16 trong mảng đã sắp xếp `[2, 5, 8, 12, 16, 23, 38]`.
+Sử dụng khoảng đóng hai đầu `[i, j]`, trung điểm tính theo công thức
+$m=i+(j-i)/2$ (làm tròn xuống).
 
-Hãy viết `(i, j, m)`，phần tử trung điểm và bước thu hẹp khoảng tiếp theo trong mỗi vòng lặp，
-cho đến khi tìm thấy mục tiêu。
+Hãy viết `(i, j, m)`, phần tử trung điểm và bước thu hẹp khoảng tiếp theo trong mỗi vòng lặp,
+cho đến khi tìm thấy mục tiêu.
 
 ??? success "Đáp án tham khảo"
 
@@ -17,8 +17,8 @@ cho đến khi tìm thấy mục tiêu。
 
     | Vòng | `(i, j, m)` | Phần tử trung điểm | Bước tiếp theo |
     | --- | --- | --- | --- |
-    | 1 | `(0, 6, 3)` | 12 | `12 < 16`，gán `i = 4` |
-    | 2 | `(4, 6, 5)` | 23 | `23 > 16`，gán `j = 4` |
+    | 1 | `(0, 6, 3)` | 12 | `12 < 16`, gán `i = 4` |
+    | 2 | `(4, 6, 5)` | 23 | `23 > 16`, gán `j = 4` |
     | 3 | `(4, 4, 4)` | 16 | Tìm thấy mục tiêu, trả về chỉ số 4 |
 
     Mảng có thứ tự, do đó khi giá trị trung điểm nhỏ hơn mục tiêu thì có thể loại trừ trung điểm và toàn bộ phần bên trái của nó;
@@ -26,7 +26,7 @@ cho đến khi tìm thấy mục tiêu。
 
 ### Biên trái và biên phải của phần tử trùng lặp
 
-Tìm kiếm số 2 trong mảng `[1, 2, 2, 2, 4, 6]`。
+Tìm kiếm số 2 trong mảng `[1, 2, 2, 2, 4, 6]`.
 Một bạn học sinh sử dụng tìm kiếm nhị phân, sau khi tìm thấy mục tiêu tại chỉ số 2 liền lập tức trả về kết quả và nói:
 "Chỉ số 2 chính là biên trái của số 2."
 
@@ -42,10 +42,10 @@ Một bạn học sinh sử dụng tìm kiếm nhị phân, sau khi tìm thấy 
         Trong bài toán này, biên trái là chỉ số 1, biên phải là chỉ số 3.
 
     2. Khi tìm kiếm biên trái, ngay cả khi phần tử trung điểm bằng 2, vẫn phải tiếp tục tìm kiếm ở phía bên trái,
-        ví dụ trong cách viết khoảng đóng hai đầu thì gán `j = m - 1`。
+        ví dụ trong cách viết khoảng đóng hai đầu thì gán `j = m - 1`.
 
     3. Khi tìm kiếm biên phải, sau khi phần tử trung điểm bằng 2 thì nên tiếp tục tìm kiếm ở phía bên phải,
-        ví dụ gán `i = m + 1`。
+        ví dụ gán `i = m + 1`.
 
 ### Nên chọn phương pháp tìm kiếm nào cho các dạng dữ liệu khác nhau?
 
@@ -60,7 +60,7 @@ Hãy lựa chọn phương pháp phù hợp từ "tìm kiếm tuần tự (tuy�
 ??? success "Đáp án tham khảo"
 
     1. Tìm kiếm nhị phân: Dữ liệu có thứ tự và tĩnh, độ phức tạp $O(\log n)$ và không tốn thêm không gian bộ nhớ.
-    2. Bảng băm: Khi hàm băm có thể phân tán các khoá tương đối đồng đều vào các bucket, các thao tác thêm, xoá và tìm kiếm theo khoá đều có độ phức tạp thời gian trung bình là $O(1)$。
+    2. Bảng băm: Khi hàm băm có thể phân tán các khoá tương đối đồng đều vào các bucket, các thao tác thêm, xoá và tìm kiếm theo khoá đều có độ phức tạp thời gian trung bình là $O(1)$.
     3. Duyệt tuần tự trực tiếp từ đầu đến cuối: Khi chỉ tìm kiếm duy nhất một lần, việc sắp xếp mảng hay xây dựng bảng băm đều phải xử lý toàn bộ mảng trước,
         hoàn toàn không làm giảm tổng khối lượng công việc cho nhiệm vụ đơn lẻ này.
 
@@ -70,7 +70,7 @@ Hãy lựa chọn phương pháp phù hợp từ "tìm kiếm tuần tự (tuy�
 
 ### Tìm kiếm nhị phân trong mảng có thứ tự
 
-Cho mảng số nguyên `nums` được sắp xếp theo thứ tự tăng dần nghiêm ngặt và giá trị mục tiêu `target`。Hãy sử dụng tìm kiếm nhị phân để tìm `target`: nếu tồn tại, trả về chỉ số mảng của nó; nếu không tồn tại, trả về -1。
+Cho mảng số nguyên `nums` được sắp xếp theo thứ tự tăng dần nghiêm ngặt và giá trị mục tiêu `target`. Hãy sử dụng tìm kiếm nhị phân để tìm `target`: nếu tồn tại, trả về chỉ số mảng của nó; nếu không tồn tại, trả về -1.
 
 ??? tip "Gợi ý giải bài"
 
@@ -82,7 +82,7 @@ Cho mảng số nguyên `nums` được sắp xếp theo thứ tự tăng dần 
 
 ### Vị trí chèn trong mảng có thứ tự
 
-Cho mảng số nguyên `nums` được sắp xếp theo thứ tự tăng dần nghiêm ngặt và giá trị mục tiêu `target`。
+Cho mảng số nguyên `nums` được sắp xếp theo thứ tự tăng dần nghiêm ngặt và giá trị mục tiêu `target`.
 
 Nếu `target` đã tồn tại trong mảng, trả về chỉ số của nó; ngược lại, trả về vị trí chèn `target` vào mảng sao cho mảng vẫn duy trì thứ tự tăng dần nghiêm ngặt. Kết quả có thể là 0, hoặc có thể bằng độ dài của mảng. Hãy sử dụng tìm kiếm nhị phân.
 

@@ -22,8 +22,8 @@ Duyệt theo chiều rộng thường nhờ vào "hàng đợi" để hiện th�
 
 ### Phân tích độ phức tạp
 
-- **Độ phức tạp thời gian là $O(n)$**: Toàn bộ các nút đều được truy cập đúng một lần, mất thời gian $O(n)$ ，trong đó $n$ là số lượng nút.
-- **Độ phức tạp không gian là $O(n)$**: Trong trường hợp xấu nhất, tức là cây nhị phân hoàn hảo, trước khi duyệt đến tầng đáy cùng, trong hàng đợi có thể cùng lúc chứa tối đa $(n + 1) / 2$ nút, chiếm dụng không gian $O(n)$ 。
+- **Độ phức tạp thời gian là $O(n)$**: Toàn bộ các nút đều được truy cập đúng một lần, mất thời gian $O(n)$, trong đó $n$ là số lượng nút.
+- **Độ phức tạp không gian là $O(n)$**: Trong trường hợp xấu nhất, tức là cây nhị phân hoàn hảo, trước khi duyệt đến tầng đáy cùng, trong hàng đợi có thể cùng lúc chứa tối đa $(n + 1) / 2$ nút, chiếm dụng không gian $O(n)$.
 
 ## Duyệt tiền thứ tự, trung thứ tự và hậu thứ tự
 
@@ -85,5 +85,5 @@ Hình dưới đây minh hoạ quá trình đệ quy khi duyệt tiền thứ t�
 
 ### Phân tích độ phức tạp
 
-- **Độ phức tạp thời gian là $O(n)$**: Toàn bộ các nút đều được truy cập đúng một lần, mất thời gian $O(n)$ 。
-- **Độ phức tạp không gian là $O(n)$**: Trong trường hợp xấu nhất, tức là cây thoái hoá thành danh sách liên kết, độ sâu đệ quy đạt đến $n$ ，hệ thống chiếm dụng không gian khung ngăn xếp (stack frame) $O(n)$ 。
+- **Độ phức tạp thời gian là $O(n)$**: Toàn bộ các nút đều được truy cập đúng một lần, mất thời gian $O(n)$.
+- **Độ phức tạp không gian là $O(n)$**: Trong trường hợp xấu nhất, tức là cây thoái hoá thành danh sách liên kết, độ sâu đệ quy đạt đến $n$, hệ thống chiếm dụng không gian khung ngăn xếp (stack frame) $O(n)$.

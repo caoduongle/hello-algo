@@ -1,6 +1,6 @@
 # Bảng băm
 
-<u>Bảng băm (hash table)</u>, còn được gọi là <u>bảng phân tán</u>, thiết lập một ánh xạ giữa khoá `key` và giá trị `value`, giúp việc tra cứu phần tử đạt hiệu năng cực cao. Cụ thể, khi chúng ta đưa một khoá `key` vào bảng băm, ta có thể lấy được giá trị `value` tương ứng trong thời gian $O(1)$ 。
+<u>Bảng băm (hash table)</u>, còn được gọi là <u>bảng phân tán</u>, thiết lập một ánh xạ giữa khoá `key` và giá trị `value`, giúp việc tra cứu phần tử đạt hiệu năng cực cao. Cụ thể, khi chúng ta đưa một khoá `key` vào bảng băm, ta có thể lấy được giá trị `value` tương ứng trong thời gian $O(1)$.
 
 Như minh hoạ trong hình dưới đây, giả sử có $n$ học sinh, mỗi học sinh đều có hai thông tin là "họ tên" và "mã số học sinh". Nếu chúng ta muốn hiện thực chức năng "nhập vào một mã số học sinh, trả về họ tên tương ứng", chúng ta có thể sử dụng bảng băm như hình bên dưới.
 
@@ -8,9 +8,9 @@ Như minh hoạ trong hình dưới đây, giả sử có $n$ học sinh, mỗi 
 
 Ngoài bảng băm, mảng và danh sách liên kết cũng có thể hiện thực chức năng tra cứu, hiệu năng của chúng được so sánh trong bảng dưới đây:
 
-- **Thêm phần tử**: Chỉ cần thêm phần tử vào cuối mảng (danh sách liên kết), mất thời gian $O(1)$ 。
-- **Tra cứu phần tử**: Do mảng (danh sách liên kết) không có thứ tự theo khoá, nên cần phải duyệt qua toàn bộ các phần tử, mất thời gian $O(n)$ 。
-- **Xoá phần tử**: Cần phải tra cứu phần tử trước rồi mới xoá khỏi mảng (danh sách liên kết), mất thời gian $O(n)$ 。
+- **Thêm phần tử**: Chỉ cần thêm phần tử vào cuối mảng (danh sách liên kết), mất thời gian $O(1)$.
+- **Tra cứu phần tử**: Do mảng (danh sách liên kết) không có thứ tự theo khoá, nên cần phải duyệt qua toàn bộ các phần tử, mất thời gian $O(n)$.
+- **Xoá phần tử**: Cần phải tra cứu phần tử trước rồi mới xoá khỏi mảng (danh sách liên kết), mất thời gian $O(n)$.
 
 <p align="center"> Bảng <id> &nbsp; So sánh hiệu năng tra cứu phần tử </p>
 
@@ -580,20 +580,20 @@ Bảng băm cũng có thể duyệt theo ba cách: duyệt toàn bộ cặp kho�
 
 Trước tiên chúng ta xét trường hợp đơn giản nhất: **chỉ dùng một mảng duy nhất để hiện thực bảng băm**. Trong bảng băm, chúng ta gọi mỗi vị trí ô trong mảng là một <u>ngăn (bucket)</u>, mỗi ngăn có thể lưu trữ một cặp khoá - giá trị. Do đó, thao tác tra cứu thực chất là tìm ra ngăn tương ứng với `key` và lấy ra `value` trong ngăn đó.
 
-Vậy làm thế nào để định vị ngăn tương ứng dựa trên `key`? Điều này được thực hiện thông qua <u>hàm băm (hash function)</u>. Tác dụng của hàm băm là ánh xạ một không gian đầu vào lớn thành một không gian đầu ra nhỏ hơn. Trong bảng băm, không gian đầu vào là toàn bộ các `key` khả dĩ, còn không gian đầu ra là toàn bộ các ngăn (chỉ số của mảng). Nói cách khác, khi nhập vào một `key` ，**chúng ta có thể thông qua hàm băm để tính ra vị trí lưu trữ của cặp khoá - giá trị tương ứng trong mảng**.
+Vậy làm thế nào để định vị ngăn tương ứng dựa trên `key`? Điều này được thực hiện thông qua <u>hàm băm (hash function)</u>. Tác dụng của hàm băm là ánh xạ một không gian đầu vào lớn thành một không gian đầu ra nhỏ hơn. Trong bảng băm, không gian đầu vào là toàn bộ các `key` khả dĩ, còn không gian đầu ra là toàn bộ các ngăn (chỉ số của mảng). Nói cách khác, khi nhập vào một `key`, **chúng ta có thể thông qua hàm băm để tính ra vị trí lưu trữ của cặp khoá - giá trị tương ứng trong mảng**.
 
-Khi nhập một `key` ，quá trình tính toán của hàm băm bao gồm hai bước sau:
+Khi nhập một `key`, quá trình tính toán của hàm băm bao gồm hai bước sau:
 
 1. Thông qua một thuật toán băm `hash()` nào đó để tính ra giá trị băm (hash value).
-2. Lấy giá trị băm chia lấy dư cho số lượng ngăn (độ dài mảng) `capacity` ，từ đó thu được chỉ số ngăn (chỉ số mảng) `index` tương ứng với `key` đó.
+2. Lấy giá trị băm chia lấy dư cho số lượng ngăn (độ dài mảng) `capacity`, từ đó thu được chỉ số ngăn (chỉ số mảng) `index` tương ứng với `key` đó.
 
 ```shell
 index = hash(key) % capacity
 ```
 
-Sau đó, chúng ta có thể dùng `index` để truy cập vào ngăn tương ứng trong bảng băm và lấy ra `value` 。
+Sau đó, chúng ta có thể dùng `index` để truy cập vào ngăn tương ứng trong bảng băm và lấy ra `value`.
 
-Giả sử độ dài mảng `capacity = 100`, thuật toán băm `hash(key) = key` ，dễ dàng có được hàm băm là `key % 100` 。Hình dưới đây lấy `key` là mã số học sinh và `value` là họ tên làm ví dụ minh hoạ nguyên lý hoạt động của hàm băm.
+Giả sử độ dài mảng `capacity = 100`, thuật toán băm `hash(key) = key`, dễ dàng có được hàm băm là `key % 100`. Hình dưới đây lấy `key` là mã số học sinh và `value` là họ tên làm ví dụ minh hoạ nguyên lý hoạt động của hàm băm.
 
 ![Nguyên lý hoạt động của hàm băm](hash_map.assets/hash_function.png)
 
@@ -626,4 +626,4 @@ Như hình dưới đây, trước khi mở rộng dung lượng, hai cặp kho�
 
 Tương tự như mở rộng dung lượng mảng, việc mở rộng bảng băm đòi hỏi phải di chuyển toàn bộ các cặp khoá - giá trị từ bảng băm cũ sang bảng băm mới, rất tốn thời gian; hơn nữa do sức chứa `capacity` của bảng băm đã thay đổi, chúng ta cần phải dùng hàm băm để tính toán lại vị trí lưu trữ (rehash) cho tất cả các cặp khoá - giá trị, điều này làm tăng thêm chi phí tính toán trong quá trình mở rộng. Do đó, các ngôn ngữ lập trình thường sẽ dự trữ sẵn một dung lượng bảng băm đủ lớn để tránh việc phải mở rộng quá thường xuyên.
 
-<u>Hệ số tải (load factor)</u> là một khái niệm quan trọng của bảng băm, được định nghĩa là số lượng phần tử trong bảng băm chia cho số lượng ngăn. Hệ số tải dùng để đo lường mức độ nghiêm trọng của đụng độ băm, **đồng thời cũng thường được dùng làm điều kiện kích hoạt việc mở rộng dung lượng bảng băm**. Ví dụ trong Java, khi hệ số tải vượt quá $0.75$ ，hệ thống sẽ tự động mở rộng dung lượng bảng băm lên gấp $2$ lần kích thước ban đầu.
+<u>Hệ số tải (load factor)</u> là một khái niệm quan trọng của bảng băm, được định nghĩa là số lượng phần tử trong bảng băm chia cho số lượng ngăn. Hệ số tải dùng để đo lường mức độ nghiêm trọng của đụng độ băm, **đồng thời cũng thường được dùng làm điều kiện kích hoạt việc mở rộng dung lượng bảng băm**. Ví dụ trong Java, khi hệ số tải vượt quá $0.75$, hệ thống sẽ tự động mở rộng dung lượng bảng băm lên gấp $2$ lần kích thước ban đầu.

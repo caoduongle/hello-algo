@@ -305,7 +305,7 @@ Danh sách về bản chất là mảng, do đó có thể truy cập và cập 
 
 ### Chèn và xoá phần tử
 
-So với mảng, danh sách có thể tự do thêm và xoá phần tử. Việc thêm phần tử vào cuối danh sách có độ phức tạp thời gian là $O(1)$ ，nhưng thao tác chèn và xoá phần tử ở giữa vẫn có hiệu năng tương tự như mảng với độ phức tạp thời gian là $O(n)$ 。
+So với mảng, danh sách có thể tự do thêm và xoá phần tử. Việc thêm phần tử vào cuối danh sách có độ phức tạp thời gian là $O(1)$, nhưng thao tác chèn và xoá phần tử ở giữa vẫn có hiệu năng tương tự như mảng với độ phức tạp thời gian là $O(n)$.
 
 === "Python"
 
@@ -799,7 +799,7 @@ Tương tự như mảng, danh sách có thể duyệt thông qua chỉ số ho�
 
 ### Ghép nối danh sách
 
-Cho một danh sách mới `nums1` ，chúng ta có thể ghép nối nó vào đuôi của danh sách ban đầu.
+Cho một danh sách mới `nums1`, chúng ta có thể ghép nối nó vào đuôi của danh sách ban đầu.
 
 === "Python"
 

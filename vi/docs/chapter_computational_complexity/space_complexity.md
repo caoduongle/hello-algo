@@ -354,8 +354,8 @@ Khác với độ phức tạp thời gian, **chúng ta thường chỉ quan tâ
 
 Quan sát đoạn mã dưới đây, chữ "xấu nhất" trong độ phức tạp không gian trường hợp xấu nhất mang hai tầng ý nghĩa:
 
-1. **Lấy dữ liệu đầu vào xấu nhất làm chuẩn**: Khi $n < 10$ ，độ phức tạp không gian là $O(1)$ ；nhưng khi $n > 10$ ，mảng `nums` được khởi tạo chiếm dụng $O(n)$ không gian, do đó độ phức tạp không gian trường hợp xấu nhất là $O(n)$ 。
-2. **Lấy mức sử dụng bộ nhớ đỉnh điểm (peak memory) trong quá trình thực thi làm chuẩn**: Ví dụ, trước khi thực hiện dòng mã cuối cùng, chương trình chiếm $O(1)$ không gian; khi khởi tạo mảng `nums` ，chương trình chiếm $O(n)$ không gian, do đó độ phức tạp không gian trường hợp xấu nhất là $O(n)$ 。
+1. **Lấy dữ liệu đầu vào xấu nhất làm chuẩn**: Khi $n < 10$, độ phức tạp không gian là $O(1)$; nhưng khi $n > 10$, mảng `nums` được khởi tạo chiếm dụng $O(n)$ không gian, do đó độ phức tạp không gian trường hợp xấu nhất là $O(n)$.
+2. **Lấy mức sử dụng bộ nhớ đỉnh điểm (peak memory) trong quá trình thực thi làm chuẩn**: Ví dụ, trước khi thực hiện dòng mã cuối cùng, chương trình chiếm $O(1)$ không gian; khi khởi tạo mảng `nums`, chương trình chiếm $O(n)$ không gian, do đó độ phức tạp không gian trường hợp xấu nhất là $O(n)$.
 
 === "Python"
 
@@ -822,14 +822,14 @@ Trong các hàm đệ quy, việc phân tích không gian cần tính đến khu
     }
     ```
 
-Hai hàm `loop()` và `recur()` đều có độ phức tạp thời gian là $O(n)$ ，nhưng độ phức tạp không gian lại hoàn toàn khác nhau:
+Hai hàm `loop()` và `recur()` đều có độ phức tạp thời gian là $O(n)$, nhưng độ phức tạp không gian lại hoàn toàn khác nhau:
 
-- Hàm `loop()` trong vòng lặp gọi $n$ lần `function()` ，ở mỗi vòng hàm `function()` đều trả về và giải phóng khung ngăn xếp, do đó độ phức tạp không gian vẫn là $O(1)$ 。
+- Hàm `loop()` trong vòng lặp gọi $n$ lần `function()`, ở mỗi vòng hàm `function()` đều trả về và giải phóng khung ngăn xếp, do đó độ phức tạp không gian vẫn là $O(1)$.
 - Hàm đệ quy `recur()` trong quá trình chạy sẽ đồng thời tồn tại $n$ hàm `recur()` chưa trả về, do đó chiếm dụng $O(n)$ không gian khung ngăn xếp.
 
 ## Các dạng thường gặp
 
-Giả sử kích thước dữ liệu đầu vào là $n$ ，hình dưới đây thể hiện các dạng độ phức tạp không gian thường gặp (xếp từ thấp đến cao).
+Giả sử kích thước dữ liệu đầu vào là $n$, hình dưới đây thể hiện các dạng độ phức tạp không gian thường gặp (xếp từ thấp đến cao).
 
 $$
 \begin{aligned}
@@ -842,9 +842,9 @@ $$
 
 ### Bậc hằng số $O(1)$
 
-Bậc hằng số thường thấy ở các hằng số, biến số, đối tượng có số lượng độc lập với kích thước dữ liệu đầu vào $n$ 。
+Bậc hằng số thường thấy ở các hằng số, biến số, đối tượng có số lượng độc lập với kích thước dữ liệu đầu vào $n$.
 
-Cần lưu ý rằng bộ nhớ bị chiếm dụng do khởi tạo biến hoặc gọi hàm trong vòng lặp sẽ được giải phóng ngay khi bước sang vòng lặp tiếp theo, do đó không bị tích luỹ không gian và độ phức tạp không gian vẫn là $O(1)$ ：
+Cần lưu ý rằng bộ nhớ bị chiếm dụng do khởi tạo biến hoặc gọi hàm trong vòng lặp sẽ được giải phóng ngay khi bước sang vòng lặp tiếp theo, do đó không bị tích luỹ không gian và độ phức tạp không gian vẫn là $O(1)$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{constant}
@@ -852,13 +852,13 @@ Cần lưu ý rằng bộ nhớ bị chiếm dụng do khởi tạo biến hoặ
 
 ### Bậc tuyến tính $O(n)$
 
-Bậc tuyến tính thường thấy ở mảng, danh sách liên kết, ngăn xếp, hàng đợi, v.v., có số lượng phần tử tỷ lệ thuận với $n$ ：
+Bậc tuyến tính thường thấy ở mảng, danh sách liên kết, ngăn xếp, hàng đợi, v.v., có số lượng phần tử tỷ lệ thuận với $n$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{linear}
 ```
 
-Như minh hoạ dưới đây, độ sâu đệ quy của hàm này là $n$ ，tức là đồng thời tồn tại $n$ hàm `linear_recur()` chưa trả về, sử dụng không gian khung ngăn xếp có kích thước $O(n)$ ：
+Như minh hoạ dưới đây, độ sâu đệ quy của hàm này là $n$, tức là đồng thời tồn tại $n$ hàm `linear_recur()` chưa trả về, sử dụng không gian khung ngăn xếp có kích thước $O(n)$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{linear_recur}
@@ -868,13 +868,13 @@ Như minh hoạ dưới đây, độ sâu đệ quy của hàm này là $n$ ，t
 
 ### Bậc bình phương $O(n^2)$
 
-Bậc bình phương thường thấy ở ma trận và đồ thị, khi số lượng phần tử có mối quan hệ hàm bậc hai với $n$ ：
+Bậc bình phương thường thấy ở ma trận và đồ thị, khi số lượng phần tử có mối quan hệ hàm bậc hai với $n$:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic}
 ```
 
-Như minh hoạ dưới đây, độ sâu đệ quy của hàm này là $n$ ，và trong mỗi hàm đệ quy đều khởi tạo một mảng có độ dài lần lượt là $n$、$n-1$、$\dots$、$2$、$1$ ，độ dài trung bình là $n / 2$ ，do đó tổng thể chiếm dụng $O(n^2)$ không gian:
+Như minh hoạ dưới đây, độ sâu đệ quy của hàm này là $n$, và trong mỗi hàm đệ quy đều khởi tạo một mảng có độ dài lần lượt là $n$, $n-1$, $\dots$, $2$, $1$, độ dài trung bình là $n / 2$, do đó tổng thể chiếm dụng $O(n^2)$ không gian:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{quadratic_recur}
@@ -884,7 +884,7 @@ Như minh hoạ dưới đây, độ sâu đệ quy của hàm này là $n$ ，v
 
 ### Bậc mũ $O(2^n)$
 
-Bậc mũ thường thấy trong cây nhị phân. Quan sát hình dưới đây, một "cây nhị phân đầy đủ" có số tầng là $n$ sẽ có số lượng nút là $2^n - 1$ ，chiếm dụng $O(2^n)$ không gian:
+Bậc mũ thường thấy trong cây nhị phân. Quan sát hình dưới đây, một "cây nhị phân đầy đủ" có số tầng là $n$ sẽ có số lượng nút là $2^n - 1$, chiếm dụng $O(2^n)$ không gian:
 
 ```src
 [file]{space_complexity}-[class]{}-[func]{build_tree}
@@ -894,9 +894,9 @@ Bậc mũ thường thấy trong cây nhị phân. Quan sát hình dưới đây
 
 ### Bậc đối số $O(\log n)$
 
-Bậc đối số thường thấy trong các thuật toán chia để trị. Ví dụ như thuật toán sắp xếp trộn (merge sort), với đầu vào là mảng có độ dài $n$ ，mỗi vòng đệ quy sẽ chia đôi mảng tại điểm giữa, tạo thành cây đệ quy có chiều cao là $\log n$ và sử dụng $O(\log n)$ không gian khung ngăn xếp.
+Bậc đối số thường thấy trong các thuật toán chia để trị. Ví dụ như thuật toán sắp xếp trộn (merge sort), với đầu vào là mảng có độ dài $n$, mỗi vòng đệ quy sẽ chia đôi mảng tại điểm giữa, tạo thành cây đệ quy có chiều cao là $\log n$ và sử dụng $O(\log n)$ không gian khung ngăn xếp.
 
-Một ví dụ khác là chuyển đổi số thành chuỗi ký tự: với đầu vào là một số nguyên dương $n$ ，số chữ số của nó là $\lfloor \log_{10} n \rfloor + 1$ ，tương ứng độ dài chuỗi là $\lfloor \log_{10} n \rfloor + 1$ ，do đó độ phức tạp không gian là $O(\log_{10} n + 1) = O(\log n)$ 。
+Một ví dụ khác là chuyển đổi số thành chuỗi ký tự: với đầu vào là một số nguyên dương $n$, số chữ số của nó là $\lfloor \log_{10} n \rfloor + 1$, tương ứng độ dài chuỗi là $\lfloor \log_{10} n \rfloor + 1$, do đó độ phức tạp không gian là $O(\log_{10} n + 1) = O(\log n)$.
 
 ## Đánh đổi giữa thời gian và không gian
 

@@ -2,7 +2,7 @@
 
 Hai phần trước đã giới thiệu nguyên lý hoạt động của bảng băm và các phương pháp xử lý đụng độ băm. Tuy nhiên dù là địa chỉ mở hay nối chuỗi, **chúng cũng chỉ có thể đảm bảo bảng băm vẫn hoạt động bình thường khi xảy ra đụng độ, chứ không thể làm giảm tần suất xuất hiện đụng độ băm**.
 
-Nếu đụng độ băm diễn ra quá thường xuyên, hiệu năng của bảng băm sẽ suy giảm nghiêm trọng. Như hình dưới đây, đối với bảng băm nối chuỗi, trong điều kiện lý tưởng, các cặp khoá - giá trị được phân bố đồng đều giữa các ngăn, đạt hiệu quả tra cứu tối ưu; trong trường hợp xấu nhất, toàn bộ các cặp khoá - giá trị đều dồn vào cùng một ngăn duy nhất, khiến độ phức tạp thời gian thoái hoá về $O(n)$ 。
+Nếu đụng độ băm diễn ra quá thường xuyên, hiệu năng của bảng băm sẽ suy giảm nghiêm trọng. Như hình dưới đây, đối với bảng băm nối chuỗi, trong điều kiện lý tưởng, các cặp khoá - giá trị được phân bố đồng đều giữa các ngăn, đạt hiệu quả tra cứu tối ưu; trong trường hợp xấu nhất, toàn bộ các cặp khoá - giá trị đều dồn vào cùng một ngăn duy nhất, khiến độ phức tạp thời gian thoái hoá về $O(n)$.
 
 ![Trường hợp tốt nhất và xấu nhất của đụng độ băm](hash_algorithm.assets/hash_collision_best_worst_condition.png)
 
@@ -14,7 +14,7 @@ index = hash(key) % capacity
 
 Quan sát công thức trên, khi dung lượng `capacity` của bảng băm là cố định, **thuật toán băm `hash()` sẽ quyết định giá trị đầu ra**, từ đó quyết định sự phân bố của các cặp khoá - giá trị trong bảng băm.
 
-Điều này có nghĩa là, để giảm thiểu xác suất xảy ra đụng độ băm, chúng ta cần tập trung sự chú ý vào việc thiết kế thuật toán băm `hash()` 。
+Điều này có nghĩa là, để giảm thiểu xác suất xảy ra đụng độ băm, chúng ta cần tập trung sự chú ý vào việc thiết kế thuật toán băm `hash()`.
 
 ## Mục tiêu của thuật toán băm
 
@@ -35,7 +35,7 @@ Trên thực tế, ngoài việc dùng để hiện thực bảng băm, thuật 
 - **Tính kháng va chạm (Collision resistance)**: Cực kỳ khó khăn để tìm ra hai đầu vào khác nhau có cùng một giá trị băm.
 - **Hiệu ứng thác đổ (Avalanche effect)**: Một sự thay đổi nhỏ ở đầu vào cũng sẽ dẫn đến sự thay đổi rõ rệt và không thể đoán trước ở đầu ra.
 
-Xin lưu ý rằng, **"phân bố đồng đều" và "tính kháng va chạm" là hai khái niệm hoàn toàn độc lập**. Đáp ứng phân bố đồng đều chưa chắc đã đáp ứng tính kháng va chạm. Ví dụ, dưới đầu vào ngẫu nhiên `key` ，hàm băm `key % 100` có thể tạo ra đầu ra phân bố đồng đều. Tuy nhiên thuật toán băm này quá đơn giản, tất cả các `key` có hai chữ số cuối giống nhau đều cho ra kết quả như nhau, do đó chúng ta có thể dễ dàng suy ngược từ giá trị băm ra các `key` khả dĩ, từ đó bẻ khoá mật khẩu.
+Xin lưu ý rằng, **"phân bố đồng đều" và "tính kháng va chạm" là hai khái niệm hoàn toàn độc lập**. Đáp ứng phân bố đồng đều chưa chắc đã đáp ứng tính kháng va chạm. Ví dụ, dưới đầu vào ngẫu nhiên `key`, hàm băm `key % 100` có thể tạo ra đầu ra phân bố đồng đều. Tuy nhiên thuật toán băm này quá đơn giản, tất cả các `key` có hai chữ số cuối giống nhau đều cho ra kết quả như nhau, do đó chúng ta có thể dễ dàng suy ngược từ giá trị băm ra các `key` khả dĩ, từ đó bẻ khoá mật khẩu.
 
 ## Thiết kế thuật toán băm
 
@@ -54,7 +54,7 @@ Quan sát thấy rằng, bước cuối cùng của mỗi thuật toán băm đ�
 
 Đưa ra kết luận trước: **Sử dụng số nguyên tố lớn làm số chia (modulus) có thể tối đa hoá việc đảm bảo sự phân bố đồng đều của giá trị băm**. Vì số nguyên tố không có ước chung với các số khác, nó có thể giảm thiểu các chu kỳ lặp lại do phép chia lấy dư tạo ra, từ đó hạn chế đụng độ băm.
 
-Lấy ví dụ, giả sử chúng ta chọn hợp số $9$ làm số chia, nó có thể chia hết cho $3$ ，khi đó toàn bộ các `key` chia hết cho $3$ đều sẽ bị ánh xạ vào ba giá trị băm là $0, 3, 6$ ：
+Lấy ví dụ, giả sử chúng ta chọn hợp số $9$ làm số chia, nó có thể chia hết cho $3$, khi đó toàn bộ các `key` chia hết cho $3$ đều sẽ bị ánh xạ vào ba giá trị băm là $0, 3, 6$:
 
 $$
 \begin{aligned}
@@ -64,7 +64,7 @@ $$
 \end{aligned}
 $$
 
-Nếu đầu vào `key` tình cờ thoả mãn phân bố dữ liệu theo cấp số cộng này, thì các giá trị băm sẽ bị tụ cụm dày đặc, làm trầm trọng thêm đụng độ băm. Bây giờ, giả sử thay thế `modulus` bằng số nguyên tố $13$ ，do giữa `key` và `modulus` không có ước số chung, tính đồng đều của các giá trị băm đầu ra sẽ được nâng cao rõ rệt:
+Nếu đầu vào `key` tình cờ thoả mãn phân bố dữ liệu theo cấp số cộng này, thì các giá trị băm sẽ bị tụ cụm dày đặc, làm trầm trọng thêm đụng độ băm. Bây giờ, giả sử thay thế `modulus` bằng số nguyên tố $13$, do giữa `key` và `modulus` không có ước số chung, tính đồng đều của các giá trị băm đầu ra sẽ được nâng cao rõ rệt:
 
 $$
 \begin{aligned}
@@ -385,7 +385,7 @@ Chúng ta biết rằng, `key` của bảng băm có thể là các kiểu dữ 
 
     https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%90%8E%E7%BB%A7%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%E5%B8%83%E5%B0%94%E9%87%8F%20True%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%E5%85%83%E7%BB%84%20%2812836,%20'%E5%B0%8F%E5%93%88'%29%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%AF%B9%E8%B1%A1%20%3CListNode%20object%20at%200x1058fd810%3E%20%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E4%B8%BA%20274267521&cumulative=false&curInstr=19&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
-Trong nhiều ngôn ngữ lập trình, **chỉ có các đối tượng bất biến (immutable object) mới có thể dùng làm `key` của bảng băm**. Giả sử chúng ta dùng danh sách (mảng động) làm `key` ，khi nội dung của danh sách thay đổi, giá trị băm của nó cũng sẽ thay đổi theo, khiến chúng ta không thể tra cứu lại được `value` ban đầu trong bảng băm.
+Trong nhiều ngôn ngữ lập trình, **chỉ có các đối tượng bất biến (immutable object) mới có thể dùng làm `key` của bảng băm**. Giả sử chúng ta dùng danh sách (mảng động) làm `key`, khi nội dung của danh sách thay đổi, giá trị băm của nó cũng sẽ thay đổi theo, khiến chúng ta không thể tra cứu lại được `value` ban đầu trong bảng băm.
 
 Mặc dù các biến thành viên của một đối tượng tuỳ biến (ví dụ như nút danh sách liên kết) là khả biến, nhưng bản thân nó vẫn là đối tượng có thể băm được (hashable). **Điều này là do giá trị băm của đối tượng thường được tạo ra dựa trên địa chỉ bộ nhớ của nó**, ngay cả khi nội dung đối tượng thay đổi nhưng địa chỉ bộ nhớ không đổi thì giá trị băm vẫn giữ nguyên không đổi.
 

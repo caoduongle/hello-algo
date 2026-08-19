@@ -37,7 +37,7 @@ Sắp xếp ổn định là điều kiện bắt buộc trong các tình huốn
 
 **Tính thích ứng**: <u>Sắp xếp thích ứng (adaptive sort)</u> có khả năng tận dụng thông tin thứ tự đã có sẵn của dữ liệu đầu vào để giảm thiểu khối lượng tính toán, đạt được hiệu năng thời gian tốt hơn. Độ phức tạp thời gian tốt nhất của các thuật toán sắp xếp thích ứng thường vượt trội hơn so với độ phức tạp thời gian trung bình.
 
-**Có dựa trên so sánh hay không**: <u>Sắp xếp dựa trên so sánh (comparison sort)</u> dựa vào các toán tử so sánh ($<$、$=$、$>$) để xác định thứ tự tương đối giữa các phần tử, từ đó sắp xếp toàn bộ mảng; chặn dưới của độ phức tạp thời gian trong trường hợp xấu nhất của nó là $\Omega(n \log n)$ 。Trong khi đó <u>sắp xếp không dựa trên so sánh (non-comparison sort)</u> không sử dụng các toán tử so sánh, độ phức tạp thời gian có thể đạt tới $O(n)$ ，nhưng tính tổng quát của nó tương đối hạn chế.
+**Có dựa trên so sánh hay không**: <u>Sắp xếp dựa trên so sánh (comparison sort)</u> dựa vào các toán tử so sánh ($<$, $=$, $>$) để xác định thứ tự tương đối giữa các phần tử, từ đó sắp xếp toàn bộ mảng; chặn dưới của độ phức tạp thời gian trong trường hợp xấu nhất của nó là $\Omega(n \log n)$. Trong khi đó <u>sắp xếp không dựa trên so sánh (non-comparison sort)</u> không sử dụng các toán tử so sánh, độ phức tạp thời gian có thể đạt tới $O(n)$, nhưng tính tổng quát của nó tương đối hạn chế.
 
 ## Thuật toán sắp xếp lý tưởng
 

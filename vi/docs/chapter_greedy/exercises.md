@@ -4,7 +4,7 @@
 
 ### Mỗi lần chọn đồng xu lớn nhất có chắc chắn là tốt nhất không?
 
-Mệnh giá tiền xu là `[1, 7, 10]`，số tiền mục tiêu là 14。
+Mệnh giá tiền xu là `[1, 7, 10]`, số tiền mục tiêu là 14.
 
 <!-- numbered-subquestions -->
 
@@ -14,9 +14,9 @@ Mệnh giá tiền xu là `[1, 7, 10]`，số tiền mục tiêu là 14。
 
 ??? success "Đáp án tham khảo"
 
-    1. Tham lam lần lượt chọn `10 + 1 + 1 + 1 + 1`，tổng cộng 5 đồng xu.
+    1. Tham lam lần lượt chọn `10 + 1 + 1 + 1 + 1`, tổng cộng 5 đồng xu.
 
-    2. Tồn tại phương án sử dụng ít đồng xu hơn: `7 + 7`，chỉ cần 2 đồng xu.
+    2. Tồn tại phương án sử dụng ít đồng xu hơn: `7 + 7`, chỉ cần 2 đồng xu.
 
     3. Không thể. Phản ví dụ này chứng minh rằng, đối với bộ mệnh giá tiền xu bất kỳ, việc mỗi lần chọn mệnh giá lớn nhất hiện có không nhất thiết thu được số lượng đồng xu ít nhất;
         lựa chọn lớn nhất trước mắt có thể phá vỡ các tổ hợp tốt hơn phía sau.
@@ -37,18 +37,18 @@ giá trị thu được tỷ lệ thuận với trọng lượng:
 
 ??? success "Đáp án tham khảo"
 
-    1. A có giá trị trên mỗi kg là `20 ÷ 4 = 5`，B có giá trị trên mỗi kg là `18 ÷ 3 = 6`，
+    1. A có giá trị trên mỗi kg là `20 ÷ 4 = 5`, B có giá trị trên mỗi kg là `18 ÷ 3 = 6`,
         vì vậy nên cho đồ vật B có đơn giá cao hơn vào trước.
 
     2. Trước hết cho toàn bộ B vào túi, chiếm 3 kg và thu được giá trị 18; còn dư 1 kg dung tích,
-        tiếp tục cho 1 kg của đồ vật A vào, thu được giá trị 5. Giá trị cuối cùng là `18 + 5 = 23`。
+        tiếp tục cho 1 kg của đồ vật A vào, thu được giá trị 5. Giá trị cuối cùng là `18 + 5 = 23`.
 
     3. Chiếc túi giới hạn tổng trọng lượng và đồ vật có thể chia nhỏ, vì vậy nên so sánh giá trị trên mỗi đơn vị trọng lượng.
         Mặc dù tổng giá trị của A cao hơn, nhưng giá trị trên mỗi kg lại thấp hơn B; nếu cho đầy A trước thì chỉ thu được giá trị 20.
 
 ### Hai con trỏ bước tiếp theo dịch chuyển như thế nào?
 
-Chiều cao của các vách ngăn là `[1, 8, 6, 2, 5]`，sử dụng hai con trỏ ở hai đầu để tìm dung tích lớn nhất.
+Chiều cao của các vách ngăn là `[1, 8, 6, 2, 5]`, sử dụng hai con trỏ ở hai đầu để tìm dung tích lớn nhất.
 Dung tích bằng "chiều cao của vách ngăn ngắn hơn trong hai vách × khoảng cách chỉ số giữa hai vách ngăn".
 
 <!-- numbered-subquestions -->
@@ -59,10 +59,10 @@ Dung tích bằng "chiều cao của vách ngăn ngắn hơn trong hai vách × 
 
 ??? success "Đáp án tham khảo"
 
-    1. Dung tích hiện tại là `min(1, 5) × (4 - 0) = 4`。Vách ngăn bên trái ngắn hơn, vì vậy dịch chuyển con trỏ trái.
+    1. Dung tích hiện tại là `min(1, 5) × (4 - 0) = 4`. Vách ngăn bên trái ngắn hơn, vì vậy dịch chuyển con trỏ trái.
 
     2. Sau khi dịch chuyển con trỏ trái, hai con trỏ lần lượt nằm ở chỉ số 1 và 4. Dung tích hiện tại là
-        `min(8, 5) × (4 - 1) = 15`。Vách ngăn bên phải ngắn hơn, vì vậy bước tiếp theo dịch chuyển con trỏ phải.
+        `min(8, 5) × (4 - 1) = 15`. Vách ngăn bên phải ngắn hơn, vì vậy bước tiếp theo dịch chuyển con trỏ phải.
 
     3. Chỉ có dịch chuyển con trỏ tương ứng với vách ngắn hơn thì mới có khả năng thu được dung tích lớn hơn. Sau khi dịch chuyển vách dài hơn, khoảng cách giữa hai vách chắc chắn rút ngắn lại, trong khi chiều cao của bình chứa vẫn bị giới hạn bởi vách ngắn chưa dịch chuyển,
         chỉ có thể giữ nguyên hoặc nhỏ đi. Do đó dung tích không thể vượt quá trước khi dịch chuyển; chỉ khi dịch chuyển vách ngắn thì mới có cơ hội gặp vách ngăn cao hơn.
@@ -71,7 +71,7 @@ Dung tích bằng "chiều cao của vách ngăn ngắn hơn trong hai vách × 
 
 ### Cái túi phân số
 
-Cho hai mảng cùng độ dài `wgt` và `val`，trong đó `wgt[i] > 0`、`val[i] >= 0`，dung tích túi `cap >= 0`。
+Cho hai mảng cùng độ dài `wgt` và `val`, trong đó `wgt[i] > 0`, `val[i] >= 0`, dung tích túi `cap >= 0`.
 Mỗi loại đồ vật chỉ có duy nhất một cái, nhưng cho phép chỉ cho vào một phần của nó,
 giá trị thu được tính theo tỷ lệ trọng lượng cho vào so với tổng trọng lượng của đồ vật đó. Hãy sử dụng thuật toán tham lam,
 và trả về tổng giá trị lớn nhất mà chiếc túi có thể chứa được dưới dạng số thực.

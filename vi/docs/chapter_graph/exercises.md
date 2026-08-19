@@ -4,8 +4,8 @@
 
 ### Biểu diễn cùng một đồ thị bằng hai phương thức
 
-Một đồ thị vô hướng có 4 đỉnh `A, B, C, D`，các cạnh là
-`A-B, A-C, B-C, C-D`。
+Một đồ thị vô hướng có 4 đỉnh `A, B, C, D`, các cạnh là
+`A-B, A-C, B-C, C-D`.
 
 <!-- numbered-subquestions -->
 
@@ -40,8 +40,8 @@ Một đồ thị vô hướng có 4 đỉnh `A, B, C, D`，các cạnh là
 
 ### Thứ tự truy cập của duyệt theo chiều rộng và chiều sâu
 
-Một đồ thị vô hướng có các đỉnh `A, B, C, D, E`，các cạnh là
-`A-B, A-C, B-D, C-D, D-E`。
+Một đồ thị vô hướng có các đỉnh `A, B, C, D, E`, các cạnh là
+`A-B, A-C, B-D, C-D, D-E`.
 
 Bắt đầu từ A, và quy định khi gặp nhiều đỉnh kề chưa được truy cập thì lựa chọn theo thứ tự bảng chữ cái:
 
@@ -53,19 +53,19 @@ Bắt đầu từ A, và quy định khi gặp nhiều đỉnh kề chưa đư�
 
 ??? success "Đáp án tham khảo"
 
-    1. Thứ tự truy cập của BFS là `A, B, C, D, E`。Nó truy cập các đỉnh B, C cách A một cạnh trước,
+    1. Thứ tự truy cập của BFS là `A, B, C, D, E`. Nó truy cập các đỉnh B, C cách A một cạnh trước,
         sau đó mới truy cập các đỉnh xa hơn là D, E.
 
-    2. Thứ tự truy cập của DFS là `A, B, D, C, E`。Nó lần lượt đi vào các đỉnh kề chưa được truy cập của đỉnh hiện tại,
-        do đó trước tiên đi theo `A → B → D → C`；khi C không còn đỉnh kề mới nào thì quay lại D, rồi mới truy cập E.
+    2. Thứ tự truy cập của DFS là `A, B, D, C, E`. Nó lần lượt đi vào các đỉnh kề chưa được truy cập của đỉnh hiện tại,
+        do đó trước tiên đi theo `A → B → D → C`; khi C không còn đỉnh kề mới nào thì quay lại D, rồi mới truy cập E.
 
-    3. Trong đồ thị tồn tại chu trình (cycle), ví dụ `A-B-D-C-A`。Nếu không ghi lại các đỉnh đã truy cập,
+    3. Trong đồ thị tồn tại chu trình (cycle), ví dụ `A-B-D-C-A`. Nếu không ghi lại các đỉnh đã truy cập,
         quá trình duyệt có thể lặp đi lặp lại việc truy cập cùng một nhóm đỉnh dọc theo chu trình, không thể kết thúc bình thường.
 
 ### Một lần BFS có thể truy cập toàn bộ đồ thị không?
 
-Một đồ thị vô hướng có các đỉnh `A, B, C, D, E, F`，các cạnh chỉ có
-`A-B, B-C, D-E`。
+Một đồ thị vô hướng có các đỉnh `A, B, C, D, E, F`, các cạnh chỉ có
+`A-B, B-C, D-E`.
 
 <!-- numbered-subquestions -->
 
@@ -76,22 +76,22 @@ Một đồ thị vô hướng có các đỉnh `A, B, C, D, E, F`，các cạnh
 
 ??? success "Đáp án tham khảo"
 
-    1. Xuất phát từ A chỉ có thể truy cập `A, B, C`。
+    1. Xuất phát từ A chỉ có thể truy cập `A, B, C`.
 
     2. Chưa truy cập toàn bộ các đỉnh. `D, E` tạo thành một phần liên thông khác với nhau, F là một đỉnh đứng riêng lẻ;
         giữa chúng và A đều không có đường đi, do đó xuất phát từ A không thể đi tới được.
 
-    3. Điểm xuất phát của ba lần BFS lần lượt là `A, D, F`，lần lượt truy cập
-        `{A, B, C}`、`{D, E}` và `{F}`。Do đó đồ thị này có 3 thành phần liên thông.
+    3. Điểm xuất phát của ba lần BFS lần lượt là `A, D, F`, lần lượt truy cập
+        `{A, B, C}`, `{D, E}` và `{F}`. Do đó đồ thị này có 3 thành phần liên thông.
 
 ## Bài tập lập trình
 
 ### Kiểm tra sự tồn tại của đường đi trong đồ thị vô hướng
 
-Cho một đồ thị vô hướng chứa $n$ đỉnh, các đỉnh được đánh số từ $0$ đến $n-1$。Mỗi phần tử `[u, v]` trong mảng `edges` biểu thị giữa đỉnh `u` và `v` có một cạnh vô hướng.
+Cho một đồ thị vô hướng chứa $n$ đỉnh, các đỉnh được đánh số từ $0$ đến $n-1$. Mỗi phần tử `[u, v]` trong mảng `edges` biểu thị giữa đỉnh `u` và `v` có một cạnh vô hướng.
 
-Cho thêm điểm xuất phát `source` và điểm đích `destination`。Hãy dựa vào `edges` để thiết lập danh sách kề trước, sau đó sử dụng BFS hoặc DFS
-để kiểm tra xem có tồn tại một đường đi từ `source` đến `destination` hay không: nếu tồn tại trả về `true`，ngược lại trả về `false`。
+Cho thêm điểm xuất phát `source` và điểm đích `destination`. Hãy dựa vào `edges` để thiết lập danh sách kề trước, sau đó sử dụng BFS hoặc DFS
+để kiểm tra xem có tồn tại một đường đi từ `source` đến `destination` hay không: nếu tồn tại trả về `true`, ngược lại trả về `false`.
 Đồ thị có thể chứa chu trình, và cũng có thể không liên thông.
 
 ??? tip "Gợi ý giải bài"

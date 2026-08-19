@@ -6,9 +6,9 @@ Thuật toán quay lui thường áp dụng "tìm kiếm theo chiều sâu" (DFS
 
 !!! question "Ví dụ 1"
 
-    Cho một cây nhị phân, hãy tìm kiếm và ghi lại tất cả các nút có giá trị là $7$ ，trả về danh sách các nút đó.
+    Cho một cây nhị phân, hãy tìm kiếm và ghi lại tất cả các nút có giá trị là $7$, trả về danh sách các nút đó.
 
-Đối với bài này, chúng ta duyệt tiền thứ tự cây nhị phân, và kiểm tra xem giá trị của nút hiện tại có bằng $7$ hay không; nếu có, thêm giá trị của nút đó vào danh sách kết quả `res` 。Quy trình thực hiện được thể hiện như hình dưới và mã nguồn sau:
+Đối với bài này, chúng ta duyệt tiền thứ tự cây nhị phân, và kiểm tra xem giá trị của nút hiện tại có bằng $7$ hay không; nếu có, thêm giá trị của nút đó vào danh sách kết quả `res`. Quy trình thực hiện được thể hiện như hình dưới và mã nguồn sau:
 
 ```src
 [file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
@@ -28,13 +28,13 @@ Cần làm rõ rằng, **quay lui không chỉ đơn thuần là việc hàm tr�
 
     Tìm kiếm tất cả các nút có giá trị là $7$ trong cây nhị phân, **hãy trả về các đường đi từ nút gốc đến các nút đó**.
 
-Trên nền tảng mã nguồn Ví dụ 1, chúng ta cần nhờ một danh sách `path` để ghi lại đường đi các nút đã đi qua. Khi duyệt đến nút có giá trị là $7$ ，thì sao chép `path` và thêm vào danh sách kết quả `res` 。Sau khi duyệt xong, trong `res` sẽ lưu trữ toàn bộ các lời giải. Mã nguồn như sau:
+Trên nền tảng mã nguồn Ví dụ 1, chúng ta cần nhờ một danh sách `path` để ghi lại đường đi các nút đã đi qua. Khi duyệt đến nút có giá trị là $7$, thì sao chép `path` và thêm vào danh sách kết quả `res`. Sau khi duyệt xong, trong `res` sẽ lưu trữ toàn bộ các lời giải. Mã nguồn như sau:
 
 ```src
 [file]{preorder_traversal_ii_compact}-[class]{}-[func]{pre_order}
 ```
 
-Trong mỗi lần "thử", chúng ta ghi lại đường đi bằng cách thêm nút hiện tại vào `path` ；còn trước khi "quay lui", chúng ta cần lấy nút đó ra khỏi `path` ，**nhằm khôi phục lại trạng thái trước lần thử này**.
+Trong mỗi lần "thử", chúng ta ghi lại đường đi bằng cách thêm nút hiện tại vào `path`; còn trước khi "quay lui", chúng ta cần lấy nút đó ra khỏi `path`, **nhằm khôi phục lại trạng thái trước lần thử này**.
 
 Quan sát quá trình minh hoạ ở hình dưới đây, **chúng ta có thể hiểu thử và quay lui là hai thao tác "tiến tới" và "huỷ bỏ"**, hai thao tác này mang tính nghịch đảo lẫn nhau.
 
@@ -77,7 +77,7 @@ Các bài toán quay lui phức tạp thường chứa một hoặc nhiều đi�
 
 !!! question "Ví dụ 3"
 
-    Tìm kiếm tất cả các nút có giá trị là $7$ trong cây nhị phân, hãy trả về các đường đi từ nút gốc đến các nút đó, **đồng thời yêu cầu đường đi không được chứa các nút có giá trị là $3$** 。
+    Tìm kiếm tất cả các nút có giá trị là $7$ trong cây nhị phân, hãy trả về các đường đi từ nút gốc đến các nút đó, **đồng thời yêu cầu đường đi không được chứa các nút có giá trị là $3$**.
 
 Để thoả mãn ràng buộc trên, **chúng ta cần thêm thao tác cắt tỉa**: trong quá trình tìm kiếm, nếu gặp nút có giá trị là $3$ thì lập tức trả về sớm, không tiếp tục tìm kiếm nhánh đó nữa. Mã nguồn như sau:
 
@@ -435,11 +435,11 @@ Tiếp theo, chúng ta giải quyết Ví dụ 3 dựa trên khung mã nguồn t
 [file]{preorder_traversal_iii_template}-[class]{}-[func]{backtrack}
 ```
 
-Theo yêu cầu đề bài, sau khi tìm thấy nút có giá trị là $7$ chúng ta vẫn nên tiếp tục tìm kiếm, **do đó cần phải xoá câu lệnh `return` sau khi ghi nhận lời giải**. Hình dưới đây so sánh quá trình tìm kiếm khi giữ lại hoặc xoá bỏ câu lệnh `return` 。
+Theo yêu cầu đề bài, sau khi tìm thấy nút có giá trị là $7$ chúng ta vẫn nên tiếp tục tìm kiếm, **do đó cần phải xoá câu lệnh `return` sau khi ghi nhận lời giải**. Hình dưới đây so sánh quá trình tìm kiếm khi giữ lại hoặc xoá bỏ câu lệnh `return`.
 
 ![So sánh quá trình tìm kiếm khi giữ lại và xoá bỏ return](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
 
-So với mã nguồn hiện thực dựa trên duyệt tiền thứ tự, mã nguồn dựa trên khung thuật toán quay lui tuy có vẻ dài dòng hơn nhưng lại có tính tổng quát tốt hơn nhiều. Trên thực tế, **rất nhiều bài toán quay lui có thể được giải quyết trong khung mẫu này**. Chúng ta chỉ cần căn cứ vào bài toán cụ thể để định nghĩa `state` và `choices` ，đồng thời hiện thực các phương thức trong khung mẫu là xong.
+So với mã nguồn hiện thực dựa trên duyệt tiền thứ tự, mã nguồn dựa trên khung thuật toán quay lui tuy có vẻ dài dòng hơn nhưng lại có tính tổng quát tốt hơn nhiều. Trên thực tế, **rất nhiều bài toán quay lui có thể được giải quyết trong khung mẫu này**. Chúng ta chỉ cần căn cứ vào bài toán cụ thể để định nghĩa `state` và `choices`, đồng thời hiện thực các phương thức trong khung mẫu là xong.
 
 ## Thuật ngữ thường dùng
 
@@ -452,7 +452,7 @@ So với mã nguồn hiện thực dựa trên duyệt tiền thứ tự, mã ng
 | Lời giải (solution) | Lời giải là đáp án thoả mãn các điều kiện cụ thể của bài toán, có thể có một hoặc nhiều lời giải | Toàn bộ các đường đi từ nút gốc đến nút $7$ thoả mãn điều kiện ràng buộc |
 | Ràng buộc (constraint) | Ràng buộc là điều kiện trong bài toán giới hạn tính khả thi của lời giải, thường dùng để cắt tỉa | Đường đi không chứa nút có giá trị là $3$ |
 | Trạng thái (state) | Trạng thái biểu thị tình huống của bài toán tại một thời điểm nhất định, bao gồm các lựa chọn đã đưa ra | Đường đi các nút hiện đã truy cập, tức danh sách nút `path` |
-| Thử (attempt) | Thử là quá trình khám phá không gian lời giải dựa trên các lựa chọn khả dụng, bao gồm đưa ra lựa chọn, cập nhật trạng thái, kiểm tra xem có phải lời giải hay không | Đệ quy truy cập nút con trái (phải), thêm nút vào `path` ，kiểm tra giá trị nút có bằng $7$ không |
+| Thử (attempt) | Thử là quá trình khám phá không gian lời giải dựa trên các lựa chọn khả dụng, bao gồm đưa ra lựa chọn, cập nhật trạng thái, kiểm tra xem có phải lời giải hay không | Đệ quy truy cập nút con trái (phải), thêm nút vào `path`, kiểm tra giá trị nút có bằng $7$ không |
 | Quay lui (backtracking) | Quay lui chỉ việc khi gặp trạng thái không thoả mãn ràng buộc thì huỷ bỏ lựa chọn đã đưa ra trước đó, quay về trạng thái liền trước | Khi vượt quá nút lá, kết thúc truy cập nút, gặp nút có giá trị là $3$ thì dừng tìm kiếm, hàm trả về |
 | Cắt tỉa (pruning) | Cắt tỉa là phương pháp tránh các nhánh tìm kiếm vô nghĩa dựa trên đặc tính bài toán và ràng buộc, giúp nâng cao hiệu năng tìm kiếm | Khi gặp nút có giá trị là $3$ thì không tiếp tục tìm kiếm nhánh đó nữa |
 
